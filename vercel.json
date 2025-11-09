@@ -1,53 +1,47 @@
 {
   "version": 2,
-  "routes": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
     {
-      "src": "/",
-      "dest": "/index.html"
+      "source": "/oyunlar",
+      "destination": "/oyunlar.html"
     },
     {
-      "src": "/oyunlar",
-      "dest": "/oyunlar.html"
+      "source": "/atolyeler", 
+      "destination": "/atolyeler.html"
     },
     {
-      "src": "/atolyeler",
-      "dest": "/atolyeler.html"
+      "source": "/etkinlikler",
+      "destination": "/etkinlikler.html"
     },
     {
-      "src": "/etkinlikler",
-      "dest": "/etkinlikler.html"
+      "source": "/sanat",
+      "destination": "/sanat.html"
     },
     {
-      "src": "/sanat",
-      "dest": "/sanat.html"
+      "source": "/blog",
+      "destination": "/blog.html"
     },
     {
-      "src": "/blog",
-      "dest": "/blog.html"
+      "source": "/giris",
+      "destination": "/giris.html"
     },
     {
-      "src": "/giris",
-      "dest": "/giris.html"
+      "source": "/kayit",
+      "destination": "/kayit.html"
     },
     {
-      "src": "/kayit",
-      "dest": "/kayit.html"
+      "source": "/parmak-boyama-projesi",
+      "destination": "/parmak-boyama-projesi.html"
     },
     {
-      "src": "/parmak-boyama-projesi",
-      "dest": "/parmak-boyama-projesi.html"
+      "source": "/parmak-boyama-video",
+      "destination": "/parmak-boyama-video.html"
     },
     {
-      "src": "/parmak-boyama-video",
-      "dest": "/parmak-boyama-video.html"
-    },
-    {
-      "src": "/parmak-boyama-video-real",
-      "dest": "/parmak-boyama-video-real.html"
-    },
-    {
-      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|mp4|webm|woff|woff2|ttf|eot))",
-      "dest": "/$1"
+      "source": "/parmak-boyama-video-real",
+      "destination": "/parmak-boyama-video-real.html"
     }
   ],
   "headers": [
@@ -77,16 +71,6 @@
           "value": "public, max-age=0, must-revalidate"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
-    },
-    {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap.xml"
     }
   ]
 }
