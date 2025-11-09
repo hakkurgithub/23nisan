@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="120" viewBox="0 0 300 120">
+  <defs>
+    <linearGradient id="akmBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CD853F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="120" fill="url(#akmBg)" rx="8"/>
+  <text x="150" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">🎭 AKM</text>
+  <text x="150" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Atatürk Kültür Merkezi</text>
+  <text x="150" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">Kültür ve Sanat</text>
+  <text x="150" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">🎨 Sanatın kalbinde!</text>
+</svg>

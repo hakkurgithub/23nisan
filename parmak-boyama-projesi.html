@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🖐️ Parmak Boyama Sanatı - 23 Nisan Sanat Atölyesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigasyon -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo.png" alt="23 Nisan Logo">
+                <span>23 Nisan Çocuk Şenliği</span>
+            </div>
+            <ul class="nav-list">
+                <li><a href="index.html">🏠 Ana Sayfa</a></li>
+                <li><a href="etkinlikler.html">📅 Etkinlikler</a></li>
+                <li><a href="oyunlar.html">🎮 Oyunlar</a></li>
+                <li><a href="atolyeler.html">🛠️ Atölyeler</a></li>
+                <li><a href="sanat.html">🎨 Sanat</a></li>
+                <li><a href="blog.html">📚 Blog</a></li>
+                <li><a href="giris.html">🔐 Giriş</a></li>
+            </ul>
+            <button class="mobile-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Proje Hero -->
+    <section class="project-hero">
+        <div class="hero-background">
+            <div class="paint-drops"></div>
+        </div>
+        <div class="container">
+            <div class="project-header">
+                <div class="back-button">
+                    <a href="sanat.html">← Sanat Atölyesine Dön</a>
+                </div>
+                <div class="project-badges">
+                    <span class="badge difficulty-easy">😊 Kolay</span>
+                    <span class="badge age-badge">4-6 yaş</span>
+                    <span class="badge time-badge">⏱️ 30 dakika</span>
+                    <span class="badge type-badge">👥 Bireysel</span>
+                    <span class="badge price-badge">💰 Ücretsiz</span>
+                </div>
+                <h1>🖐️ Parmak Boyama Sanatı</h1>
+                <p class="project-subtitle">
+                    Parmaklarını fırça olarak kullanarak rengarenk tablolar oluştur! 
+                    Motor becerileri geliştiren ve yaratıcılığı artıran eğlenceli bir aktivite.
+                </p>
+                <div class="quick-stats">
+                    <div class="stat">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Yaş</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">30</span>
+                        <span class="stat-label">Dakika</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Çocuk</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hazırlık Bölümü -->
+    <section class="preparation-section">
+        <div class="container">
+            <h2>🎒 Atölyeye Hazırlanıyoruz</h2>
+            
+            <div class="preparation-grid">
+                <!-- Malzemeler -->
+                <div class="prep-card">
+                    <div class="prep-icon">📝</div>
+                    <h3>Gerekli Malzemeler</h3>
+                    <ul class="materials-checklist">
+                        <li>
+                            <input type="checkbox" id="mat1">
+                            <label for="mat1">🎨 Su bazlı boyalar (kırmızı, mavi, sarı, yeşil)</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="mat2">
+                            <label for="mat2">📄 Büyük boy çizim kağıdı (A3 veya daha büyük)</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="mat3">
+                            <label for="mat3">🧻 Islak mendil veya nemli bez</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="mat4">
+                            <label for="mat4">👕 Önlük veya eski kıyafet</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="mat5">
+                            <label for="mat5">🥤 Su kabı (elleri yıkamak için)</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="mat6">
+                            <label for="mat6">🧴 Havlu veya kağıt havlu</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="mat7">
+                            <label for="mat7">📰 Masa örtüsü (gazete veya plastik)</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Güvenlik -->
+                <div class="prep-card">
+                    <div class="prep-icon">🛡️</div>
+                    <h3>Güvenlik ve Hijyen</h3>
+                    <ul class="safety-tips">
+                        <li>✅ Sadece çocuk güvenlikli, su bazlı boyalar kullanın</li>
+                        <li>✅ Çalışma alanını gazete veya plastikle koruyun</li>
+                        <li>✅ Boyalara bulaşmayacak kıyafet giydirin</li>
+                        <li>✅ Eller kirlendiğinde hemen temizleyin</li>
+                        <li>✅ Boyaları ağza götürmemeyi hatırlatın</li>
+                        <li>✅ İyi havalandırılmış ortamda çalışın</li>
+                    </ul>
+                </div>
+
+                <!-- Yarar ve Kazanımlar -->
+                <div class="prep-card">
+                    <div class="prep-icon">🧠</div>
+                    <h3>Gelişim Kazanımları</h3>
+                    <ul class="benefits-list">
+                        <li>🤲 <strong>İnce Motor Beceriler:</strong> Parmak kas gelişimi</li>
+                        <li>🎨 <strong>Yaratıcılık:</strong> Hayal gücü ve sanatsallık</li>
+                        <li>🌈 <strong>Renk Öğrenimi:</strong> Renk karıştırma ve tanıma</li>
+                        <li>😌 <strong>Duyusal Gelişim:</strong> Dokunsal deneyim</li>
+                        <li>😊 <strong>Özgüven:</strong> Kendi eserini oluşturma başarısı</li>
+                        <li>🧘 <strong>Odaklanma:</strong> Dikkat ve konsantrasyon</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adım Adım Rehber -->
+    <section class="tutorial-section">
+        <div class="container">
+            <h2>👨‍🏫 Adım Adım Parmak Boyama Rehberi</h2>
+            
+            <div class="tutorial-steps">
+                <!-- Adım 1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>🏗️ Çalışma Alanını Hazırlama</h3>
+                        <div class="step-details">
+                            <p><strong>Süre:</strong> 5 dakika</p>
+                            <ul>
+                                <li>Masayı gazete veya plastik örtüyle koruyun</li>
+                                <li>Boyaları küçük tabaklar halinde hazırlayın</li>
+                                <li>Su kabını ve havluları yakına koyun</li>
+                                <li>Çocuğa önlük giydirin</li>
+                                <li>Kağıdı masaya yapıştırarak sabitleyin</li>
+                            </ul>
+                            <div class="step-tip">
+                                💡 <strong>İpucu:</strong> Kağıdı hafifçe nemlendirebilirsiniz, böylece boyalar daha kolay karışır!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adım 2 -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>🎨 İlk Renk Deneyimi</h3>
+                        <div class="step-details">
+                            <p><strong>Süre:</strong> 5 dakika</p>
+                            <ul>
+                                <li>Tek bir renkle başlayın (mavi önerilir)</li>
+                                <li>Çocuğun işaret parmağını boyaya hafifçe batırın</li>
+                                <li>Kağıda nokta, çizgi ve şekiller yapmasını sağlayın</li>
+                                <li>Parmaklarının nasıl hareket ettiğini gözlemletin</li>
+                                <li>Her denemeden sonra övgüde bulunun</li>
+                            </ul>
+                            <div class="step-tip">
+                                💡 <strong>İpucu:</strong> "Bu nokta güneş olabilir!" gibi hayal kurmayı teşvik edin.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adım 3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>🌈 Renkleri Keşfetme</h3>
+                        <div class="step-details">
+                            <p><strong>Süre:</strong> 8 dakika</p>
+                            <ul>
+                                <li>İkinci rengi (sarı) tanıtın</li>
+                                <li>Farklı parmaklarla farklı renkleri deneyin</li>
+                                <li>Mavi + Sarı = Yeşil keşfini yaşatın</li>
+                                <li>Kırmızıyı ekleyerek turuncu oluşturun</li>
+                                <li>Çocuğun kendi renk karışımlarını denemesine izin verin</li>
+                            </ul>
+                            <div class="step-tip">
+                                💡 <strong>İpucu:</strong> "Acaba bu iki renk karışınca ne olur?" diye merak uyandırın.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adım 4 -->
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>✋ Tüm Elin Gücü</h3>
+                        <div class="step-details">
+                            <p><strong>Süre:</strong> 7 dakika</p>
+                            <ul>
+                                <li>Şimdi tüm eli boyaya batırın</li>
+                                <li>El izleri çıkararak ağaç yaprakları oluşturun</li>
+                                <li>Avuç içiyle büyük alanları boyayın</li>
+                                <li>Parmaklarla detaylar ekleyin</li>
+                                <li>Çocuğun kendi hikayesini oluşturmasını sağlayın</li>
+                            </ul>
+                            <div class="step-tip">
+                                💡 <strong>İpucu:</strong> "Bu el izi hangi hayvan olabilir?" sorusuyla hayal gücünü tetikleyin.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adım 5 -->
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>🖼️ Sanat Eserini Tamamlama</h3>
+                        <div class="step-details">
+                            <p><strong>Süre:</strong> 5 dakika</p>
+                            <ul>
+                                <li>Çocuğa eserine son dokunuşları yapmasını söyleyin</li>
+                                <li>Boş alanları doldurmasını teşvik edin</li>
+                                <li>Kendi ismini bir köşeye eklemesini sağlayın</li>
+                                <li>Elleri temizledikten sonra eseri birlikte inceleyin</li>
+                                <li>Eserin hikayesini anlatmasını isteyin</li>
+                            </ul>
+                            <div class="step-tip">
+                                💡 <strong>İpucu:</strong> "Bu tablon hangi hikayeyi anlatıyor?" diye sorun.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Örnek Projeler -->
+    <section class="examples-section">
+        <div class="container">
+            <h2>🌟 İlham Veren Örnekler</h2>
+            <p class="section-description">
+                Diğer çocukların parmak boyama ile neler yarattığına bakın ve yeni fikirler edinin!
+            </p>
+            
+            <div class="examples-grid">
+                <div class="example-card">
+                    <img src="images/parmak-boyama-ornek-1.jpg" alt="Gökkuşağı ve Bulutlar">
+                    <div class="example-overlay">
+                        <h4>🌈 Gökkuşağı ve Bulutlar</h4>
+                        <p>5 yaş - Elif</p>
+                        <div class="example-technique">
+                            <span>Teknik: Parmak ucuyla noktalama</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <img src="images/parmak-boyama-ornek-2.jpg" alt="Çiçek Bahçesi">
+                    <div class="example-overlay">
+                        <h4>🌸 Çiçek Bahçesi</h4>
+                        <p>6 yaş - Ahmet</p>
+                        <div class="example-technique">
+                            <span>Teknik: El izi çiçekler</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <img src="images/parmak-boyama-ornek-3.jpg" alt="Deniz Altı Dünyası">
+                    <div class="example-overlay">
+                        <h4>🐠 Deniz Altı Dünyası</h4>
+                        <p>4 yaş - Zeynep</p>
+                        <div class="example-technique">
+                            <span>Teknik: Avuç izi balıklar</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <img src="images/parmak-boyama-ornek-4.jpg" alt="Orman ve Hayvanlar">
+                    <div class="example-overlay">
+                        <h4>🦆 Orman ve Hayvanlar</h4>
+                        <p>5 yaş - Can</p>
+                        <div class="example-technique">
+                            <span>Teknik: Karma teknikler</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <img src="images/parmak-boyama-ornek-5.jpg" alt="23 Nisan Kutlaması">
+                    <div class="example-overlay">
+                        <h4>🇹🇷 23 Nisan Kutlaması</h4>
+                        <p>6 yaş - Ayşe</p>
+                        <div class="example-technique">
+                            <span>Teknik: Bayrak ve çocuk figürleri</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <img src="images/parmak-boyama-ornek-6.jpg" alt="Aile Portresi">
+                    <div class="example-overlay">
+                        <h4>👨‍👩‍👧‍👦 Aile Portresi</h4>
+                        <p>4 yaş - Mert</p>
+                        <div class="example-technique">
+                            <span>Teknik: Basit figürler</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teknik İpuçları -->
+    <section class="tips-section">
+        <div class="container">
+            <h2>💡 Uzman İpuçları ve Teknikler</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">🎨</div>
+                    <h3>Renk Karıştırma Teknikleri</h3>
+                    <ul>
+                        <li><strong>Islak Üstüne Islak:</strong> Boyalar henüz kurumamışken karıştırın</li>
+                        <li><strong>Degradé Efekti:</strong> Aynı rengin açık ve koyu tonlarını kullanın</li>
+                        <li><strong>Doğal Karışım:</strong> Çocuğun kendi keşfetmesine izin verin</li>
+                        <li><strong>Ana Renkler:</strong> İlk önce kırmızı, mavi, sarı ile başlayın</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">✋</div>
+                    <h3>Farklı El Teknikleri</h3>
+                    <ul>
+                        <li><strong>Parmak Ucu:</strong> Küçük noktalar ve detaylar için</li>
+                        <li><strong>Yan Parmak:</strong> Çizgiler ve konturlar için</li>
+                        <li><strong>Avuç İçi:</strong> Büyük alanları doldurmak için</li>
+                        <li><strong>El Kenarı:</strong> Düz çizgiler çizmek için</li>
+                        <li><strong>Tüm El:</strong> Büyük şekiller ve izler için</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🧼</div>
+                    <h3>Temizlik ve Hijyen</h3>
+                    <ul>
+                        <li><strong>Anında Temizlik:</strong> Elleri hemen temizleyin</li>
+                        <li><strong>Renk Değişimi:</strong> Her renk değişiminde eller yıkansın</li>
+                        <li><strong>Güvenli Boyalar:</strong> Sadece çocuk boyaları kullanın</li>
+                        <li><strong>Gözlerden Uzak:</strong> Boyalar gözlere temas etmesin</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">🎭</div>
+                    <h3>Yaratıcılığı Geliştirme</h3>
+                    <ul>
+                        <li><strong>Hikaye Anlatma:</strong> "Bu kim olabilir?" soruları sorun</li>
+                        <li><strong>Serbest Bırakma:</strong> Çocuğun kendi yolunu bulmasına izin verin</li>
+                        <li><strong>Övgü:</strong> Her girişimi destekleyin ve övün</li>
+                        <li><strong>Deneyim:</strong> Sonuçtan çok süreci önemseyin</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ebeveyn Rehberi -->
+    <section class="parent-guide">
+        <div class="container">
+            <h2>👨‍👩‍👧‍👦 Ebeveynler İçin Rehber</h2>
+            
+            <div class="guide-content">
+                <div class="guide-section">
+                    <h3>🎯 Aktivitenin Amacı</h3>
+                    <p>
+                        Parmak boyama, çocukların yaratıcılıklarını geliştirirken aynı zamanda 
+                        motor becerilerini güçlendiren mükemmel bir aktivitedir. Bu etkinlik 
+                        4-6 yaş grubundaki çocuklar için özellikle faydalıdır çünkü:
+                    </p>
+                    <ul>
+                        <li>El-göz koordinasyonunu geliştirir</li>
+                        <li>Renk kavramını öğretir</li>
+                        <li>Duyusal gelişimi destekler</li>
+                        <li>Özgüven artırır</li>
+                        <li>Sanatsal ifadeyi teşvik eder</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-section">
+                    <h3>⚠️ Dikkat Edilmesi Gerekenler</h3>
+                    <div class="warning-box">
+                        <ul>
+                            <li>🚫 <strong>Asla zorlamayın:</strong> Çocuk istemiyor ise aktiviteyi erteleyin</li>
+                            <li>🚫 <strong>Mükemmellik beklemeyin:</strong> Sonuçtan çok süreci değerlendirin</li>
+                            <li>🚫 <strong>Karıştırmayın:</strong> Çocuğun kendi yaratma sürecine müdahale etmeyin</li>
+                            <li>🚫 <strong>Acele etmeyin:</strong> Çocuğun kendi hızında ilerlemesine izin verin</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="guide-section">
+                    <h3>🗣️ Destekleyici İfadeler</h3>
+                    <div class="phrases-box">
+                        <h4>✅ Kullanabilecek İfadeler:</h4>
+                        <ul>
+                            <li>"Harika renkler seçmişsin!"</li>
+                            <li>"Bu şekil çok ilginç, bana anlatır mısın?"</li>
+                            <li>"Nasıl bu kadar güzel bir karışım elde ettin?"</li>
+                            <li>"Sanatının hangi kısmından en çok hoşlanıyorsun?"</li>
+                        </ul>
+                        
+                        <h4>❌ Kaçınılması Gereken İfadeler:</h4>
+                        <ul>
+                            <li>"Bu ne olması gerekiyor?"</li>
+                            <li>"Yanlış renk seçmişsin"</li>
+                            <li>"Daha düzenli ol"</li>
+                            <li>"Şöyle yaparsan daha güzel olur"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sonrası Aktiviteleri -->
+    <section class="follow-up-section">
+        <div class="container">
+            <h2>🎉 Parmak Boyama Sonrası Neler Yapabilirsiniz?</h2>
+            
+            <div class="follow-up-grid">
+                <div class="follow-up-card">
+                    <div class="follow-up-icon">🖼️</div>
+                    <h3>Eseri Sergile</h3>
+                    <p>
+                        Çocuğunuzun eserini çerçeveleyerek evde özel bir yere asın. 
+                        Bu, çocuğun özgüvenini artırır ve sanat sevgisini pekiştirir.
+                    </p>
+                </div>
+                
+                <div class="follow-up-card">
+                    <div class="follow-up-icon">📖</div>
+                    <h3>Hikaye Oluştur</h3>
+                    <p>
+                        Çocuğunuzdan yaratığı tablonun hikayesini anlatmasını isteyin. 
+                        Bu, dil gelişimini destekler ve hayal gücünü artırır.
+                    </p>
+                </div>
+                
+                <div class="follow-up-card">
+                    <div class="follow-up-icon">📱</div>
+                    <h3>Fotoğrafla Belgeleyve Paylaş</h3>
+                    <p>
+                        Eseri fotoğraflayarak dijital bir sanat galerisi oluşturun. 
+                        Aile üyeleriyle paylaşarak çocuğun başarısını kutlayın.
+                    </p>
+                </div>
+                
+                <div class="follow-up-card">
+                    <div class="follow-up-icon">🎨</div>
+                    <h3>Diğer Teknikler</h3>
+                    <p>
+                        Parmak boyama sevdiyse, sünger boyama, fırça boyama gibi 
+                        diğer sanat tekniklerini de deneyebilirsiniz.
+                    </p>
+                </div>
+                
+                <div class="follow-up-card">
+                    <div class="follow-up-icon">🎁</div>
+                    <h3>Hediye Yap</h3>
+                    <p>
+                        Çocuğunuzun eserini taratarak büyükanne, büyükbaba gibi 
+                        sevdiklerine özel hediyeler hazırlayabilirsiniz.
+                    </p>
+                </div>
+                
+                <div class="follow-up-card">
+                    <div class="follow-up-icon">📅</div>
+                    <h3>Düzenli Tekrarla</h3>
+                    <p>
+                        Haftada bir kez parmak boyama seansları düzenleyerek 
+                        çocuğunuzun gelişimini takip edebilirsiniz.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Rehber -->
+    <section class="video-section">
+        <div class="container">
+            <h2>🎥 Video Rehberimizi İzleyin</h2>
+            <div class="video-container">
+                <a href="parmak-boyama-video.html" class="video-placeholder">
+                    <div class="video-play-button">🎮</div>
+                    <div class="video-info">
+                        <h3>İnteraktif Video Simülasyonu</h3>
+                        <p>JavaScript tabanlı interaktif video deneyimi</p>
+                        <span class="video-duration">⏱️ 8 dakika simülasyon</span>
+                    </div>
+                </a>
+                
+                <div style="text-align: center; margin: 20px 0; color: #1D3557; font-weight: bold;">
+                    VEYA
+                </div>
+                
+                <a href="parmak-boyama-video-real.html" class="video-placeholder" style="background: linear-gradient(135deg, #E63946 0%, #FF6B6B 100%);">
+                    <div class="video-play-button">🎬</div>
+                    <div class="video-info">
+                        <h3>Gerçek Video Player</h3>
+                        <p>HTML5 video desteği ile gerçek video oynatma</p>
+                        <span class="video-duration">⏱️ MP4/WebM formatı</span>
+                    </div>
+                </a>
+                
+                <p class="video-description">
+                    İki farklı video deneyimi seçebilirsiniz:<br>
+                    🎮 <strong>İnteraktif Simülasyon:</strong> JavaScript ile etkileşimli video deneyimi<br>
+                    🎬 <strong>Gerçek Video:</strong> HTML5 video player ile gerçek video dosyası oynatma 
+                    deneyimi yaşamanız için gerekli tüm teknikleri gösteriyoruz.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- İlgili Projeler -->
+    <section class="related-projects">
+        <div class="container">
+            <h2>🌟 Beğenebileceğiniz Diğer Projeler</h2>
+            <div class="related-grid">
+                <div class="related-card">
+                    <img src="images/project-kagit-maske.jpg" alt="Kağıt Maske">
+                    <h4>🎭 Kağıt Maske Yapımı</h4>
+                    <p>😊 Kolay • 5-8 yaş • 45 dk</p>
+                    <a href="kagit-maske-projesi.html" class="related-link">Projeye Git →</a>
+                </div>
+                
+                <div class="related-card">
+                    <img src="images/project-cicek-kolaj.jpg" alt="Çiçek Kolajı">
+                    <h4>🌸 Çiçek Kolajı</h4>
+                    <p>😊 Kolay • 4-7 yaş • 40 dk</p>
+                    <a href="cicek-kolaj-projesi.html" class="related-link">Projeye Git →</a>
+                </div>
+                
+                <div class="related-card">
+                    <img src="images/project-ahsap-boyama.jpg" alt="Ahşap Boyama">
+                    <h4>🪵 Ahşap Boyama</h4>
+                    <p>😊 Kolay • 5-9 yaş • 50 dk</p>
+                    <a href="ahsap-boyama-projesi.html" class="related-link">Projeye Git →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>🎨 Parmak Boyama</h3>
+                <ul>
+                    <li><a href="#hazirlik">Hazırlık</a></li>
+                    <li><a href="#adim-adim">Adım Adım Rehber</a></li>
+                    <li><a href="#ornekler">Örnekler</a></li>
+                    <li><a href="#ipuclari">İpuçları</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>👨‍👩‍👧‍👦 Ebeveynler</h3>
+                <ul>
+                    <li><a href="#ebeveyn-rehberi">Ebeveyn Rehberi</a></li>
+                    <li><a href="#guvenlik">Güvenlik İpuçları</a></li>
+                    <li><a href="#gelisim">Gelişim Kazanımları</a></li>
+                    <li><a href="#sonrasi">Sonrası Aktiviteler</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>🔗 Bağlantılar</h3>
+                <ul>
+                    <li><a href="sanat.html">Sanat Atölyesi</a></li>
+                    <li><a href="atolyeler.html">Diğer Atölyeler</a></li>
+                    <li><a href="blog.html">Ebeveyn Blogu</a></li>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>📞 Destek</h3>
+                <ul>
+                    <li><a href="tel:+902121234567">📞 (212) 123-45-67</a></li>
+                    <li><a href="mailto:sanat@23nisan.com">✉️ sanat@23nisan.com</a></li>
+                    <li><a href="#">💬 Canlı Destek</a></li>
+                    <li><a href="#">❓ SSS</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 - 23 Nisan Parmak Boyama Atölyesi. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        // Parmak boyama projesi özel JavaScript kodları
+        document.addEventListener('DOMContentLoaded', function() {
+            // Malzeme listesi checkbox'ları
+            const checkboxes = document.querySelectorAll('.materials-checklist input[type="checkbox"]');
+            const completionMessage = document.createElement('div');
+            completionMessage.className = 'completion-message';
+            completionMessage.innerHTML = '🎉 Harika! Tüm malzemeler hazır. Artık başlayabilirsiniz!';
+            completionMessage.style.cssText = `
+                background: #2ed573;
+                color: white;
+                padding: 15px;
+                border-radius: 10px;
+                text-align: center;
+                margin-top: 20px;
+                display: none;
+                animation: slideIn 0.5s ease;
+            `;
+
+            function checkCompletion() {
+                const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+                const container = document.querySelector('.materials-checklist').parentElement;
+                
+                if (allChecked) {
+                    if (!container.querySelector('.completion-message')) {
+                        container.appendChild(completionMessage);
+                    }
+                    completionMessage.style.display = 'block';
+                } else {
+                    completionMessage.style.display = 'none';
+                }
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', checkCompletion);
+            });
+
+            // Adım kartlarında ilerleme takibi
+            const stepCards = document.querySelectorAll('.step-card');
+            stepCards.forEach((card, index) => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('completed');
+                    
+                    if (this.classList.contains('completed')) {
+                        const checkmark = document.createElement('div');
+                        checkmark.className = 'step-checkmark';
+                        checkmark.innerHTML = '✅';
+                        checkmark.style.cssText = `
+                            position: absolute;
+                            top: 10px;
+                            right: 10px;
+                            font-size: 24px;
+                            animation: bounceIn 0.5s ease;
+                        `;
+                        this.style.position = 'relative';
+                        this.appendChild(checkmark);
+                    } else {
+                        const checkmark = this.querySelector('.step-checkmark');
+                        if (checkmark) checkmark.remove();
+                    }
+                });
+            });
+
+            // Örnek projelerde hover efektleri
+            const exampleCards = document.querySelectorAll('.example-card');
+            exampleCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05) rotate(1deg)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+
+            // Video oynatma simülasyonu
+            const videoPlayButton = document.querySelector('.video-play-button');
+            if (videoPlayButton) {
+                videoPlayButton.addEventListener('click', function() {
+                    alert('🎥 Video oynatılıyor...\n\n"Merhaba sevgili çocuklar ve ebeveynler! Ben Ayşe öğretmen. Bugün birlikte parmak boyama yapacağız. Hazır mısınız?"');
+                });
+            }
+
+            // İlerleme çubuğu
+            const progressBar = document.createElement('div');
+            progressBar.className = 'progress-bar';
+            progressBar.innerHTML = `
+                <div class="progress-container">
+                    <div class="progress-fill"></div>
+                    <span class="progress-text">Hazırlık: 0%</span>
+                </div>
+            `;
+            progressBar.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: white;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                z-index: 1000;
+                min-width: 200px;
+            `;
+
+            const progressContainer = progressBar.querySelector('.progress-container');
+            progressContainer.style.cssText = `
+                width: 100%;
+                height: 20px;
+                background: #f0f0f0;
+                border-radius: 10px;
+                position: relative;
+                overflow: hidden;
+            `;
+
+            const progressFill = progressBar.querySelector('.progress-fill');
+            progressFill.style.cssText = `
+                height: 100%;
+                background: linear-gradient(90deg, #E63946, #457B9D);
+                width: 0%;
+                border-radius: 10px;
+                transition: width 0.3s ease;
+            `;
+
+            const progressText = progressBar.querySelector('.progress-text');
+            progressText.style.cssText = `
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 12px;
+                font-weight: 600;
+                color: #333;
+            `;
+
+            document.body.appendChild(progressBar);
+
+            // İlerleme hesaplama
+            function updateProgress() {
+                const checkedMaterials = Array.from(checkboxes).filter(cb => cb.checked).length;
+                const completedSteps = document.querySelectorAll('.step-card.completed').length;
+                
+                const materialProgress = (checkedMaterials / checkboxes.length) * 50; // 50% malzemeler
+                const stepProgress = (completedSteps / stepCards.length) * 50; // 50% adımlar
+                
+                const totalProgress = materialProgress + stepProgress;
+                
+                progressFill.style.width = totalProgress + '%';
+                
+                let phase = 'Hazırlık';
+                if (totalProgress > 25) phase = 'Başlangıç';
+                if (totalProgress > 50) phase = 'İlerleme';
+                if (totalProgress > 75) phase = 'Tamamlanıyor';
+                if (totalProgress === 100) phase = 'Tamamlandı! 🎉';
+                
+                progressText.textContent = `${phase}: ${Math.round(totalProgress)}%`;
+            }
+
+            // Progress güncellemelerini dinle
+            checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+            stepCards.forEach(card => card.addEventListener('click', updateProgress));
+
+            // Animasyon CSS'i ekle
+            const animationStyle = document.createElement('style');
+            animationStyle.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateY(-20px); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                }
+                
+                @keyframes bounceIn {
+                    0% { transform: scale(0); }
+                    50% { transform: scale(1.3); }
+                    100% { transform: scale(1); }
+                }
+                
+                .step-card {
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+                
+                .step-card:hover {
+                    transform: translateX(10px);
+                    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+                }
+                
+                .step-card.completed {
+                    background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+                    border-left: 4px solid #2ed573;
+                }
+            `;
+            document.head.appendChild(animationStyle);
+        });
+
+        // Başarı mesajı göster
+        function showSuccessMessage() {
+            const message = document.createElement('div');
+            message.innerHTML = `
+                <div style="text-align: center; padding: 30px;">
+                    <h2>🎉 Tebrikler!</h2>
+                    <p>Parmak boyama projenizi başarıyla tamamladınız!</p>
+                    <p>Sanat eserinizi bizimle paylaşmayı unutmayın!</p>
+                    <button onclick="closeModal()" style="margin-top: 20px; padding: 10px 20px; background: #E63946; color: white; border: none; border-radius: 5px; cursor: pointer;">Tamam</button>
+                </div>
+            `;
+            const modal = createModal(message.innerHTML);
+            document.body.appendChild(modal);
+        }
+
+        console.log('🖐️ Parmak Boyama Sanatı projesine hoş geldiniz!');
+        console.log('Yaratıcılığınızı serbest bırakın! 🎨');
+    </script>
+    <script src="image-handler.js"></script>
+</body>
+</html>

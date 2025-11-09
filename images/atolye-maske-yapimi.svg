@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
+  <defs>
+    <linearGradient id="maskeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="200" fill="url(#maskeBg)" rx="12"/>
+  
+  <!-- Maske şekli -->
+  <ellipse cx="150" cy="80" rx="60" ry="40" fill="#F1C40F"/>
+  <circle cx="130" cy="70" r="8" fill="#2C3E50"/>
+  <circle cx="170" cy="70" r="8" fill="#2C3E50"/>
+  <path d="M140 95 Q150 105 160 95" stroke="#E74C3C" stroke-width="3" fill="none"/>
+  
+  <!-- Maske süslemeleri -->
+  <circle cx="110" cy="60" r="5" fill="#E74C3C"/>
+  <circle cx="190" cy="60" r="5" fill="#E74C3C"/>
+  <path d="M120 50 Q150 30 180 50" stroke="#E67E22" stroke-width="4" fill="none"/>
+  
+  <text x="150" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">🎭 Maske Yapımı</text>
+  <text x="150" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">Renkli maskeler tasarla!</text>
+  <text x="150" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">✨ Yaratıcılık Atölyesi</text>
+</svg>

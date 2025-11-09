@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎥 Parmak Boyama Teknik Dersi - Ayşe Öğretmen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Video Player -->
+    <div class="video-player-container">
+        <div class="video-header">
+            <div class="back-button">
+                <a href="parmak-boyama-projesi.html">← Projeye Geri Dön</a>
+            </div>
+            <div class="video-title">
+                <h1>🎥 Parmak Boyama Teknik Dersi</h1>
+                <p>Uzman eğitmen Ayşe Hanım ile adım adım parmak boyama tekniklerini öğrenin</p>
+            </div>
+        </div>
+
+        <!-- Ana Video Player -->
+        <div class="main-video-player">
+            <div class="video-screen" id="videoScreen">
+                <!-- Video başlangıç ekranı -->
+                <div class="video-intro" id="videoIntro">
+                    <div class="instructor-profile">
+                        <div class="instructor-image-placeholder">
+                            <div class="avatar-circle">👩‍🏫</div>
+                        </div>
+                        <h2>👩‍🏫 Ayşe Öğretmen</h2>
+                        <p>12 yıl deneyimli çocuk sanat uzmanı</p>
+                    </div>
+                    <div class="video-info">
+                        <h3>🖐️ Parmak Boyama Teknikleri</h3>
+                        <div class="video-stats">
+                            <span>⏱️ 8 dakika</span>
+                            <span>👥 4-6 yaş</span>
+                            <span>🎨 Temel teknikler</span>
+                        </div>
+                        <button class="play-button" id="playButton">
+                            <span class="play-icon">▶️</span>
+                            <span>Videoyu Başlat</span>
+                        </button>
+                        
+                        <!-- Test butonu -->
+                        <button onclick="testVideoStart()" style="background: #E63946; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                            🧪 Test Video Başlat
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Video İçeriği -->
+                <div class="video-content video-content-hidden" id="videoContent">
+                    <div class="video-scene" id="scene1">
+                        <div class="scene-content">
+                            <div class="instructor-video">
+                                <img src="images/ayse-ogretmen-intro.jpg" alt="Ayşe Öğretmen">
+                                <div class="speech-bubble">
+                                    <p>"Merhaba sevgili çocuklar ve ebeveynler! Ben Ayşe öğretmen. Bugün birlikte parmak boyama yapacağız. Hazır mısınız?"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scene-title">Giriş ve Tanışma</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Kontrolleri -->
+            <div class="video-controls">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-fill" id="progressFill"></div>
+                        <div class="progress-thumb" id="progressThumb"></div>
+                    </div>
+                </div>
+                
+                <div class="controls-row">
+                    <div class="left-controls">
+                        <button class="control-btn" id="playPauseBtn">
+                            <span id="playPauseIcon">⏸️</span>
+                        </button>
+                        <button class="control-btn" id="volumeBtn">🔊</button>
+                        <span class="time-display">
+                            <span id="currentTime">0:00</span> / <span id="totalTime">8:00</span>
+                        </span>
+                    </div>
+                    
+                    <div class="right-controls">
+                        <button class="control-btn" id="speedBtn">1x</button>
+                        <button class="control-btn" id="fullscreenBtn">⛶</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Bölümleri -->
+        <div class="video-chapters">
+            <h3>📋 Video Bölümleri</h3>
+            <div class="chapters-list">
+                <div class="chapter-item active" data-time="0">
+                    <div class="chapter-time">0:00</div>
+                    <div class="chapter-info">
+                        <h4>👋 Giriş ve Tanışma</h4>
+                        <p>Ayşe öğretmen kendini tanıtıyor ve malzemeleri gösteriyor</p>
+                    </div>
+                </div>
+                
+                <div class="chapter-item" data-time="60">
+                    <div class="chapter-time">1:00</div>
+                    <div class="chapter-info">
+                        <h4>🎒 Malzeme Hazırlığı</h4>
+                        <p>Gerekli malzemelerin tanıtımı ve güvenlik uyarıları</p>
+                    </div>
+                </div>
+                
+                <div class="chapter-item" data-time="120">
+                    <div class="chapter-time">2:00</div>
+                    <div class="chapter-info">
+                        <h4>🖐️ İlk Parmak Tekniği</h4>
+                        <p>Tek parmakla nokta ve çizgi yapma teknikleri</p>
+                    </div>
+                </div>
+                
+                <div class="chapter-item" data-time="240">
+                    <div class="chapter-time">4:00</div>
+                    <div class="chapter-info">
+                        <h4>🌈 Renk Karıştırma</h4>
+                        <p>Farklı renkleri karıştırarak yeni renkler elde etme</p>
+                    </div>
+                </div>
+                
+                <div class="chapter-item" data-time="360">
+                    <div class="chapter-time">6:00</div>
+                    <div class="chapter-info">
+                        <h4>✋ Tüm El Teknikleri</h4>
+                        <p>Avuç içi ve el kenarı ile boyama teknikleri</p>
+                    </div>
+                </div>
+                
+                <div class="chapter-item" data-time="420">
+                    <div class="chapter-time">7:00</div>
+                    <div class="chapter-info">
+                        <h4>🎨 Örnek Proje</h4>
+                        <p>Basit bir resim yaparak teknikleri birleştirme</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Açıklaması -->
+        <div class="video-description">
+            <div class="description-content">
+                <h3>📝 Video Açıklaması</h3>
+                <p>
+                    Bu videoda, 12 yıl deneyimli çocuk sanat uzmanı Ayşe öğretmen, 4-6 yaş arası çocuklar için 
+                    parmak boyama tekniklerini adım adım anlatıyor. Video boyunca öğreneceğiniz teknikler:
+                </p>
+                
+                <div class="description-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🖐️</span>
+                        <div class="highlight-text">
+                            <h4>Temel Parmak Teknikleri</h4>
+                            <p>İşaret parmağı, başparmak ve diğer parmaklarla farklı çizim yöntemleri</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🌈</span>
+                        <div class="highlight-text">
+                            <h4>Renk Karıştırma Sanatı</h4>
+                            <p>Ana renklerden yeni renkler elde etme ve degradé efektleri</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✋</span>
+                        <div class="highlight-text">
+                            <h4>İleri Seviye Teknikler</h4>
+                            <p>Avuç içi baskıları, el kenarı çizgiler ve karma teknikler</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🛡️</span>
+                        <div class="highlight-text">
+                            <h4>Güvenlik ve Hijyen</h4>
+                            <p>Çocuk güvenliği için önemli ipuçları ve temizlik yöntemleri</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="instructor-info">
+                <h3>👩‍🏫 Eğitmen Hakkında</h3>
+                <div class="instructor-card">
+                    <img src="images/instructor-ayse-full.jpg" alt="Ayşe Öğretmen">
+                    <div class="instructor-details">
+                        <h4>Ayşe Sanat</h4>
+                        <p class="instructor-title">Çocuk Sanat Uzmanı & Eğitmen</p>
+                        <div class="instructor-credentials">
+                            <ul>
+                                <li>🎓 Güzel Sanatlar Fakültesi Mezunu</li>
+                                <li>📚 12 Yıl Çocuk Eğitimi Deneyimi</li>
+                                <li>🏆 Çocuk Sanatları Sertifikalı Uzman</li>
+                                <li>👥 2000+ Çocukla Çalıştı</li>
+                                <li>📖 "Çocukta Sanat" Kitabının Yazarı</li>
+                            </ul>
+                        </div>
+                        <div class="instructor-quote">
+                            <p><em>"Her çocuğun içinde bir sanatçı vardır. Görevimiz o sanatçıyı ortaya çıkarmak!"</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benzer Videolar -->
+        <div class="related-videos">
+            <h3>🎬 Benzer Eğitim Videoları</h3>
+            <div class="related-videos-grid">
+                <div class="related-video-card">
+                    <div class="video-thumbnail">
+                        <img src="images/video-kagit-maske.jpg" alt="Kağıt Maske">
+                        <div class="video-duration">6:30</div>
+                        <div class="play-overlay">▶️</div>
+                    </div>
+                    <div class="video-info">
+                        <h4>🎭 Kağıt Maske Yapımı</h4>
+                        <p>Ayşe Öğretmen</p>
+                        <span class="video-stats">👥 5-8 yaş • 🕐 6:30</span>
+                    </div>
+                </div>
+                
+                <div class="related-video-card">
+                    <div class="video-thumbnail">
+                        <img src="images/video-origami.jpg" alt="Origami">
+                        <div class="video-duration">12:15</div>
+                        <div class="play-overlay">▶️</div>
+                    </div>
+                    <div class="video-info">
+                        <h4>🗾 Origami Başlangıç</h4>
+                        <p>Mehmet Özcan</p>
+                        <span class="video-stats">👥 6-10 yaş • 🕐 12:15</span>
+                    </div>
+                </div>
+                
+                <div class="related-video-card">
+                    <div class="video-thumbnail">
+                        <img src="images/video-cicek-kolaj.jpg" alt="Çiçek Kolajı">
+                        <div class="video-duration">8:45</div>
+                        <div class="play-overlay">▶️</div>
+                    </div>
+                    <div class="video-info">
+                        <h4>🌸 Doğa Kolajı Teknikleri</h4>
+                        <p>Zehra Yılmaz</p>
+                        <span class="video-stats">👥 4-7 yaş • 🕐 8:45</span>
+                    </div>
+                </div>
+                
+                <div class="related-video-card">
+                    <div class="video-thumbnail">
+                        <img src="images/video-renk-teorisi.jpg" alt="Renk Teorisi">
+                        <div class="video-duration">10:20</div>
+                        <div class="play-overlay">▶️</div>
+                    </div>
+                    <div class="video-info">
+                        <h4>🌈 Çocuklar İçin Renk Teorisi</h4>
+                        <p>Ayşe Sanat</p>
+                        <span class="video-stats">👥 5-9 yaş • 🕐 10:20</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Yorumlar Bölümü -->
+        <div class="comments-section">
+            <h3>💬 Ebeveyn Yorumları</h3>
+            <div class="comments-container">
+                <div class="comment">
+                    <div class="comment-author">
+                        <img src="images/user-avatar-1.jpg" alt="Emine Hanım">
+                        <div class="author-info">
+                            <h4>Emine Hanım</h4>
+                            <span>2 gün önce</span>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <p>Harika bir video! 5 yaşındaki kızım çok sevdi. Ayşe öğretmenin anlatımı çok açık ve anlaşılır. Evde denediğimizde çok güzel sonuçlar aldık. Teşekkürler! 🎨</p>
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-author">
+                        <img src="images/user-avatar-2.jpg" alt="Ahmet Bey">
+                        <div class="author-info">
+                            <h4>Ahmet Bey</h4>
+                            <span>1 hafta önce</span>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <p>Oğlum normalde sanat aktivitelerine pek ilgili değildi ama bu videoyu izledikten sonra parmak boyama yapmak istedi. Çok güzel teknikler öğrendik. 👏</p>
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-author">
+                        <img src="images/user-avatar-3.jpg" alt="Fatma Öğretmen">
+                        <div class="author-info">
+                            <h4>Fatma Öğretmen</h4>
+                            <span>2 hafta önce</span>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                        <p>Sınıfımda kullandığım harika bir kaynak. Öğrencilerim bu videoyu çok seviyor. Ayşe hanımın profesyonel yaklaşımı gerçekten etkileyici. Tavsiye ederim! 📚</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comment-form">
+                <h4>💭 Siz de Yorum Yapın</h4>
+                <form>
+                    <div class="rating-select">
+                        <label>Puanınız:</label>
+                        <div class="stars">
+                            <span class="star" data-rating="1">⭐</span>
+                            <span class="star" data-rating="2">⭐</span>
+                            <span class="star" data-rating="3">⭐</span>
+                            <span class="star" data-rating="4">⭐</span>
+                            <span class="star" data-rating="5">⭐</span>
+                        </div>
+                    </div>
+                    <textarea placeholder="Bu video hakkındaki düşüncelerinizi paylaşın..."></textarea>
+                    <button type="submit">Yorum Gönder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Basit test fonksiyonu
+        function testVideoStart() {
+            console.log('🧪 Test video başlatılıyor...');
+            
+            const intro = document.getElementById('videoIntro');
+            const content = document.getElementById('videoContent');
+            
+            if (intro && content) {
+                intro.style.display = 'none';
+                content.style.display = 'flex';
+                content.classList.remove('video-content-hidden');
+                content.innerHTML = `
+                    <div style="text-align: center; color: white; padding: 50px;">
+                        <h2>🎬 Video Test Başarılı!</h2>
+                        <p>Video player çalışıyor!</p>
+                        <div style="font-size: 3rem; animation: pulse 2s infinite;">🎨</div>
+                        <p>Ayşe öğretmen: "Merhaba çocuklar! Parmak boyama yapmaya hazır mısınız?"</p>
+                        <button onclick="restartVideo()" style="background: white; color: #1D3557; padding: 10px 20px; border: none; border-radius: 25px; margin-top: 20px; cursor: pointer;">
+                            🔄 Başa Dön
+                        </button>
+                    </div>
+                `;
+                console.log('✅ Test video başlatıldı!');
+            } else {
+                console.error('❌ Video elementleri bulunamadı!');
+            }
+        }
+        
+        function restartVideo() {
+            const intro = document.getElementById('videoIntro');
+            const content = document.getElementById('videoContent');
+            
+            intro.style.display = 'flex';
+            content.style.display = 'none';
+            content.classList.add('video-content-hidden');
+        }
+        // Video Player JavaScript
+        class FingerPaintingVideoPlayer {
+            constructor() {
+                console.log('🎬 FingerPaintingVideoPlayer constructor başladı...');
+                this.currentTime = 0;
+                this.totalTime = 480; // 8 dakika = 480 saniye
+                this.isPlaying = false;
+                this.playbackSpeed = 1;
+                this.volume = 1;
+                console.log('⚙️ Temel değişkenler ayarlandı');
+                this.chapters = [
+                    { time: 0, title: "Giriş ve Tanışma", content: "Merhaba sevgili çocuklar! Ben Ayşe öğretmen..." },
+                    { time: 60, title: "Malzeme Hazırlığı", content: "Şimdi malzemelerimizi tanıyalım..." },
+                    { time: 120, title: "İlk Parmak Tekniği", content: "İşaret parmağımızı boyaya batıralım..." },
+                    { time: 240, title: "Renk Karıştırma", content: "Şimdi iki rengi karıştırmayı öğrenelim..." },
+                    { time: 360, title: "Tüm El Teknikleri", content: "Şimdi tüm elimizi kullanacağız..." },
+                    { time: 420, title: "Örnek Proje", content: "Hadi güzel bir çiçek yapalım..." }
+                ];
+                
+                this.scenes = {
+                    0: { 
+                        content: "Merhaba sevgili çocuklar ve ebeveynler! Ben Ayşe öğretmen. Bugün birlikte parmak boyama yapacağız. Hazır mısınız?",
+                        image: "images/ayse-ogretmen-intro.jpg"
+                    },
+                    60: { 
+                        content: "Şimdi malzemelerimizi tanıyalım. Su bazlı boyalar, büyük kağıt, islak mendil ve tabii ki temiz ellerimiz!",
+                        image: "images/ayse-malzemeler.jpg"
+                    },
+                    120: { 
+                        content: "İşaret parmağımızı boyaya hafifçe batıralım. Görüyorsunuz, çok fazla boya almıyoruz.",
+                        image: "images/ayse-ilk-teknik.jpg"
+                    },
+                    240: { 
+                        content: "Şimdi iki rengi karıştırmayı öğrenelim. Mavi ve sarı ne yapar? Evet, yeşil!",
+                        image: "images/ayse-renk-karistirma.jpg"
+                    },
+                    360: { 
+                        content: "Şimdi tüm elimizi kullanacağız. Avuç içimizi boyaya batırıp güzel izler çıkaralım.",
+                        image: "images/ayse-tum-el.jpg"
+                    },
+                    420: { 
+                        content: "Hadi güzel bir çiçek yapalım. Avuç içi ile gövde, parmaklarla yapraklar...",
+                        image: "images/ayse-ornek-proje.jpg"
+                    }
+                };
+                
+                this.initializePlayer();
+            }
+            
+            initializePlayer() {
+                console.log('🔧 Player initialize ediliyor...');
+                try {
+                    this.bindEvents();
+                    console.log('✅ Event bindler tamamlandı');
+                    this.updateDisplay();
+                    console.log('✅ Display güncellendi');
+                    console.log('🎉 Player hazır!');
+                } catch (error) {
+                    console.error('❌ Initialize hatası:', error);
+                }
+            }
+            
+            bindEvents() {
+                console.log('🔗 Event binding başlıyor...');
+                // Play butonu
+                const playButton = document.getElementById('playButton');
+                if (playButton) {
+                    playButton.addEventListener('click', () => {
+                        console.log('▶️ Play button tıklandı!');
+                        this.startVideo();
+                    });
+                    console.log('✅ Play button bulundu ve event eklendi');
+                } else {
+                    console.error('❌ Play button bulunamadı!');
+                }
+                
+                // Play/Pause butonu
+                const playPauseBtn = document.getElementById('playPauseBtn');
+                playPauseBtn.addEventListener('click', () => this.togglePlayPause());
+                
+                // Hız kontrol
+                const speedBtn = document.getElementById('speedBtn');
+                speedBtn.addEventListener('click', () => this.toggleSpeed());
+                
+                // Progress bar
+                const progressBar = document.getElementById('progressBar');
+                progressBar.addEventListener('click', (e) => this.seekTo(e));
+                
+                // Chapter navigation
+                const chapterItems = document.querySelectorAll('.chapter-item');
+                chapterItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const time = parseInt(item.dataset.time);
+                        this.seekToTime(time);
+                    });
+                });
+                
+                // Related videos
+                const relatedCards = document.querySelectorAll('.related-video-card');
+                relatedCards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        const title = card.querySelector('h4').textContent;
+                        this.showComingSoon(title);
+                    });
+                });
+                
+                // Star rating
+                const stars = document.querySelectorAll('.star');
+                stars.forEach(star => {
+                    star.addEventListener('click', () => this.setRating(star));
+                });
+            }
+            
+            startVideo() {
+                console.log('🎬 Video başlatılıyor...');
+                
+                const videoIntro = document.getElementById('videoIntro');
+                const videoContent = document.getElementById('videoContent');
+                
+                console.log('📺 Video intro element:', videoIntro);
+                console.log('📺 Video content element:', videoContent);
+                
+                if (videoIntro && videoContent) {
+                    videoIntro.style.display = 'none';
+                    videoContent.style.display = 'flex';
+                    videoContent.classList.remove('video-content-hidden');
+                    
+                    this.isPlaying = true;
+                    console.log('▶️ Video durumu: playing =', this.isPlaying);
+                    
+                    this.startPlayback();
+                    this.updateScene();
+                    
+                    console.log('✅ Video başarıyla başlatıldı!');
+                } else {
+                    console.error('❌ Video elementleri bulunamadı!');
+                }
+            }
+            
+            togglePlayPause() {
+                this.isPlaying = !this.isPlaying;
+                const icon = document.getElementById('playPauseIcon');
+                icon.textContent = this.isPlaying ? '⏸️' : '▶️';
+                
+                if (this.isPlaying) {
+                    this.startPlayback();
+                } else {
+                    this.stopPlayback();
+                }
+            }
+            
+            startPlayback() {
+                console.log('⏯️ Playback başlatılıyor...');
+                console.log('⏱️ Mevcut zaman:', this.currentTime, 'Toplam zaman:', this.totalTime);
+                console.log('▶️ Playing durumu:', this.isPlaying);
+                
+                if (this.playbackInterval) {
+                    clearInterval(this.playbackInterval);
+                    console.log('🔄 Önceki interval temizlendi');
+                }
+                
+                this.playbackInterval = setInterval(() => {
+                    if (this.isPlaying && this.currentTime < this.totalTime) {
+                        this.currentTime += this.playbackSpeed;
+                        console.log('⏳ Zaman güncellendi:', this.currentTime + 's');
+                        this.updateDisplay();
+                        this.checkChapterChange();
+                        this.updateScene();
+                    } else if (this.currentTime >= this.totalTime) {
+                        console.log('🏁 Video bitti!');
+                        this.endVideo();
+                    }
+                }, 1000);
+                
+                console.log('✅ Playback interval başlatıldı!');
+            }
+            
+            stopPlayback() {
+                if (this.playbackInterval) {
+                    clearInterval(this.playbackInterval);
+                }
+            }
+            
+            toggleSpeed() {
+                const speeds = [0.5, 1, 1.25, 1.5, 2];
+                const currentIndex = speeds.indexOf(this.playbackSpeed);
+                this.playbackSpeed = speeds[(currentIndex + 1) % speeds.length];
+                
+                const speedBtn = document.getElementById('speedBtn');
+                speedBtn.textContent = this.playbackSpeed + 'x';
+            }
+            
+            seekTo(e) {
+                const progressBar = e.currentTarget;
+                const rect = progressBar.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const percentage = clickX / rect.offsetWidth;
+                
+                this.currentTime = Math.floor(percentage * this.totalTime);
+                this.updateDisplay();
+                this.updateScene();
+            }
+            
+            seekToTime(time) {
+                this.currentTime = time;
+                this.updateDisplay();
+                this.updateScene();
+                this.updateChapterHighlight();
+            }
+            
+            updateDisplay() {
+                // Progress bar
+                const progressFill = document.getElementById('progressFill');
+                const progressThumb = document.getElementById('progressThumb');
+                const percentage = (this.currentTime / this.totalTime) * 100;
+                
+                progressFill.style.width = percentage + '%';
+                progressThumb.style.left = percentage + '%';
+                
+                // Time display
+                const currentTimeDisplay = document.getElementById('currentTime');
+                currentTimeDisplay.textContent = this.formatTime(this.currentTime);
+            }
+            
+            updateScene() {
+                // En yakın sahneyi bul
+                let currentScene = null;
+                for (let time in this.scenes) {
+                    if (this.currentTime >= parseInt(time)) {
+                        currentScene = this.scenes[time];
+                    }
+                }
+                
+                if (currentScene) {
+                    const videoContent = document.getElementById('videoContent');
+                    const sceneEmoji = this.getSceneEmoji(this.currentTime);
+                    videoContent.innerHTML = `
+                        <div class="video-scene active">
+                            <div class="scene-content">
+                                <div class="instructor-video">
+                                    <div class="video-placeholder">
+                                        <div class="scene-emoji">${sceneEmoji}</div>
+                                        <div class="scene-title">Ayşe Öğretmen</div>
+                                    </div>
+                                    <div class="speech-bubble">
+                                        <p>"${currentScene.content}"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            
+            getSceneEmoji(time) {
+                if (time < 60) return "👋";
+                if (time < 120) return "🎒";
+                if (time < 240) return "🖐️";
+                if (time < 360) return "🌈";
+                if (time < 420) return "✋";
+                return "🎨";
+            }
+            
+            checkChapterChange() {
+                this.updateChapterHighlight();
+            }
+            
+            updateChapterHighlight() {
+                const chapterItems = document.querySelectorAll('.chapter-item');
+                chapterItems.forEach(item => {
+                    const chapterTime = parseInt(item.dataset.time);
+                    const nextChapter = item.nextElementSibling;
+                    const nextChapterTime = nextChapter ? parseInt(nextChapter.dataset.time) : this.totalTime;
+                    
+                    if (this.currentTime >= chapterTime && this.currentTime < nextChapterTime) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+            
+            endVideo() {
+                this.isPlaying = false;
+                this.stopPlayback();
+                
+                // Tebrikler mesajı
+                const videoContent = document.getElementById('videoContent');
+                videoContent.innerHTML = `
+                    <div class="video-scene active">
+                        <div class="scene-content completion-scene">
+                            <div class="completion-message">
+                                <h2>🎉 Tebrikler!</h2>
+                                <p>Parmak boyama tekniklerini başarıyla öğrendiniz!</p>
+                                <p>Şimdi öğrendiklerinizi pratik yapmak için projeye başlayabilirsiniz.</p>
+                                <div class="completion-actions">
+                                    <button onclick="window.location.href='parmak-boyama-projesi.html'" class="action-btn primary">
+                                        🎨 Projeye Başla
+                                    </button>
+                                    <button onclick="player.restart()" class="action-btn secondary">
+                                        🔄 Videoyu Tekrar İzle
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            restart() {
+                this.currentTime = 0;
+                this.isPlaying = false;
+                document.getElementById('videoIntro').style.display = 'block';
+                const videoContent = document.getElementById('videoContent');
+                videoContent.style.display = 'none';
+                videoContent.classList.add('video-content-hidden');
+                document.getElementById('playPauseIcon').textContent = '▶️';
+                this.updateDisplay();
+                this.updateChapterHighlight();
+            }
+            
+            formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = seconds % 60;
+                return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+            }
+            
+            setRating(clickedStar) {
+                const rating = parseInt(clickedStar.dataset.rating);
+                const stars = document.querySelectorAll('.star');
+                
+                stars.forEach((star, index) => {
+                    if (index < rating) {
+                        star.style.color = '#FFD700';
+                    } else {
+                        star.style.color = '#ddd';
+                    }
+                });
+            }
+            
+            showComingSoon(title) {
+                alert(`🎬 "${title}" videosu yakında yayınlanacak!\n\nBu video şu anda hazırlanıyor. Yayınlandığında size haber vereceğiz.`);
+            }
+        }
+        
+        // Player'ı başlat
+        let player;
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 DOM yüklendi, player başlatılıyor...');
+            try {
+                player = new FingerPaintingVideoPlayer();
+                console.log('✅ Player başarıyla oluşturuldu:', player);
+            } catch (error) {
+                console.error('❌ Player oluşturma hatası:', error);
+            }
+            
+            // Yorum formu
+            const commentForm = document.querySelector('.comment-form form');
+            commentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const textarea = this.querySelector('textarea');
+                if (textarea.value.trim()) {
+                    alert('Yorumunuz için teşekkürler! Moderasyon sonrası yayınlanacaktır.');
+                    textarea.value = '';
+                    
+                    // Yıldızları resetle
+                    const stars = document.querySelectorAll('.star');
+                    stars.forEach(star => star.style.color = '#ddd');
+                }
+            });
+            
+            // Klavye kısayolları
+            document.addEventListener('keydown', function(e) {
+                switch(e.code) {
+                    case 'Space':
+                        e.preventDefault();
+                        if (player && document.getElementById('videoContent').style.display !== 'none') {
+                            player.togglePlayPause();
+                        }
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        if (player) {
+                            player.currentTime = Math.min(player.currentTime + 10, player.totalTime);
+                            player.updateDisplay();
+                            player.updateScene();
+                        }
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        if (player) {
+                            player.currentTime = Math.max(player.currentTime - 10, 0);
+                            player.updateDisplay();
+                            player.updateScene();
+                        }
+                        break;
+                }
+            });
+            
+            console.log('🎥 Parmak Boyama Video Dersi hazır!');
+            console.log('Klavye kısayolları: Space (play/pause), ← → (10sn geri/ileri)');
+        });
+    </script>
+    <script src="image-handler.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="instructorBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F4F8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D1ECF1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#instructorBg)" rx="20"/>
+  
+  <!-- Yüz -->
+  <circle cx="100" cy="80" r="40" fill="#F4C2A1"/>
+  
+  <!-- Saç -->
+  <path d="M60 60 Q100 40 140 60 Q140 45 100 35 Q60 45 60 60" fill="#8B4513"/>
+  
+  <!-- Gözler -->
+  <circle cx="85" cy="75" r="3" fill="#2C3E50"/>
+  <circle cx="115" cy="75" r="3" fill="#2C3E50"/>
+  
+  <!-- Burun -->
+  <circle cx="100" cy="85" r="1.5" fill="#E8A082"/>
+  
+  <!-- Ağız -->
+  <path d="M95 95 Q100 100 105 95" stroke="#E8A082" stroke-width="2" fill="none"/>
+  
+  <!-- Vücut -->
+  <rect x="75" y="120" width="50" height="60" fill="#3498DB" rx="5"/>
+  
+  <!-- Eller -->
+  <circle cx="65" cy="140" r="8" fill="#F4C2A1"/>
+  <circle cx="135" cy="140" r="8" fill="#F4C2A1"/>
+  
+  <text x="100" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2C3E50">👩‍🏫 Öğretmen Ayşe</text>
+</svg>

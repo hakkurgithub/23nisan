@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap - 23 Nisan Çocuk Şenliği</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="23 Nisan Şenlik Logosu">
+                </a>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="etkinlikler.html">Etkinlik Takvimi</a></li>
+                <li><a href="oyunlar.html">Oyun Köşesi</a></li>
+                <li><a href="atolyeler.html">Atölye</a></li>
+                <li><a href="blog.html">Blog (Ebeveyn)</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <a href="giris.html" class="btn btn-secondary active">Giriş Yap</a>
+                <a href="kayit.html" class="btn btn-primary">Kayıt Ol</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="auth-container">
+            <div class="auth-form-wrapper">
+                <div class="auth-header">
+                    <h1>🎉 Hoş Geldin!</h1>
+                    <p>23 Nisan dünyasına giriş yap</p>
+                </div>
+
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email">📧 E-posta Adresin</label>
+                        <input type="email" id="email" name="email" required placeholder="ornek@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">🔒 Şifren</label>
+                        <input type="password" id="password" name="password" required placeholder="Şifreni gir">
+                        <span class="password-toggle" onclick="togglePassword()">👁️</span>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="remember">
+                            <span class="checkmark"></span>
+                            Beni hatırla
+                        </label>
+                        <a href="sifremi-unuttum.html" class="forgot-password">Şifremi unuttum</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">Giriş Yap</button>
+                </form>
+
+                <div class="social-login">
+                    <p>veya</p>
+                    <div class="social-buttons">
+                        <button class="social-btn google">
+                            <img src="images/google-icon.png" alt="Google">
+                            Google ile Giriş
+                        </button>
+                        <button class="social-btn facebook">
+                            <img src="images/facebook-icon.png" alt="Facebook">
+                            Facebook ile Giriş
+                        </button>
+                    </div>
+                </div>
+
+                <div class="auth-footer">
+                    <p>Henüz hesabın yok mu?</p>
+                    <a href="kayit.html" class="btn btn-secondary">Hemen Kayıt Ol</a>
+                </div>
+            </div>
+
+            <div class="auth-benefits">
+                <h2>🌟 Üye Olmanın Avantajları</h2>
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎮</div>
+                        <div class="benefit-content">
+                            <h4>Oyun İlerlemelerini Kaydet</h4>
+                            <p>Tüm oyun başarılarını takip et</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">❤️</div>
+                        <div class="benefit-content">
+                            <h4>Favori Etkinlikler</h4>
+                            <p>Beğendiğin etkinlikleri kaydet</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📅</div>
+                        <div class="benefit-content">
+                            <h4>Kişisel Takvim</h4>
+                            <p>Etkinlik hatırlatıcıları al</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">👑</div>
+                        <div class="benefit-content">
+                            <h4>Premium İçerikler</h4>
+                            <p>Özel oyunlar ve atölyelere erişim</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📊</div>
+                        <div class="benefit-content">
+                            <h4>Gelişim Raporu</h4>
+                            <p>Çocuğunuzun ilerlemesini izleyin</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎁</div>
+                        <div class="benefit-content">
+                            <h4>Özel Hediyeler</h4>
+                            <p>Doğum günü ve özel günlerde sürprizler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>💬 Üyelerimizden Gelen Yorumlar</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Oğlum Arda, buradaki oyunları çok seviyor. Hem eğleniyor hem de 23 Nisan hakkında bilgi öğreniyor."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/anne-1.jpg" alt="Ayşe Hanım">
+                        <div>
+                            <h4>Ayşe Hanım</h4>
+                            <span>Arda'nın Annesi - İstanbul</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Atölye bölümündeki projeler gerçekten harika. Kızımla beraber bayrak yaptık, çok eğlendik!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/baba-1.jpg" alt="Mehmet Bey">
+                        <div>
+                            <h4>Mehmet Bey</h4>
+                            <span>Elif'in Babası - Ankara</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Blog yazıları çok faydalı. Çocuk psikolojisi hakkında çok şey öğrendim."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/anne-2.jpg" alt="Fatma Hanım">
+                        <div>
+                            <h4>Fatma Hanım</h4>
+                            <span>Can ve Selin'in Annesi - İzmir</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="security-info">
+            <h2>🔒 Güvenlik ve Gizlilik</h2>
+            <div class="security-features">
+                <div class="security-item">
+                    <div class="security-icon">🛡️</div>
+                    <h4>SSL Şifreleme</h4>
+                    <p>Tüm verileriniz güvenli bir şekilde şifrelenir</p>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon">👨‍👩‍👧‍👦</div>
+                    <h4>Aile Dostu</h4>
+                    <p>Çocuklar için güvenli içerik kontrolü</p>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon">🚫</div>
+                    <h4>Reklam Politikası</h4>
+                    <p>Çocuklara uygun reklam standartları</p>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon">📞</div>
+                    <h4>7/24 Destek</h4>
+                    <p>Her konuda yardım için buradayız</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Hakkımızda</h4>
+                <p>23 Nisan coşkusunu yıl boyu yaşatmayı hedefleyen interaktif çocuk platformu.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Hızlı Menü</h4>
+                <ul>
+                    <li><a href="etkinlikler.html">Etkinlikler</a></li>
+                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>İş Birlikleri</h4>
+                <ul>
+                    <li><a href="reklam.html">Reklam Ver</a></li>
+                    <li><a href="partner.html">Partnerlerimiz</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 - 23 Nisan Çocuk Şenliği. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleBtn = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = '👁️';
+            }
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Buraya giriş kontrolü kodları eklenecek
+            alert('Demo: Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz...');
+            window.location.href = 'index.html';
+        });
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

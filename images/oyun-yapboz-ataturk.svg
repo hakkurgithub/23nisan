@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
+  <defs>
+    <linearGradient id="ataturkBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34495E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2C3E50;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="200" fill="url(#ataturkBg)" rx="12"/>
+  
+  <!-- Atatürk portre taslağı -->
+  <ellipse cx="150" cy="80" rx="35" ry="45" fill="#F4E4BC"/>
+  <circle cx="140" cy="70" r="3" fill="#2C3E50"/>
+  <circle cx="160" cy="70" r="3" fill="#2C3E50"/>
+  <path d="M145 85 Q150 88 155 85" stroke="#2C3E50" stroke-width="1" fill="none"/>
+  <path d="M145 95 Q150 100 155 95" stroke="#2C3E50" stroke-width="2" fill="none"/>
+  
+  <!-- Şapka -->
+  <ellipse cx="150" cy="50" rx="40" ry="15" fill="#2C3E50"/>
+  
+  <!-- Yapboz parçaları -->
+  <path d="M120 120 L180 120 L180 140 L150 140 L150 130 L120 130 Z" fill="#BDC3C7" stroke="#34495E" stroke-width="2"/>
+  <path d="M120 140 L150 140 L150 150 L180 150 L180 160 L120 160 Z" fill="#D5DBDB" stroke="#34495E" stroke-width="2"/>
+  
+  <text x="150" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">🧩 Atatürk Yapboz</text>
+  <text x="150" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">🎖️ Büyük Önderi Tanıyalım</text>
+</svg>
