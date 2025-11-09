@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# SEO optimized pages
+Sitemap: https://23nisan.vercel.app/sitemap.xml
+
+# Block admin areas (if any in future)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json
+Disallow: /*.js.map
+Disallow: /*.css.map
+
+# Allow important directories
+Allow: /images/
+Allow: /videos/
+Allow: /*.css
+Allow: /*.js
