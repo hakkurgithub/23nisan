@@ -12,6 +12,55 @@
     --font-family: 'Nunito', sans-serif; /* Çocuk dostu, yuvarlak font */
 }
 
+/* Üyelik sistemi geçici olarak gizli */
+.nav-buttons {
+    display: none !important;
+}
+
+/* Ücretsiz erişim göstergesi */
+.free-access {
+    color: #4caf50;
+    font-weight: 700;
+    background-color: #e8f5e8;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* Ücretsiz erişim duyuru kutusu */
+.free-announcement {
+    background: linear-gradient(135deg, #4caf50, #45a049);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.announcement-icon {
+    font-size: 2rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.announcement-text h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+}
+
+.announcement-text p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
 body {
     font-family: var(--font-family);
     margin: 0;

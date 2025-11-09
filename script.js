@@ -143,13 +143,16 @@ function initializeGames() {
         });
     });
     
-    // Premium oyun uyarısı
-    const premiumGames = document.querySelectorAll('.premium');
-    premiumGames.forEach(game => {
+    // Ücretsiz erişim - Premium kısıtlamaları kaldırıldı
+    // Tüm oyunlar artık herkese açık
+    const allGames = document.querySelectorAll('.game-item');
+    allGames.forEach(game => {
         game.addEventListener('click', function(e) {
-            if (!isPremiumUser()) {
-                e.preventDefault();
-                showPremiumModal();
+            e.preventDefault();
+            // Oyuna direkt erişim sağla
+            const gameUrl = this.querySelector('a')?.href;
+            if (gameUrl && !gameUrl.includes('#')) {
+                window.location.href = gameUrl;
             }
         });
     });
@@ -323,9 +326,9 @@ function filterEvents(eventCards) {
     });
 }
 
-// Premium kullanıcı kontrolü (simülasyon)
+// Ücretsiz erişim - Herkes premium özelliklere erişebilir
 function isPremiumUser() {
-    return localStorage.getItem('userType') === 'premium';
+    return true; // Artık herkes premium sayılıyor
 }
 
 // Premium modal göster
