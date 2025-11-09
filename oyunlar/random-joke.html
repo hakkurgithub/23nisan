@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Rastgele Şaka - 23 Nisan Çocuk Bayramı</title>
+    <meta name="description" content="23 Nisan temalı eğlenceli rastgele şakalar! Gülümse ve eğlen!">
+    <meta name="keywords" content="çocuk şakaları, eğlence, 23 nisan, rastgele şaka">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Rastgele Şaka - 23 Nisan">
+    <meta property="og:description" content="Eğlenceli şakalarla güle güle öğren!">
+    <meta property="og:type" content="website">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .joke-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .joke-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .joke-header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .joke-header p {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+        
+        .joke-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .joke-setup {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .joke-punchline {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            line-height: 1.6;
+        }
+        
+        .joke-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .joke-btn {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-family: var(--font-family);
+        }
+        
+        .joke-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .btn-primary-joke {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary-joke:hover:not(:disabled) {
+            background-color: #c9303c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary-joke {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-secondary-joke:hover:not(:disabled) {
+            background-color: #346880;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .emoji {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .joke-container {
+                margin: 20px;
+                padding: 20px;
+            }
+            
+            .joke-header h1 {
+                font-size: 2rem;
+            }
+            
+            .joke-setup {
+                font-size: 1.1rem;
+            }
+            
+            .joke-punchline {
+                font-size: 1.3rem;
+            }
+            
+            .joke-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="23 Nisan Şenlik Logosu">
+                </a>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="../index.html">Ana Sayfa</a></li>
+                <li><a href="../etkinlikler.html">Etkinlik Takvimi</a></li>
+                <li class="active"><a href="../oyunlar.html">Oyun Köşesi</a></li>
+                <li><a href="../atolyeler.html">Atölye</a></li>
+                <li><a href="../blog.html">Blog (Ebeveyn)</a></li>
+            </ul>
+
+            <div class="nav-buttons" style="display: none;">
+                <!-- Üyelik sistemi geçici olarak askıya alındı -->
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="joke-container">
+            <div class="joke-header">
+                <h1>😄 Rastgele Şaka</h1>
+                <p>Gülmeye hazır mısın? Her tıklamada yeni bir şaka!</p>
+            </div>
+            
+            <div class="emoji">🎭</div>
+            
+            <div id="jokeCard" class="joke-card" aria-live="polite" aria-busy="false">
+                <div id="setup" class="joke-setup">Bir şaka yüklemek için butona tıkla!</div>
+                <div id="punchline" class="joke-punchline"></div>
+            </div>
+            
+            <div class="joke-buttons">
+                <button id="newJoke" class="joke-btn btn-primary-joke" aria-label="Yeni şaka getir">
+                    🎲 Yeni Şaka
+                </button>
+                <button id="speakJoke" class="joke-btn btn-secondary-joke" aria-label="Şakayı sesli oku">
+                    🔊 Sesli Oku
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Hakkımızda</h4>
+                <p>23 Nisan coşkusunu yıl boyu yaşatmayı hedefleyen interaktif çocuk platformu.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Hızlı Menü</h4>
+                <ul>
+                    <li><a href="../etkinlikler.html">Etkinlikler</a></li>
+                    <li><a href="../hakkimizda.html">Hakkımızda</a></li>
+                    <li><a href="../iletisim.html">İletişim</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>İş Birlikleri</h4>
+                <ul>
+                    <li><a href="../reklam.html">Reklam Ver</a></li>
+                    <li><a href="../partner.html">Partnerlerimiz</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 - 23 Nisan Çocuk Şenliği. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+    
+    <script src="joke.js"></script>
+</body>
+</html>
