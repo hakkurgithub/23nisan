@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23 Nisan Hafıza Kartları - 23 Nisan Oyunları</title>
+    <meta name="description" content="23 Nisan temalı hafıza kartları oyunu. Eşleştir ve hafızanı güçlendir!">
+    
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .memory-card {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            border-radius: 12px;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+            border: 3px solid transparent;
+            min-height: 100px;
+        }
+        
+        .memory-card:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-color);
+        }
+        
+        .memory-card.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .memory-card.matched {
+            transform: scale(0.95);
+            opacity: 0.7;
+            border-color: #4caf50;
+            background: linear-gradient(135deg, #4caf50, #45a049);
+        }
+        
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            backface-visibility: hidden;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .card-front {
+            background: white;
+            transform: rotateY(180deg);
+            flex-direction: column;
+            padding: 10px;
+        }
+        
+        .card-back {
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            color: white;
+        }
+        
+        .card-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .card-text {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .game-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            border: 2px solid var(--accent-color);
+            min-width: 120px;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+        
+        .difficulty-selector {
+            margin: 20px 0;
+        }
+        
+        .difficulty-btn {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: 2px solid var(--accent-color);
+            background: white;
+            color: var(--secondary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .difficulty-btn.active {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .difficulty-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .game-controls {
+            margin: 20px 0;
+        }
+        
+        .success-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .success-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            animation: celebration 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes celebration {
+            0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+            50% { transform: scale(1.1) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        
+        .fireworks {
+            position: absolute;
+            font-size: 2rem;
+            animation: firework 2s ease-in-out infinite;
+        }
+        
+        @keyframes firework {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            25% { transform: scale(1.2) rotate(90deg); opacity: 0.8; }
+            50% { transform: scale(0.8) rotate(180deg); opacity: 0.6; }
+            75% { transform: scale(1.1) rotate(270deg); opacity: 0.8; }
+        }
+        
+        @media (max-width: 768px) {
+            .game-board {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                padding: 15px;
+            }
+            
+            .memory-card {
+                min-height: 80px;
+            }
+            
+            .card-emoji {
+                font-size: 2rem;
+            }
+            
+            .card-text {
+                font-size: 0.7rem;
+            }
+            
+            .game-stats {
+                gap: 15px;
+            }
+            
+            .stat-item {
+                padding: 10px 15px;
+                min-width: 90px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .game-board {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.svg" alt="23 Nisan Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Ana Sayfa</a></li>
+                <li><a href="../oyunlar.html" class="active">Oyunlar</a></li>
+                <li><a href="../atolyeler.html">Atölyeler</a></li>
+                <li><a href="../etkinlikler.html">Etkinlikler</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="game-container">
+            <h1>🧠 23 Nisan Hafıza Kartları</h1>
+            <p>Aynı kartları eşleştirerek hafızanı test et! 23 Nisan temalı sembolleri bul.</p>
+            
+            <div class="difficulty-selector">
+                <h4>Zorluk Seviyesi Seç:</h4>
+                <button class="difficulty-btn" data-level="easy">🟢 Kolay (3x3)</button>
+                <button class="difficulty-btn active" data-level="medium">🟡 Orta (4x4)</button>
+                <button class="difficulty-btn" data-level="hard">🔴 Zor (5x4)</button>
+            </div>
+            
+            <div class="game-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="moves">0</div>
+                    <div class="stat-label">Hamle</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="matches">0</div>
+                    <div class="stat-label">Eşleşme</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="timer">00:00</div>
+                    <div class="stat-label">Süre</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="score">0</div>
+                    <div class="stat-label">Puan</div>
+                </div>
+            </div>
+            
+            <div class="game-board" id="gameBoard">
+                <!-- Kartlar buraya dinamik olarak eklenecek -->
+            </div>
+            
+            <div class="game-controls">
+                <button class="btn btn-primary" onclick="startNewGame()">🎮 Yeni Oyun</button>
+                <button class="btn btn-secondary" onclick="showHint()">💡 İpucu</button>
+                <button class="btn btn-secondary" onclick="goBack()">🏠 Geri Dön</button>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Başarı Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="fireworks" style="top: 10px; left: 10px;">🎆</div>
+            <div class="fireworks" style="top: 10px; right: 10px; animation-delay: 0.5s;">✨</div>
+            <div class="fireworks" style="bottom: 10px; left: 10px; animation-delay: 1s;">🎊</div>
+            <div class="fireworks" style="bottom: 10px; right: 10px; animation-delay: 1.5s;">🌟</div>
+            
+            <h2>🎉 Tebrikler!</h2>
+            <p>Hafıza oyununu başarıyla tamamladın!</p>
+            <div id="finalStats"></div>
+            <br>
+            <button class="btn btn-primary" onclick="startNewGame()">🔄 Tekrar Oyna</button>
+            <button class="btn btn-secondary" onclick="closeModal()">✅ Tamam</button>
+        </div>
+    </div>
+
+    <script>
+        // 23 Nisan temalı kartlar
+        const cardSymbols = [
+            { emoji: '🇹🇷', text: 'Türk\nBayrağı' },
+            { emoji: '👨‍🎓', text: 'Atatürk' },
+            { emoji: '👶', text: 'Çocuk' },
+            { emoji: '🎊', text: 'Bayram' },
+            { emoji: '🏛️', text: 'TBMM' },
+            { emoji: '📚', text: 'Eğitim' },
+            { emoji: '🎭', text: 'Tiyatro' },
+            { emoji: '🎵', text: 'Müzik' },
+            { emoji: '🎨', text: 'Sanat' },
+            { emoji: '⭐', text: 'Yıldız' },
+            { emoji: '🌙', text: 'Ay' },
+            { emoji: '🕊️', text: 'Barış' },
+            { emoji: '🎪', text: 'Şenlik' },
+            { emoji: '🎈', text: 'Balon' },
+            { emoji: '🎯', text: 'Hedef' },
+            { emoji: '🏃‍♂️', text: 'Koşu' },
+            { emoji: '⚽', text: 'Futbol' },
+            { emoji: '📖', text: 'Kitap' },
+            { emoji: '✏️', text: 'Kalem' },
+            { emoji: '🎪', text: 'Etkinlik' }
+        ];
+
+        let gameState = {
+            cards: [],
+            flippedCards: [],
+            moves: 0,
+            matches: 0,
+            startTime: null,
+            timerInterval: null,
+            score: 0,
+            difficulty: 'medium',
+            totalPairs: 0,
+            isGameActive: false
+        };
+
+        const difficultySettings = {
+            easy: { cols: 3, rows: 3, pairs: 4 },
+            medium: { cols: 4, rows: 4, pairs: 8 },
+            hard: { cols: 5, rows: 4, pairs: 10 }
+        };
+
+        function initGame() {
+            setupDifficultyButtons();
+            startNewGame();
+        }
+
+        function setupDifficultyButtons() {
+            const buttons = document.querySelectorAll('.difficulty-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    gameState.difficulty = btn.dataset.level;
+                    startNewGame();
+                });
+            });
+        }
+
+        function startNewGame() {
+            gameState = {
+                ...gameState,
+                cards: [],
+                flippedCards: [],
+                moves: 0,
+                matches: 0,
+                startTime: null,
+                score: 0,
+                isGameActive: true
+            };
+
+            const settings = difficultySettings[gameState.difficulty];
+            gameState.totalPairs = settings.pairs;
+
+            createGameBoard();
+            updateStats();
+            closeModal();
+        }
+
+        function createGameBoard() {
+            const board = document.getElementById('gameBoard');
+            const settings = difficultySettings[gameState.difficulty];
+            
+            // Grid ayarları
+            board.style.gridTemplateColumns = `repeat(${settings.cols}, 1fr)`;
+            board.innerHTML = '';
+
+            // Kart çiftleri oluştur
+            const selectedSymbols = cardSymbols.slice(0, settings.pairs);
+            const cards = [...selectedSymbols, ...selectedSymbols];
+            
+            // Kartları karıştır
+            cards.sort(() => Math.random() - 0.5);
+
+            // DOM elementleri oluştur
+            cards.forEach((symbol, index) => {
+                const card = createCard(symbol, index);
+                board.appendChild(card);
+                gameState.cards.push(card);
+            });
+        }
+
+        function createCard(symbol, index) {
+            const card = document.createElement('div');
+            card.className = 'memory-card';
+            card.dataset.symbol = symbol.emoji;
+            card.dataset.index = index;
+
+            card.innerHTML = `
+                <div class="card-face card-back">
+                    <div>🎪</div>
+                </div>
+                <div class="card-face card-front">
+                    <div class="card-emoji">${symbol.emoji}</div>
+                    <div class="card-text">${symbol.text}</div>
+                </div>
+            `;
+
+            card.addEventListener('click', () => flipCard(card));
+            return card;
+        }
+
+        function flipCard(card) {
+            if (!gameState.isGameActive || 
+                card.classList.contains('flipped') || 
+                card.classList.contains('matched') ||
+                gameState.flippedCards.length >= 2) {
+                return;
+            }
+
+            // İlk hamle
+            if (gameState.startTime === null) {
+                gameState.startTime = Date.now();
+                gameState.timerInterval = setInterval(updateTimer, 1000);
+            }
+
+            // Kartı çevir
+            card.classList.add('flipped');
+            gameState.flippedCards.push(card);
+
+            // İki kart çevrildi mi?
+            if (gameState.flippedCards.length === 2) {
+                gameState.moves++;
+                updateStats();
+                
+                setTimeout(() => {
+                    checkMatch();
+                }, 1000);
+            }
+        }
+
+        function checkMatch() {
+            const [card1, card2] = gameState.flippedCards;
+            const symbol1 = card1.dataset.symbol;
+            const symbol2 = card2.dataset.symbol;
+
+            if (symbol1 === symbol2) {
+                // Eşleşme var
+                card1.classList.add('matched');
+                card2.classList.add('matched');
+                gameState.matches++;
+                gameState.score += 100;
+
+                // Confetti efekti
+                createConfetti(card1);
+                createConfetti(card2);
+
+                // Oyun bitti mi?
+                if (gameState.matches === gameState.totalPairs) {
+                    setTimeout(gameCompleted, 500);
+                }
+            } else {
+                // Eşleşme yok
+                card1.classList.remove('flipped');
+                card2.classList.remove('flipped');
+                gameState.score = Math.max(0, gameState.score - 10);
+            }
+
+            gameState.flippedCards = [];
+            updateStats();
+        }
+
+        function createConfetti(element) {
+            const rect = element.getBoundingClientRect();
+            const emojis = ['✨', '🌟', '🎊', '🎉', '💫'];
+
+            for (let i = 0; i < 8; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.left = rect.left + rect.width/2 + 'px';
+                confetti.style.top = rect.top + rect.height/2 + 'px';
+                confetti.style.fontSize = '1.5rem';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.zIndex = '1000';
+                confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+                const angle = (360 / 8) * i;
+                const distance = 50 + Math.random() * 50;
+                
+                confetti.style.animation = `
+                    confettiPop 1s ease-out forwards
+                `;
+                
+                confetti.style.setProperty('--angle', angle + 'deg');
+                confetti.style.setProperty('--distance', distance + 'px');
+
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 1000);
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('moves').textContent = gameState.moves;
+            document.getElementById('matches').textContent = `${gameState.matches}/${gameState.totalPairs}`;
+            document.getElementById('score').textContent = gameState.score;
+        }
+
+        function updateTimer() {
+            if (!gameState.startTime) return;
+
+            const elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+
+            document.getElementById('timer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function showHint() {
+            if (gameState.flippedCards.length > 0) return;
+
+            // Rastgele iki eşleşen kartı kısa süre göster
+            const unmatchedCards = gameState.cards.filter(card => 
+                !card.classList.contains('matched')
+            );
+
+            if (unmatchedCards.length < 2) return;
+
+            // Aynı sembolden iki kart bul
+            const symbols = {};
+            unmatchedCards.forEach(card => {
+                const symbol = card.dataset.symbol;
+                if (!symbols[symbol]) symbols[symbol] = [];
+                symbols[symbol].push(card);
+            });
+
+            for (let symbol in symbols) {
+                if (symbols[symbol].length >= 2) {
+                    const [card1, card2] = symbols[symbol];
+                    
+                    card1.style.border = '3px solid #FFD700';
+                    card2.style.border = '3px solid #FFD700';
+                    
+                    setTimeout(() => {
+                        card1.style.border = '';
+                        card2.style.border = '';
+                    }, 2000);
+                    
+                    break;
+                }
+            }
+
+            gameState.score = Math.max(0, gameState.score - 20);
+            updateStats();
+        }
+
+        function gameCompleted() {
+            gameState.isGameActive = false;
+            clearInterval(gameState.timerInterval);
+
+            const elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+            // Süre bonusu
+            if (elapsed < 60) gameState.score += 200;
+            else if (elapsed < 120) gameState.score += 100;
+            else if (elapsed < 180) gameState.score += 50;
+
+            // Hamle bonusu
+            const perfectMoves = gameState.totalPairs;
+            if (gameState.moves <= perfectMoves * 1.5) {
+                gameState.score += 150;
+            }
+
+            const finalStats = `
+                <p><strong>Süre:</strong> ${timeString}</p>
+                <p><strong>Hamle:</strong> ${gameState.moves}</p>
+                <p><strong>Final Puan:</strong> ${gameState.score}</p>
+            `;
+
+            document.getElementById('finalStats').innerHTML = finalStats;
+            document.getElementById('successModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        function goBack() {
+            window.location.href = '../oyunlar.html';
+        }
+
+        // Confetti animasyonu için CSS ekle
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes confettiPop {
+                0% {
+                    transform: translate(0, 0) scale(1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: 
+                        translate(
+                            calc(cos(var(--angle)) * var(--distance)),
+                            calc(sin(var(--angle)) * var(--distance))
+                        ) 
+                        scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Oyunu başlat
+        window.addEventListener('load', initGame);
+    </script>
+</body>
+</html>

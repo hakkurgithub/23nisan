@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türk Bayrağı Boyama - 23 Nisan Oyunları</title>
+    <meta name="description" content="Türk bayrağını dilediğin gibi boya! Eğlenceli ve eğitici boyama oyunu.">
+    
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .game-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .canvas-container {
+            background: white;
+            border: 3px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        #drawingCanvas {
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            cursor: crosshair;
+        }
+        
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 15px;
+            background: var(--light-bg);
+            border-radius: 15px;
+        }
+        
+        .color-btn {
+            width: 50px;
+            height: 50px;
+            border: 3px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .color-btn:hover {
+            transform: scale(1.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .color-btn.active {
+            border-color: var(--secondary-color);
+            border-width: 4px;
+            transform: scale(1.1);
+        }
+        
+        .tools-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .tool-group {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            border: 2px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .brush-size {
+            width: 80px;
+        }
+        
+        .game-controls {
+            margin: 20px 0;
+        }
+        
+        .btn {
+            margin: 0 5px;
+            padding: 10px 20px;
+        }
+        
+        .flag-template {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            opacity: 0.3;
+            pointer-events: none;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .instructions {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .gallery {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .gallery-item {
+            width: 100px;
+            height: 60px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.1);
+            border-color: var(--primary-color);
+        }
+        
+        .save-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .save-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+        }
+        
+        @media (max-width: 768px) {
+            #drawingCanvas {
+                width: 300px;
+                height: 200px;
+            }
+            
+            .color-palette {
+                gap: 5px;
+            }
+            
+            .color-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.svg" alt="23 Nisan Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Ana Sayfa</a></li>
+                <li><a href="../oyunlar.html" class="active">Oyunlar</a></li>
+                <li><a href="../atolyeler.html">Atölyeler</a></li>
+                <li><a href="../etkinlikler.html">Etkinlikler</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="game-container">
+            <h1>🎨 Türk Bayrağı Boyama</h1>
+            <p>Ay-yıldızlı bayrağımızı dilediğin renklerle boya! Yaratıcılığını konuştur.</p>
+            
+            <div class="instructions">
+                <h4>🚀 Nasıl Oynanır?</h4>
+                <p>
+                    1. Aşağıdan bir renk seç<br>
+                    2. Fırça boyutunu ayarla<br>
+                    3. Tuval üzerinde boyamaya başla<br>
+                    4. İstediğin kadar yaratıcı ol!
+                </p>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="drawingCanvas" width="500" height="300"></canvas>
+                <div class="flag-template" id="flagTemplate">
+                    Türk Bayrağı Şablonu
+                </div>
+            </div>
+            
+            <div class="color-palette">
+                <div class="color-btn active" style="background-color: #E63946;" data-color="#E63946" title="Kırmızı"></div>
+                <div class="color-btn" style="background-color: #FFFFFF; border-color: #ccc;" data-color="#FFFFFF" title="Beyaz"></div>
+                <div class="color-btn" style="background-color: #FFD60A;" data-color="#FFD60A" title="Sarı"></div>
+                <div class="color-btn" style="background-color: #003566;" data-color="#003566" title="Lacivert"></div>
+                <div class="color-btn" style="background-color: #06D6A0;" data-color="#06D6A0" title="Yeşil"></div>
+                <div class="color-btn" style="background-color: #F72585;" data-color="#F72585" title="Pembe"></div>
+                <div class="color-btn" style="background-color: #7209B7;" data-color="#7209B7" title="Mor"></div>
+                <div class="color-btn" style="background-color: #FF8500;" data-color="#FF8500" title="Turuncu"></div>
+                <div class="color-btn" style="background-color: #8B5CF6;" data-color="#8B5CF6" title="Lila"></div>
+                <div class="color-btn" style="background-color: #1F2937;" data-color="#1F2937" title="Siyah"></div>
+            </div>
+            
+            <div class="tools-container">
+                <div class="tool-group">
+                    <label>🖌️ Fırça Boyutu:</label>
+                    <input type="range" class="brush-size" id="brushSize" min="2" max="30" value="8">
+                    <span id="brushSizeValue">8px</span>
+                </div>
+                
+                <div class="tool-group">
+                    <button class="btn btn-secondary" onclick="drawFlag()">🇹🇷 Bayrak Çiz</button>
+                    <button class="btn btn-secondary" onclick="clearCanvas()">🗑️ Temizle</button>
+                </div>
+            </div>
+            
+            <div class="game-controls">
+                <button class="btn btn-primary" onclick="saveDrawing()">💾 Kaydet</button>
+                <button class="btn btn-secondary" onclick="downloadDrawing()">⬇️ İndir</button>
+                <button class="btn btn-secondary" onclick="goBack()">🏠 Geri Dön</button>
+            </div>
+            
+            <div class="gallery" id="gallery">
+                <h4 style="width: 100%; margin: 10px 0;">🖼️ Kayıtlı Çizimlerim</h4>
+                <!-- Kayıtlı çizimler buraya gelecek -->
+            </div>
+        </div>
+    </main>
+    
+    <!-- Kaydetme Modal -->
+    <div class="save-modal" id="saveModal">
+        <div class="save-content">
+            <h3>🎉 Çizimin Kaydedildi!</h3>
+            <p>Harika bir çalışma! Çizimin başarıyla kaydedildi.</p>
+            <canvas id="previewCanvas" width="200" height="120" style="border: 1px solid #ccc; border-radius: 8px;"></canvas>
+            <br><br>
+            <button class="btn btn-primary" onclick="closeModal()">✅ Tamam</button>
+            <button class="btn btn-secondary" onclick="drawNew()">🎨 Yeni Çizim</button>
+        </div>
+    </div>
+
+    <script>
+        let canvas, ctx;
+        let isDrawing = false;
+        let currentColor = '#E63946';
+        let currentBrushSize = 8;
+        let savedDrawings = [];
+
+        function initCanvas() {
+            canvas = document.getElementById('drawingCanvas');
+            ctx = canvas.getContext('2d');
+            
+            // Canvas arka planını beyaz yap
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Mouse events
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseout', stopDrawing);
+            
+            // Touch events for mobile
+            canvas.addEventListener('touchstart', handleTouch);
+            canvas.addEventListener('touchmove', handleTouch);
+            canvas.addEventListener('touchend', stopDrawing);
+            
+            // Prevent scrolling on touch
+            canvas.addEventListener('touchstart', e => e.preventDefault());
+            canvas.addEventListener('touchmove', e => e.preventDefault());
+            
+            // Color palette
+            setupColorPalette();
+            
+            // Brush size
+            setupBrushSize();
+            
+            // Load saved drawings
+            loadSavedDrawings();
+            
+            // Draw initial flag template
+            drawFlag();
+        }
+
+        function setupColorPalette() {
+            const colorButtons = document.querySelectorAll('.color-btn');
+            colorButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    colorButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentColor = btn.dataset.color;
+                });
+            });
+        }
+
+        function setupBrushSize() {
+            const brushSizeSlider = document.getElementById('brushSize');
+            const brushSizeValue = document.getElementById('brushSizeValue');
+            
+            brushSizeSlider.addEventListener('input', (e) => {
+                currentBrushSize = e.target.value;
+                brushSizeValue.textContent = currentBrushSize + 'px';
+            });
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            draw(e);
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            
+            const rect = canvas.getBoundingClientRect();
+            const x = (e.clientX || e.touches[0].clientX) - rect.left;
+            const y = (e.clientY || e.touches[0].clientY) - rect.top;
+            
+            ctx.lineWidth = currentBrushSize;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = currentColor;
+            
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+
+        function stopDrawing() {
+            if (isDrawing) {
+                isDrawing = false;
+                ctx.beginPath();
+            }
+        }
+
+        function handleTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : 'mousemove', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }
+
+        function clearCanvas() {
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function drawFlag() {
+            clearCanvas();
+            
+            // Kırmızı arka plan
+            ctx.fillStyle = '#E63946';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Ay
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(180, 150, 40, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Ay'ın içindeki çukur
+            ctx.fillStyle = '#E63946';
+            ctx.beginPath();
+            ctx.arc(195, 150, 32, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Yıldız
+            drawStar(280, 150, 5, 25, 12);
+        }
+
+        function drawStar(x, y, spikes, outerRadius, innerRadius) {
+            let rot = Math.PI / 2 * 3;
+            let stepAngle = Math.PI / spikes;
+            
+            ctx.beginPath();
+            ctx.moveTo(x, y - outerRadius);
+            
+            for (let i = 0; i < spikes; i++) {
+                let x1 = x + Math.cos(rot) * outerRadius;
+                let y1 = y + Math.sin(rot) * outerRadius;
+                ctx.lineTo(x1, y1);
+                rot += stepAngle;
+                
+                x1 = x + Math.cos(rot) * innerRadius;
+                y1 = y + Math.sin(rot) * innerRadius;
+                ctx.lineTo(x1, y1);
+                rot += stepAngle;
+            }
+            
+            ctx.lineTo(x, y - outerRadius);
+            ctx.closePath();
+            ctx.fillStyle = 'white';
+            ctx.fill();
+        }
+
+        function saveDrawing() {
+            const dataURL = canvas.toDataURL();
+            const timestamp = new Date().toLocaleString('tr-TR');
+            
+            const drawing = {
+                id: Date.now(),
+                data: dataURL,
+                timestamp: timestamp
+            };
+            
+            savedDrawings.push(drawing);
+            localStorage.setItem('turkishFlagDrawings', JSON.stringify(savedDrawings));
+            
+            // Preview'e küçük versiyonu çiz
+            const previewCanvas = document.getElementById('previewCanvas');
+            const previewCtx = previewCanvas.getContext('2d');
+            const img = new Image();
+            img.onload = function() {
+                previewCtx.drawImage(img, 0, 0, 200, 120);
+            };
+            img.src = dataURL;
+            
+            // Gallery'yi güncelle
+            updateGallery();
+            
+            // Modal'ı göster
+            document.getElementById('saveModal').style.display = 'flex';
+        }
+
+        function loadSavedDrawings() {
+            const saved = localStorage.getItem('turkishFlagDrawings');
+            if (saved) {
+                savedDrawings = JSON.parse(saved);
+                updateGallery();
+            }
+        }
+
+        function updateGallery() {
+            const gallery = document.getElementById('gallery');
+            const title = gallery.querySelector('h4');
+            gallery.innerHTML = '';
+            gallery.appendChild(title);
+            
+            savedDrawings.forEach(drawing => {
+                const item = document.createElement('canvas');
+                item.className = 'gallery-item';
+                item.width = 100;
+                item.height = 60;
+                item.title = `Çizim: ${drawing.timestamp}`;
+                
+                const itemCtx = item.getContext('2d');
+                const img = new Image();
+                img.onload = function() {
+                    itemCtx.drawImage(img, 0, 0, 100, 60);
+                };
+                img.src = drawing.data;
+                
+                item.addEventListener('click', () => {
+                    loadDrawing(drawing.data);
+                });
+                
+                gallery.appendChild(item);
+            });
+        }
+
+        function loadDrawing(dataURL) {
+            const img = new Image();
+            img.onload = function() {
+                clearCanvas();
+                ctx.drawImage(img, 0, 0);
+            };
+            img.src = dataURL;
+        }
+
+        function downloadDrawing() {
+            const link = document.createElement('a');
+            link.download = `turk-bayragi-${Date.now()}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        function closeModal() {
+            document.getElementById('saveModal').style.display = 'none';
+        }
+
+        function drawNew() {
+            closeModal();
+            clearCanvas();
+        }
+
+        function goBack() {
+            window.location.href = '../oyunlar.html';
+        }
+
+        // Oyunu başlat
+        window.addEventListener('load', initCanvas);
+    </script>
+</body>
+</html>

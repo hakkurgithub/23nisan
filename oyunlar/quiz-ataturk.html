@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atatürk ve 23 Nisan Bilgi Yarışması - 23 Nisan Oyunları</title>
+    <meta name="description" content="Atatürk ve 23 Nisan hakkında bilgini test et! Eğlenceli bilgi yarışması oyunu.">
+    
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .quiz-container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px auto;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            min-height: 400px;
+            position: relative;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+        
+        .question-counter {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .question-text {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            line-height: 1.5;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .answers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .answer-btn {
+            padding: 20px;
+            border: 3px solid var(--accent-color);
+            background: white;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            color: var(--secondary-color);
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .answer-btn:hover {
+            background: var(--light-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        
+        .answer-btn.correct {
+            background: #4caf50;
+            color: white;
+            border-color: #4caf50;
+            animation: correct-pulse 0.6s ease;
+        }
+        
+        .answer-btn.wrong {
+            background: #f44336;
+            color: white;
+            border-color: #f44336;
+            animation: wrong-shake 0.6s ease;
+        }
+        
+        .answer-btn.disabled {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        @keyframes correct-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes wrong-shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        .game-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 20px;
+            border: 2px solid var(--accent-color);
+            min-width: 100px;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+        
+        .next-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .next-btn.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .next-btn:hover {
+            background: #d32f2f;
+            transform: translateY(-2px);
+        }
+        
+        .result-screen {
+            display: none;
+            text-align: center;
+        }
+        
+        .result-score {
+            font-size: 4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 20px 0;
+        }
+        
+        .result-message {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            color: var(--secondary-color);
+        }
+        
+        .score-breakdown {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .score-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        
+        .medal {
+            font-size: 5rem;
+            margin: 20px 0;
+            animation: medal-bounce 2s ease infinite;
+        }
+        
+        @keyframes medal-bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(-5deg); }
+            75% { transform: translateY(-5px) rotate(5deg); }
+        }
+        
+        .quiz-start {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .difficulty-selector {
+            margin: 30px 0;
+        }
+        
+        .difficulty-btn {
+            padding: 15px 25px;
+            margin: 0 10px;
+            border: 2px solid var(--accent-color);
+            background: white;
+            color: var(--secondary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .difficulty-btn.active {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .difficulty-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .answers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .game-stats {
+                gap: 15px;
+            }
+            
+            .stat-item {
+                padding: 10px 15px;
+                min-width: 80px;
+            }
+            
+            .quiz-container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .question-text {
+                font-size: 1.2rem;
+            }
+            
+            .difficulty-btn {
+                display: block;
+                margin: 10px auto;
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.svg" alt="23 Nisan Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Ana Sayfa</a></li>
+                <li><a href="../oyunlar.html" class="active">Oyunlar</a></li>
+                <li><a href="../atolyeler.html">Atölyeler</a></li>
+                <li><a href="../etkinlikler.html">Etkinlikler</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="game-container">
+            <h1>🎯 Atatürk ve 23 Nisan Bilgi Yarışması</h1>
+            <p>Büyük Önder Atatürk ve 23 Nisan Çocuk Bayramı hakkında bilgini test et!</p>
+            
+            <div class="game-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="currentQuestion">0</div>
+                    <div class="stat-label">Soru</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="correctAnswers">0</div>
+                    <div class="stat-label">Doğru</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="score">0</div>
+                    <div class="stat-label">Puan</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="timer">30</div>
+                    <div class="stat-label">Süre</div>
+                </div>
+            </div>
+            
+            <div class="quiz-container">
+                <!-- Başlangıç Ekranı -->
+                <div class="quiz-start" id="startScreen">
+                    <h2>🚀 Bilgi Yarışmasına Hoş Geldin!</h2>
+                    <p>Zorluk seviyeni seç ve yarışmaya başla!</p>
+                    
+                    <div class="difficulty-selector">
+                        <button class="difficulty-btn" data-level="easy">🟢 Kolay (10 Soru)</button>
+                        <button class="difficulty-btn active" data-level="medium">🟡 Orta (15 Soru)</button>
+                        <button class="difficulty-btn" data-level="hard">🔴 Zor (20 Soru)</button>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-large" onclick="startQuiz()">🎮 Yarışmaya Başla!</button>
+                </div>
+                
+                <!-- Quiz Ekranı -->
+                <div class="quiz-screen" id="quizScreen" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    
+                    <div class="question-counter" id="questionCounter">Soru 1 / 10</div>
+                    
+                    <div class="question-text" id="questionText">
+                        Soru yükleniyor...
+                    </div>
+                    
+                    <div class="answers-grid" id="answersGrid">
+                        <!-- Cevap butonları buraya gelecek -->
+                    </div>
+                    
+                    <button class="next-btn" id="nextBtn" onclick="nextQuestion()">
+                        Sonraki Soru →
+                    </button>
+                </div>
+                
+                <!-- Sonuç Ekranı -->
+                <div class="result-screen" id="resultScreen">
+                    <div class="medal" id="medalIcon">🏆</div>
+                    <div class="result-score" id="finalScore">0</div>
+                    <div class="result-message" id="resultMessage">Harika!</div>
+                    
+                    <div class="score-breakdown">
+                        <div class="score-item">
+                            <span>Doğru Cevaplar:</span>
+                            <span id="finalCorrect">0/10</span>
+                        </div>
+                        <div class="score-item">
+                            <span>Başarı Oranı:</span>
+                            <span id="successRate">0%</span>
+                        </div>
+                        <div class="score-item">
+                            <span>Bonus Puanlar:</span>
+                            <span id="bonusPoints">0</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="resetQuiz()">🔄 Tekrar Oyna</button>
+                    <button class="btn btn-secondary" onclick="goBack()">🏠 Geri Dön</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Soru bankası
+        const questionBank = {
+            easy: [
+                {
+                    question: "23 Nisan hangi yıl Çocuk Bayramı ilan edildi?",
+                    answers: ["1921", "1929", "1935", "1920"],
+                    correct: 1
+                },
+                {
+                    question: "Atatürk'ün gerçek adı nedir?",
+                    answers: ["Mustafa Kemal", "Mehmet Ali", "İsmet İnönü", "Enver Paşa"],
+                    correct: 0
+                },
+                {
+                    question: "23 Nisan neyin açılış günüdür?",
+                    answers: ["Okul", "TBMM", "Hastane", "Müze"],
+                    correct: 1
+                },
+                {
+                    question: "Türk bayrağında kaç yıldız vardır?",
+                    answers: ["2", "3", "1", "5"],
+                    correct: 2
+                },
+                {
+                    question: "Atatürk kaç yaşında vefat etti?",
+                    answers: ["55", "57", "59", "61"],
+                    correct: 1
+                },
+                {
+                    question: "Hangi şehir Türkiye'nin başkentidir?",
+                    answers: ["İstanbul", "İzmir", "Ankara", "Bursa"],
+                    correct: 2
+                },
+                {
+                    question: "23 Nisan'da çocuklar ne yapar?",
+                    answers: ["Uyur", "Şenlik yapar", "Ders çalışır", "Çalışır"],
+                    correct: 1
+                },
+                {
+                    question: "TBMM ne demektir?",
+                    answers: ["Türkiye Büyük Millet Meclisi", "Türk Birlik Merkez Müdürlüğü", "Türkiye Bayrak Müze Merkezi", "Türk Barış Merkez Müdürlüğü"],
+                    correct: 0
+                },
+                {
+                    question: "Atatürk'ün çocuklar için söylediği ünlü sözü hangisidir?",
+                    answers: ["Yarın sizsiniz", "Geleceğe koşun", "Çocuklar geleceğimizdir", "Yavrularım"],
+                    correct: 0
+                },
+                {
+                    question: "23 Nisan'da hangi renk bayraklar asılır?",
+                    answers: ["Mavi-beyaz", "Kırmızı-beyaz", "Yeşil-kırmızı", "Sarı-mavi"],
+                    correct: 1
+                }
+            ],
+            medium: [
+                {
+                    question: "Atatürk 23 Nisan'ı çocuklara hangi yıl armağan etti?",
+                    answers: ["1920", "1921", "1929", "1935"],
+                    correct: 2
+                },
+                {
+                    question: "İlk Çocuk Bayramı kutlaması hangi şehirde yapıldı?",
+                    answers: ["İstanbul", "Ankara", "İzmir", "Samsun"],
+                    correct: 1
+                },
+                {
+                    question: "Atatürk'ün çocuklara dair ünlü sözü hangisidir?",
+                    answers: ["Büyüyünce anlarsınız", "Türk çocuğu! Senin birinci vazifen...", "Çocuklar oyun oynasın", "Okula gidin"],
+                    correct: 1
+                },
+                {
+                    question: "23 Nisan, dünyada çocuklara armağan edilen ilk gün müdür?",
+                    answers: ["Hayır", "Evet", "Bilmiyorum", "Belki"],
+                    correct: 1
+                },
+                {
+                    question: "TBMM kaç üyeden oluşur?",
+                    answers: ["550", "600", "650", "500"],
+                    correct: 1
+                },
+                {
+                    question: "Atatürk'ün doğum tarihi nedir?",
+                    answers: ["1880", "1881", "1882", "1883"],
+                    correct: 1
+                },
+                {
+                    question: "İlk kadın milletvekilleri hangi yıl TBMM'ye girdi?",
+                    answers: ["1930", "1934", "1935", "1940"],
+                    correct: 2
+                },
+                {
+                    question: "Milli Egemenlik kavramını kim getirdi?",
+                    answers: ["İnönü", "Atatürk", "Bayar", "Özal"],
+                    correct: 1
+                },
+                {
+                    question: "23 Nisan 1920'de açılan meclisin adı nedir?",
+                    answers: ["Osmanlı Meclisi", "Türkiye Büyük Millet Meclisi", "Milli Meclis", "Genel Meclis"],
+                    correct: 1
+                },
+                {
+                    question: "Çocuk Bayramı'nda çocuklar geleneksel olarak ne yapar?",
+                    answers: ["Resital verirler", "Meclis'e çıkarlar", "Dans ederler", "Hepsi"],
+                    correct: 3
+                },
+                {
+                    question: "Atatürk hangi savaşta ün kazandı?",
+                    answers: ["Balkan Savaşı", "Çanakkale Savaşı", "1. Dünya Savaşı", "İstiklal Savaşı"],
+                    correct: 1
+                },
+                {
+                    question: "23 Nisan'ın uluslararası tanınması hangi yıl oldu?",
+                    answers: ["1979", "1980", "1981", "1982"],
+                    correct: 0
+                },
+                {
+                    question: "Türkiye Cumhuriyeti'nin kurucusu kimdir?",
+                    answers: ["İsmet İnönü", "Mustafa Kemal Atatürk", "Celal Bayar", "Fevzi Çakmak"],
+                    correct: 1
+                },
+                {
+                    question: "23 Nisan'da çocuklar hangi koltuğa otururlar?",
+                    answers: ["Bakan koltuğu", "Başbakan koltuğu", "Cumhurbaşkanı koltuğu", "Meclis Başkanı koltuğu"],
+                    correct: 3
+                },
+                {
+                    question: "Atatürk'ün çocuklara verdiği mesajın ana teması nedir?",
+                    answers: ["Eğitim", "Spor", "Gelecek ve sorumluluk", "Sanat"],
+                    correct: 2
+                }
+            ],
+            hard: [
+                {
+                    question: "TBMM'nin açılışında kaç mebus vardı?",
+                    answers: ["337", "356", "372", "392"],
+                    correct: 0
+                },
+                {
+                    question: "Atatürk'ün 'Çocuk' konulu ilk konuşması hangi tarihte yapılmıştır?",
+                    answers: ["23 Nisan 1920", "23 Nisan 1921", "23 Nisan 1922", "23 Nisan 1929"],
+                    correct: 3
+                },
+                {
+                    question: "İlk Uluslararası Çocuk Şenliği hangi yıl düzenlenmiştir?",
+                    answers: ["1979", "1980", "1981", "1982"],
+                    correct: 0
+                },
+                {
+                    question: "23 Nisan'ın 'Dünya Çocukları Günü' olarak UNESCO tarafından kabulü hangi yıldır?",
+                    answers: ["1979", "1980", "1981", "1983"],
+                    correct: 0
+                },
+                {
+                    question: "Atatürk'ün çocuklarla ilgili en ünlü fotoğrafı hangi yıl çekilmiştir?",
+                    answers: ["1922", "1923", "1925", "1927"],
+                    correct: 1
+                },
+                {
+                    question: "TBMM binasının mimarı kimdir?",
+                    answers: ["Vedat Tek", "Clemens Holzmeister", "Sedad Hakkı Eldem", "Henri Prost"],
+                    correct: 1
+                },
+                {
+                    question: "İlk 23 Nisan kutlamalarında çocuklar TBMM'de hangi görevleri üstlendi?",
+                    answers: ["Sadece dinleyici", "Meclis Başkanlığı", "Bakan yardımcılığı", "Hepsi"],
+                    correct: 1
+                },
+                {
+                    question: "Atatürk'ün çocuklara armağan ettiği 23 Nisan'ın felsefi temeli nedir?",
+                    answers: ["Milli egemenlik", "Çocuk hakları", "Geleceğe güven", "Hepsi"],
+                    correct: 3
+                },
+                {
+                    question: "İlk çocuk meclisi hangi okul öğrencilerinden oluştu?",
+                    answers: ["Galatasaray Lisesi", "Ankara Erkek Lisesi", "İstanbul Erkek Lisesi", "Çeşitli okullar"],
+                    correct: 3
+                },
+                {
+                    question: "23 Nisan 1920'de mecliste yapılan ilk oturum kaç saat sürdü?",
+                    answers: ["2 saat", "3 saat", "4 saat", "5 saat"],
+                    correct: 2
+                },
+                {
+                    question: "Atatürk'ün çocuk sevgisini gösteren ilk belgelenmiş olay hangi savaştadır?",
+                    answers: ["Balkan Savaşı", "Trablusgarp", "Çanakkale", "Kurtuluş Savaşı"],
+                    correct: 2
+                },
+                {
+                    question: "23 Nisan'ın çocuklara armağan edilmesinin ardındaki politik düşünce nedir?",
+                    answers: ["Çocuk hakları", "Geleceğe yatırım", "Milli birlik", "Tümü"],
+                    correct: 3
+                },
+                {
+                    question: "İlk kez 23 Nisan'da TBMM'ye gelen çocuk kaç yaşındaydı?",
+                    answers: ["7", "8", "9", "10"],
+                    correct: 1
+                },
+                {
+                    question: "Atatürk'ün çocuklara olan yaklaşımının temel felsefesi nedir?",
+                    answers: ["Eğitim odaklı", "Gelecek odaklı", "Hak odaklı", "Sorumluluk odaklı"],
+                    correct: 1
+                },
+                {
+                    question: "23 Nisan geleneğinin dünyaya yayılmasında etkili olan uluslararası kuruluş hangisidir?",
+                    answers: ["UNICEF", "UNESCO", "BM", "AVRUPA KONSEYİ"],
+                    correct: 1
+                },
+                {
+                    question: "TBMM'nin açılışında okunan ilk kanun teklifi neydi?",
+                    answers: ["Teşkilat-ı Esasiye", "Misak-ı Milli", "Saltanatın kaldırılması", "Hâkimiyet-i Milliye"],
+                    correct: 3
+                },
+                {
+                    question: "Atatürk'ün çocuk eğitimine dair en önemli reformu hangisidir?",
+                    answers: ["Harf Devrimi", "Karma eğitim", "Zorunlu ilköğretim", "Üniversite reformu"],
+                    correct: 2
+                },
+                {
+                    question: "23 Nisan 1920'de TBMM'nin aldığı ilk karar nedir?",
+                    answers: ["Bağımsızlık ilanı", "Geçici anayasa", "Hükümet kurulması", "Meclis başkanlığı seçimi"],
+                    correct: 3
+                },
+                {
+                    question: "Atatürk'ün çocuklara verdiği mesajın tam adı nedir?",
+                    answers: ["Türk Çocuğuna Hitabe", "Çocuklara Armağan", "Gençliğe Hitabe", "Türk Çocuğu Sen"],
+                    correct: 0
+                },
+                {
+                    question: "İlk 23 Nisan kutlamasına kaç ülkeden çocuk katıldı?",
+                    answers: ["12", "15", "18", "23"],
+                    correct: 3
+                }
+            ]
+        };
+
+        let gameState = {
+            currentQuestionIndex: 0,
+            score: 0,
+            correctAnswers: 0,
+            difficulty: 'medium',
+            questions: [],
+            timeLeft: 30,
+            timerInterval: null,
+            isAnswered: false
+        };
+
+        function initQuiz() {
+            setupDifficultyButtons();
+            showScreen('startScreen');
+        }
+
+        function setupDifficultyButtons() {
+            const buttons = document.querySelectorAll('.difficulty-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    gameState.difficulty = btn.dataset.level;
+                });
+            });
+        }
+
+        function startQuiz() {
+            gameState = {
+                currentQuestionIndex: 0,
+                score: 0,
+                correctAnswers: 0,
+                difficulty: document.querySelector('.difficulty-btn.active').dataset.level,
+                questions: [...questionBank[gameState.difficulty]],
+                timeLeft: 30,
+                timerInterval: null,
+                isAnswered: false
+            };
+
+            // Soruları karıştır
+            gameState.questions.sort(() => Math.random() - 0.5);
+
+            showScreen('quizScreen');
+            showQuestion();
+            startTimer();
+        }
+
+        function showScreen(screenId) {
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('quizScreen').style.display = 'none';
+            document.getElementById('resultScreen').style.display = 'none';
+            
+            document.getElementById(screenId).style.display = 'block';
+        }
+
+        function showQuestion() {
+            const question = gameState.questions[gameState.currentQuestionIndex];
+            const questionNumber = gameState.currentQuestionIndex + 1;
+            const totalQuestions = gameState.questions.length;
+
+            // Progress bar güncelle
+            const progress = (questionNumber / totalQuestions) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+
+            // Soru bilgilerini güncelle
+            document.getElementById('questionCounter').textContent = `Soru ${questionNumber} / ${totalQuestions}`;
+            document.getElementById('questionText').textContent = question.question;
+            document.getElementById('currentQuestion').textContent = questionNumber;
+
+            // Cevap butonlarını oluştur
+            const answersGrid = document.getElementById('answersGrid');
+            answersGrid.innerHTML = '';
+
+            question.answers.forEach((answer, index) => {
+                const button = document.createElement('button');
+                button.className = 'answer-btn';
+                button.textContent = answer;
+                button.onclick = () => selectAnswer(index);
+                answersGrid.appendChild(button);
+            });
+
+            // Next butonunu gizle
+            document.getElementById('nextBtn').classList.remove('show');
+            gameState.isAnswered = false;
+
+            // Timer'ı sıfırla
+            gameState.timeLeft = 30;
+            updateStats();
+        }
+
+        function selectAnswer(answerIndex) {
+            if (gameState.isAnswered) return;
+
+            gameState.isAnswered = true;
+            const question = gameState.questions[gameState.currentQuestionIndex];
+            const buttons = document.querySelectorAll('.answer-btn');
+
+            // Tüm butonları devre dışı bırak
+            buttons.forEach(btn => btn.classList.add('disabled'));
+
+            // Doğru ve yanlış cevapları işaretle
+            buttons[question.correct].classList.add('correct');
+            
+            if (answerIndex === question.correct) {
+                // Doğru cevap
+                gameState.correctAnswers++;
+                gameState.score += 100;
+                
+                // Süre bonusu
+                if (gameState.timeLeft > 20) gameState.score += 50;
+                else if (gameState.timeLeft > 10) gameState.score += 25;
+                
+                createConfetti();
+            } else {
+                // Yanlış cevap
+                buttons[answerIndex].classList.add('wrong');
+                gameState.score = Math.max(0, gameState.score - 10);
+            }
+
+            updateStats();
+            
+            // Next butonunu göster
+            setTimeout(() => {
+                document.getElementById('nextBtn').classList.add('show');
+            }, 1500);
+        }
+
+        function nextQuestion() {
+            clearInterval(gameState.timerInterval);
+            
+            if (gameState.currentQuestionIndex < gameState.questions.length - 1) {
+                gameState.currentQuestionIndex++;
+                showQuestion();
+                startTimer();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function startTimer() {
+            gameState.timerInterval = setInterval(() => {
+                gameState.timeLeft--;
+                updateStats();
+                
+                if (gameState.timeLeft <= 0) {
+                    // Süre bitti, otomatik geç
+                    if (!gameState.isAnswered) {
+                        // Hiç cevap verilmedi
+                        gameState.isAnswered = true;
+                        const buttons = document.querySelectorAll('.answer-btn');
+                        buttons.forEach(btn => btn.classList.add('disabled'));
+                        
+                        const question = gameState.questions[gameState.currentQuestionIndex];
+                        buttons[question.correct].classList.add('correct');
+                        
+                        setTimeout(() => {
+                            nextQuestion();
+                        }, 2000);
+                    }
+                }
+            }, 1000);
+        }
+
+        function updateStats() {
+            document.getElementById('correctAnswers').textContent = gameState.correctAnswers;
+            document.getElementById('score').textContent = gameState.score;
+            document.getElementById('timer').textContent = gameState.timeLeft;
+        }
+
+        function createConfetti() {
+            const colors = ['🎉', '✨', '🌟', '🎊', '🎈'];
+            
+            for (let i = 0; i < 10; i++) {
+                const confetti = document.createElement('div');
+                confetti.textContent = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = '-50px';
+                confetti.style.fontSize = '2rem';
+                confetti.style.zIndex = '10000';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.animation = `confetti-fall 3s linear forwards`;
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }
+        }
+
+        function finishQuiz() {
+            clearInterval(gameState.timerInterval);
+            
+            const totalQuestions = gameState.questions.length;
+            const successRate = Math.round((gameState.correctAnswers / totalQuestions) * 100);
+            let bonusPoints = 0;
+            
+            // Başarı bonusu
+            if (successRate >= 90) bonusPoints += 200;
+            else if (successRate >= 80) bonusPoints += 150;
+            else if (successRate >= 70) bonusPoints += 100;
+            else if (successRate >= 60) bonusPoints += 50;
+            
+            gameState.score += bonusPoints;
+            
+            // Sonuç ekranını doldur
+            document.getElementById('finalScore').textContent = gameState.score;
+            document.getElementById('finalCorrect').textContent = `${gameState.correctAnswers}/${totalQuestions}`;
+            document.getElementById('successRate').textContent = successRate + '%';
+            document.getElementById('bonusPoints').textContent = bonusPoints;
+            
+            // Medal ve mesaj
+            let medal, message;
+            if (successRate >= 90) {
+                medal = '🥇';
+                message = 'Mükemmel! Atatürk ve 23 Nisan uzmanısın!';
+            } else if (successRate >= 80) {
+                medal = '🥈';
+                message = 'Harika! Çok iyi bir performans!';
+            } else if (successRate >= 70) {
+                medal = '🥉';
+                message = 'Güzel! İyi bir başlangıç!';
+            } else if (successRate >= 60) {
+                medal = '🏅';
+                message = 'Fena değil! Biraz daha çalışabilirsin!';
+            } else {
+                medal = '📚';
+                message = 'Daha çok öğrenmeye ihtiyacın var!';
+            }
+            
+            document.getElementById('medalIcon').textContent = medal;
+            document.getElementById('resultMessage').textContent = message;
+            
+            showScreen('resultScreen');
+        }
+
+        function resetQuiz() {
+            showScreen('startScreen');
+        }
+
+        function goBack() {
+            window.location.href = '../oyunlar.html';
+        }
+
+        // Confetti animasyonu için CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes confetti-fall {
+                0% {
+                    transform: translateY(-50px) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Oyunu başlat
+        window.addEventListener('load', initQuiz);
+    </script>
+</body>
+</html>

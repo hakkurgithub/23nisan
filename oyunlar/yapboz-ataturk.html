@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atatürk ve Çocuklar Yapbozu - 23 Nisan Oyunları</title>
+    <meta name="description" content="Atatürk ve çocuklar yapboz oyunu. Parçaları sürükleyip resmi tamamla!">
+    
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .puzzle-area {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            max-width: 400px;
+            margin: 20px auto;
+            border: 3px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 10px;
+            background: white;
+        }
+        
+        .puzzle-piece {
+            width: 120px;
+            height: 120px;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9f9f9;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .puzzle-piece.filled {
+            border: 2px solid var(--primary-color);
+            background: white;
+        }
+        
+        .puzzle-piece:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-color);
+        }
+        
+        .pieces-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px dashed var(--accent-color);
+            border-radius: 15px;
+            background: var(--light-bg);
+        }
+        
+        .piece {
+            width: 80px;
+            height: 80px;
+            background-size: 240px 240px;
+            border: 2px solid white;
+            border-radius: 8px;
+            cursor: grab;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .piece:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        
+        .piece.dragging {
+            opacity: 0.5;
+            transform: rotate(5deg);
+        }
+        
+        /* Yapboz parçalarının arka plan pozisyonları */
+        .piece[data-piece="0"] { background-position: 0 0; }
+        .piece[data-piece="1"] { background-position: -80px 0; }
+        .piece[data-piece="2"] { background-position: -160px 0; }
+        .piece[data-piece="3"] { background-position: 0 -80px; }
+        .piece[data-piece="4"] { background-position: -80px -80px; }
+        .piece[data-piece="5"] { background-position: -160px -80px; }
+        .piece[data-piece="6"] { background-position: 0 -160px; }
+        .piece[data-piece="7"] { background-position: -80px -160px; }
+        .piece[data-piece="8"] { background-position: -160px -160px; }
+        
+        .game-controls {
+            margin: 20px 0;
+        }
+        
+        .btn {
+            margin: 0 10px;
+            padding: 12px 24px;
+            font-size: 16px;
+        }
+        
+        .success-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .success-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            animation: celebration 0.5s ease;
+        }
+        
+        @keyframes celebration {
+            0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+            50% { transform: scale(1.1) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        
+        .confetti {
+            position: absolute;
+            font-size: 2rem;
+            animation: fall 3s linear infinite;
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        .timer {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .score {
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.svg" alt="23 Nisan Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Ana Sayfa</a></li>
+                <li><a href="../oyunlar.html" class="active">Oyunlar</a></li>
+                <li><a href="../atolyeler.html">Atölyeler</a></li>
+                <li><a href="../etkinlikler.html">Etkinlikler</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="game-container">
+            <h1>🧩 Atatürk ve Çocuklar Yapbozu</h1>
+            <p>Parçaları sürükleyerek Atatürk'ün çocuklarla olan bu güzel resmi tamamla!</p>
+            
+            <div class="game-info">
+                <div class="timer">⏱️ Süre: <span id="timer">00:00</span></div>
+                <div class="score">🎯 Puan: <span id="score">0</span></div>
+                <div class="score">✅ Doğru: <span id="correct">0</span>/9</div>
+            </div>
+            
+            <div class="puzzle-area" id="puzzleArea">
+                <!-- 3x3 yapboz alanı -->
+                <div class="puzzle-piece" data-position="0"></div>
+                <div class="puzzle-piece" data-position="1"></div>
+                <div class="puzzle-piece" data-position="2"></div>
+                <div class="puzzle-piece" data-position="3"></div>
+                <div class="puzzle-piece" data-position="4"></div>
+                <div class="puzzle-piece" data-position="5"></div>
+                <div class="puzzle-piece" data-position="6"></div>
+                <div class="puzzle-piece" data-position="7"></div>
+                <div class="puzzle-piece" data-position="8"></div>
+            </div>
+            
+            <div class="pieces-container" id="piecesContainer">
+                <!-- Karışık yapboz parçaları buraya gelecek -->
+            </div>
+            
+            <div class="game-controls">
+                <button class="btn btn-primary" onclick="startGame()">🎮 Yeni Oyun</button>
+                <button class="btn btn-secondary" onclick="showHint()">💡 İpucu</button>
+                <button class="btn btn-secondary" onclick="goBack()">🏠 Geri Dön</button>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Başarı Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <h2>🎉 Tebrikler!</h2>
+            <p>Yapbozu başarıyla tamamladın!</p>
+            <p><strong>Süren:</strong> <span id="finalTime"></span></p>
+            <p><strong>Puanın:</strong> <span id="finalScore"></span></p>
+            <button class="btn btn-primary" onclick="startGame()">🔄 Tekrar Oyna</button>
+            <button class="btn btn-secondary" onclick="closeModal()">✅ Tamam</button>
+        </div>
+    </div>
+
+    <script>
+        let gameState = {
+            startTime: null,
+            timerInterval: null,
+            score: 0,
+            correctPieces: 0,
+            draggedPiece: null,
+            pieces: []
+        };
+
+        // Atatürk resminin base64 versiyonu (basit bir SVG pattern)
+        const puzzleImage = `data:image/svg+xml,${encodeURIComponent(`
+            <svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#1D3557"/>
+                        <stop offset="100%" style="stop-color:#457B9D"/>
+                    </linearGradient>
+                </defs>
+                <rect width="240" height="240" fill="url(#bg)"/>
+                <circle cx="120" cy="80" r="35" fill="#F1FAEE" stroke="#E63946" stroke-width="2"/>
+                <rect x="100" y="100" width="40" height="60" rx="5" fill="#F1FAEE"/>
+                <circle cx="80" cy="150" r="15" fill="#E63946"/>
+                <circle cx="160" cy="150" r="15" fill="#E63946"/>
+                <circle cx="100" cy="180" r="12" fill="#457B9D"/>
+                <circle cx="140" cy="180" r="12" fill="#457B9D"/>
+                <text x="120" y="210" text-anchor="middle" fill="#F1FAEE" font-size="12" font-family="Arial">Atatürk ve Çocuklar</text>
+                <rect x="50" y="50" width="140" height="140" fill="none" stroke="#E63946" stroke-width="1" stroke-dasharray="5,5"/>
+            </svg>
+        `)}`;
+
+        function initGame() {
+            createPuzzlePieces();
+            startGame();
+        }
+
+        function createPuzzlePieces() {
+            const container = document.getElementById('piecesContainer');
+            container.innerHTML = '';
+            gameState.pieces = [];
+
+            for (let i = 0; i < 9; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'piece';
+                piece.draggable = true;
+                piece.dataset.piece = i;
+                piece.style.backgroundImage = `url(${puzzleImage})`;
+                
+                // Drag events
+                piece.addEventListener('dragstart', handleDragStart);
+                piece.addEventListener('dragend', handleDragEnd);
+                
+                // Touch events for mobile
+                piece.addEventListener('touchstart', handleTouchStart);
+                piece.addEventListener('touchmove', handleTouchMove);
+                piece.addEventListener('touchend', handleTouchEnd);
+                
+                gameState.pieces.push(piece);
+                container.appendChild(piece);
+            }
+            
+            // Setup drop zones
+            const puzzlePieces = document.querySelectorAll('.puzzle-piece');
+            puzzlePieces.forEach(piece => {
+                piece.addEventListener('dragover', handleDragOver);
+                piece.addEventListener('drop', handleDrop);
+            });
+        }
+
+        function startGame() {
+            gameState.startTime = Date.now();
+            gameState.score = 0;
+            gameState.correctPieces = 0;
+            
+            // Timer başlat
+            if (gameState.timerInterval) {
+                clearInterval(gameState.timerInterval);
+            }
+            gameState.timerInterval = setInterval(updateTimer, 1000);
+            
+            // Parçaları karıştır
+            shufflePieces();
+            
+            // Puzzle alanını temizle
+            document.querySelectorAll('.puzzle-piece').forEach(piece => {
+                piece.innerHTML = '';
+                piece.classList.remove('filled');
+            });
+            
+            updateScore();
+            closeModal();
+        }
+
+        function shufflePieces() {
+            const container = document.getElementById('piecesContainer');
+            const pieces = Array.from(container.children);
+            
+            // Fisher-Yates shuffle
+            for (let i = pieces.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                container.appendChild(pieces[j]);
+            }
+        }
+
+        function handleDragStart(e) {
+            gameState.draggedPiece = e.target;
+            e.target.classList.add('dragging');
+        }
+
+        function handleDragEnd(e) {
+            e.target.classList.remove('dragging');
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            const dropZone = e.target;
+            const piece = gameState.draggedPiece;
+            
+            if (!piece || !dropZone.classList.contains('puzzle-piece')) {
+                return;
+            }
+            
+            const pieceNumber = parseInt(piece.dataset.piece);
+            const position = parseInt(dropZone.dataset.position);
+            
+            // Doğru pozisyon kontrolü
+            if (pieceNumber === position) {
+                // Doğru yerleştirme
+                dropZone.style.backgroundImage = `url(${puzzleImage})`;
+                dropZone.style.backgroundSize = '240px 240px';
+                dropZone.style.backgroundPosition = getBackgroundPosition(pieceNumber);
+                dropZone.classList.add('filled');
+                
+                piece.remove();
+                gameState.correctPieces++;
+                gameState.score += 100;
+                
+                // Confetti effect
+                createConfetti(dropZone);
+                
+                updateScore();
+                
+                // Oyun tamamlandı mı?
+                if (gameState.correctPieces === 9) {
+                    setTimeout(gameCompleted, 500);
+                }
+            } else {
+                // Yanlış yerleştirme
+                gameState.score = Math.max(0, gameState.score - 10);
+                updateScore();
+                
+                // Shake effect
+                dropZone.style.animation = 'shake 0.5s ease';
+                setTimeout(() => {
+                    dropZone.style.animation = '';
+                }, 500);
+            }
+        }
+
+        function getBackgroundPosition(pieceNumber) {
+            const row = Math.floor(pieceNumber / 3);
+            const col = pieceNumber % 3;
+            return `${-col * 80}px ${-row * 80}px`;
+        }
+
+        function createConfetti(element) {
+            const rect = element.getBoundingClientRect();
+            const emojis = ['🎉', '✨', '🌟', '🎊', '🎈'];
+            
+            for (let i = 0; i < 5; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                confetti.style.left = rect.left + Math.random() * rect.width + 'px';
+                confetti.style.top = rect.top + 'px';
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }
+        }
+
+        function updateTimer() {
+            if (!gameState.startTime) return;
+            
+            const elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            
+            document.getElementById('timer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = gameState.score;
+            document.getElementById('correct').textContent = gameState.correctPieces;
+        }
+
+        function showHint() {
+            const pieces = document.querySelectorAll('.puzzle-piece:not(.filled)');
+            pieces.forEach(piece => {
+                piece.style.backgroundColor = '#fffacd';
+                piece.innerHTML = `<span style="color: #666; font-size: 2rem;">${piece.dataset.position}</span>`;
+            });
+            
+            setTimeout(() => {
+                pieces.forEach(piece => {
+                    piece.style.backgroundColor = '';
+                    piece.innerHTML = '';
+                });
+            }, 2000);
+        }
+
+        function gameCompleted() {
+            clearInterval(gameState.timerInterval);
+            
+            const elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            // Bonus for completing quickly
+            if (elapsed < 60) gameState.score += 200;
+            else if (elapsed < 120) gameState.score += 100;
+            
+            document.getElementById('finalTime').textContent = timeString;
+            document.getElementById('finalScore').textContent = gameState.score;
+            document.getElementById('successModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        function goBack() {
+            window.location.href = '../oyunlar.html';
+        }
+
+        // Touch support for mobile
+        let touchStartPos = { x: 0, y: 0 };
+
+        function handleTouchStart(e) {
+            const touch = e.touches[0];
+            touchStartPos = { x: touch.clientX, y: touch.clientY };
+            gameState.draggedPiece = e.target;
+        }
+
+        function handleTouchMove(e) {
+            e.preventDefault();
+        }
+
+        function handleTouchEnd(e) {
+            const touch = e.changedTouches[0];
+            const element = document.elementFromPoint(touch.clientX, touch.clientY);
+            
+            if (element && element.classList.contains('puzzle-piece')) {
+                handleDrop({ target: element, preventDefault: () => {} });
+            }
+        }
+
+        // CSS shake animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Oyunu başlat
+        window.addEventListener('load', initGame);
+    </script>
+</body>
+</html>
