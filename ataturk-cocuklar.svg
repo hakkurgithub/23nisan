@@ -74,82 +74,156 @@
     <!-- Gömlek yakası -->
     <path d="M160 150 L170 150 L175 160 L185 160 L190 150 L200 150 L195 170 L165 170 Z" fill="#FFFFFF"/>
     
-    <!-- Sol ÇOCUK - Kız çocuğu (6-7 yaş) -->
+    <!-- Sol ÇOCUK - Kız çocuğu (6-7 yaş) - Gerçekçi insan figürü -->
     <!-- Vücut - Beyaz elbise -->
-    <ellipse cx="80" cy="240" rx="20" ry="35" fill="#FFFFFF"/>
-    <rect x="60" y="220" width="40" height="40" rx="8" fill="#FFFFFF"/>
+    <ellipse cx="80" cy="235" rx="18" ry="30" fill="#FFFFFF"/>
+    <rect x="65" y="215" width="30" height="35" rx="6" fill="#FFFFFF"/>
     
-    <!-- Kafa -->
-    <circle cx="80" cy="190" r="22" fill="url(#childFace)"/>
+    <!-- Boyun -->
+    <rect x="75" y="200" width="10" height="8" fill="url(#childFace)"/>
     
-    <!-- Saç - Örgülü kız saçı -->
-    <ellipse cx="80" cy="180" rx="25" ry="20" fill="#8B4513"/>
-    <circle cx="60" cy="175" r="8" fill="#8B4513"/> <!-- Sol örgü -->
-    <circle cx="100" cy="175" r="8" fill="#8B4513"/> <!-- Sağ örgü -->
-    <rect x="58" y="183" width="4" height="15" rx="2" fill="#654321"/> <!-- Örgü kurdelası -->
-    <rect x="98" y="183" width="4" height="15" rx="2" fill="#654321"/>
+    <!-- Kafa - İnsan çocuk kafası -->
+    <ellipse cx="80" cy="185" rx="18" ry="20" fill="url(#childFace)"/>
     
-    <!-- Kız yüz detayları -->
-    <ellipse cx="74" cy="188" rx="3" ry="2" fill="#2C2C2C"/> <!-- Sol göz -->
-    <ellipse cx="86" cy="188" rx="3" ry="2" fill="#2C2C2C"/> <!-- Sağ göz -->
-    <circle cx="74" cy="187" r="1" fill="#FFFFFF"/> <!-- Göz parıltısı -->
-    <circle cx="86" cy="187" r="1" fill="#FFFFFF"/>
-    <ellipse cx="80" cy="195" rx="2" ry="1" fill="#D4B894"/> <!-- Burun -->
-    <path d="M76 200 Q80 203 84 200" stroke="#B8860B" stroke-width="1.5" fill="none"/> <!-- Gülümseme -->
+    <!-- Saç - Doğal kız çocuk saçı -->
+    <ellipse cx="80" cy="175" rx="22" ry="18" fill="#8B4513"/>
+    <!-- Saç ayrığı -->
+    <path d="M58 175 Q80 170 102 175 Q95 185 80 185 Q65 185 58 175" fill="#654321"/>
+    <!-- Yan saçlar -->
+    <ellipse cx="62" cy="180" rx="8" ry="15" fill="#8B4513"/>
+    <ellipse cx="98" cy="180" rx="8" ry="15" fill="#8B4513"/>
     
-    <!-- Kız kolları -->
-    <ellipse cx="58" cy="225" rx="6" ry="18" fill="url(#childFace)"/>
-    <ellipse cx="102" cy="225" rx="6" ry="18" fill="url(#childFace)"/>
+    <!-- Yüz detayları - İnsan çocuk yüzü -->
+    <!-- Gözler -->
+    <ellipse cx="74" cy="183" rx="4" ry="3" fill="#FFFFFF"/>
+    <ellipse cx="86" cy="183" rx="4" ry="3" fill="#FFFFFF"/>
+    <ellipse cx="74" cy="183" rx="2.5" ry="2" fill="#4169E1"/>
+    <ellipse cx="86" cy="183" rx="2.5" ry="2" fill="#4169E1"/>
+    <circle cx="75" cy="182" r="1" fill="#FFFFFF"/>
+    <circle cx="87" cy="182" r="1" fill="#FFFFFF"/>
     
-    <!-- Sağ ÇOCUK - Erkek çocuğu (7-8 yaş) -->
-    <!-- Vücut - Gri gömlek, siyah pantolon -->
-    <rect x="250" y="210" width="35" height="25" rx="5" fill="#A0A0A0"/>
-    <rect x="255" y="235" width="25" height="40" rx="3" fill="#2C2C2C"/>
+    <!-- Kaşlar -->
+    <path d="M70 180 Q74 178 78 180" stroke="#654321" stroke-width="1" fill="none"/>
+    <path d="M82 180 Q86 178 90 180" stroke="#654321" stroke-width="1" fill="none"/>
     
-    <!-- Kafa -->
-    <circle cx="267" cy="195" r="20" fill="url(#childFace)"/>
+    <!-- Burun -->
+    <ellipse cx="80" cy="188" rx="1.5" ry="2" fill="#F0D4A8"/>
+    <path d="M78.5 189 L80 190 L81.5 189" stroke="#E8C794" stroke-width="0.5" fill="none"/>
     
-    <!-- Saç - Erkek çocuk saçı (kısa, düzgün) -->
-    <path d="M247 185 Q267 175 287 185 L285 195 Q275 185 267 188 Q259 185 249 195 Z" fill="#2C2C2C"/>
-    <path d="M252 190 Q267 185 282 190" stroke="#1A1A1A" stroke-width="1" fill="none"/> <!-- Saç çizgisi -->
+    <!-- Ağız - Doğal gülümseme -->
+    <path d="M76 193 Q80 196 84 193" stroke="#CD853F" stroke-width="1.5" fill="none"/>
     
-    <!-- Erkek yüz detayları -->
-    <ellipse cx="262" cy="193" rx="3" ry="2" fill="#2C2C2C"/> <!-- Sol göz -->
-    <ellipse cx="272" cy="193" rx="3" ry="2" fill="#2C2C2C"/> <!-- Sağ göz -->
-    <circle cx="262" cy="192" r="1" fill="#FFFFFF"/> <!-- Göz parıltısı -->
-    <circle cx="272" cy="192" r="1" fill="#FFFFFF"/>
-    <ellipse cx="267" cy="199" rx="2" ry="1" fill="#D4B894"/> <!-- Burun -->
-    <path d="M263 204 Q267 207 271 204" stroke="#B8860B" stroke-width="1.5" fill="none"/> <!-- Gülümseme -->
+    <!-- Yanaklar -->
+    <circle cx="70" cy="188" r="3" fill="#FFB6C1" opacity="0.3"/>
+    <circle cx="90" cy="188" r="3" fill="#FFB6C1" opacity="0.3"/>
     
-    <!-- Erkek kolları -->
-    <ellipse cx="235" cy="220" rx="6" ry="15" fill="url(#childFace)"/>
-    <ellipse cx="285" cy="220" rx="6" ry="15" fill="url(#childFace)"/>
+    <!-- Kollar - İnsan anatomisi -->
+    <ellipse cx="60" cy="225" rx="5" ry="20" fill="url(#childFace)"/>
+    <ellipse cx="100" cy="225" rx="5" ry="20" fill="url(#childFace)"/>
+    <!-- Eller -->
+    <circle cx="58" cy="242" r="4" fill="url(#childFace)"/>
+    <circle cx="102" cy="242" r="4" fill="url(#childFace)"/>
     
-    <!-- Ön plandaki ÇOCUK - Küçük çocuk (4-5 yaş) -->
+    <!-- Ayaklar -->
+    <ellipse cx="75" cy="260" rx="4" ry="8" fill="#8B4513"/>
+    <ellipse cx="85" cy="260" rx="4" ry="8" fill="#8B4513"/>
+    
+    <!-- Sağ ÇOCUK - Erkek çocuğu (7-8 yaş) - Gerçekçi insan figürü -->
+    <!-- Vücut - Gri gömlek, koyu pantolon -->
+    <rect x="252" y="210" width="30" height="22" rx="4" fill="#A0A0A0"/>
+    <rect x="257" y="232" width="20" height="35" rx="2" fill="#2C2C2C"/>
+    
+    <!-- Boyun -->
+    <rect x="262" y="195" width="10" height="8" fill="url(#childFace)"/>
+    
+    <!-- Kafa - İnsan erkek çocuk kafası -->
+    <ellipse cx="267" cy="180" rx="16" ry="18" fill="url(#childFace)"/>
+    
+    <!-- Saç - Erkek çocuk saçı (düzgün, kısa) -->
+    <ellipse cx="267" cy="170" rx="18" ry="15" fill="#2C2C2C"/>
+    <path d="M249 170 Q267 165 285 170 Q282 175 267 175 Q252 175 249 170" fill="#1A1A1A"/>
+    
+    <!-- Yüz detayları - İnsan erkek çocuk yüzü -->
+    <!-- Gözler -->
+    <ellipse cx="262" cy="178" rx="3.5" ry="2.5" fill="#FFFFFF"/>
+    <ellipse cx="272" cy="178" rx="3.5" ry="2.5" fill="#FFFFFF"/>
+    <ellipse cx="262" cy="178" rx="2" ry="1.8" fill="#8B4513"/>
+    <ellipse cx="272" cy="178" rx="2" ry="1.8" fill="#8B4513"/>
+    <circle cx="262.5" cy="177" r="0.8" fill="#FFFFFF"/>
+    <circle cx="272.5" cy="177" r="0.8" fill="#FFFFFF"/>
+    
+    <!-- Kaşlar -->
+    <path d="M258 175 Q262 173 266 175" stroke="#1A1A1A" stroke-width="1" fill="none"/>
+    <path d="M268 175 Q272 173 276 175" stroke="#1A1A1A" stroke-width="1" fill="none"/>
+    
+    <!-- Burun -->
+    <ellipse cx="267" cy="183" rx="1.2" ry="1.8" fill="#F0D4A8"/>
+    <path d="M266 184 L267 185 L268 184" stroke="#E8C794" stroke-width="0.4" fill="none"/>
+    
+    <!-- Ağız - Hafif gülümseme -->
+    <path d="M264 187 Q267 189 270 187" stroke="#CD853F" stroke-width="1.2" fill="none"/>
+    
+    <!-- Kollar - İnsan anatomisi -->
+    <ellipse cx="242" cy="220" rx="5" ry="18" fill="url(#childFace)"/>
+    <ellipse cx="282" cy="220" rx="5" ry="18" fill="url(#childFace)"/>
+    <!-- Eller -->
+    <circle cx="240" cy="235" r="3.5" fill="url(#childFace)"/>
+    <circle cx="284" cy="235" r="3.5" fill="url(#childFace)"/>
+    
+    <!-- Ayaklar -->
+    <ellipse cx="262" cy="275" rx="3.5" ry="7" fill="#1A1A1A"/>
+    <ellipse cx="272" cy="275" rx="3.5" ry="7" fill="#1A1A1A"/>
+    
+    <!-- Ön plandaki ÇOCUK - Küçük çocuk (4-5 yaş) - En gerçekçi insan figürü -->
     <!-- Vücut - Sarı tişört -->
-    <ellipse cx="180" cy="290" rx="18" ry="25" fill="#FFD700"/>
+    <ellipse cx="180" cy="285" rx="15" ry="22" fill="#FFD700"/>
     
-    <!-- Kafa -->
-    <circle cx="180" cy="255" r="18" fill="url(#childFace)"/>
+    <!-- Boyun -->
+    <rect x="175" y="265" width="10" height="6" fill="url(#childFace)"/>
     
-    <!-- Saç - Kıvırcık çocuk saçı -->
-    <circle cx="180" cy="245" r="20" fill="#654321"/>
-    <circle cx="170" cy="240" r="6" fill="#654321"/> <!-- Sol bukle -->
-    <circle cx="190" cy="240" r="6" fill="#654321"/> <!-- Sağ bukle -->
-    <circle cx="175" cy="250" r="4" fill="#654321"/> <!-- Küçük bukle -->
-    <circle cx="185" cy="250" r="4" fill="#654321"/>
+    <!-- Kafa - Küçük çocuk kafası -->
+    <circle cx="180" cy="250" r="16" fill="url(#childFace)"/>
     
-    <!-- Küçük çocuk yüz detayları -->
-    <ellipse cx="175" cy="253" rx="2.5" ry="2" fill="#2C2C2C"/> <!-- Sol göz -->
-    <ellipse cx="185" cy="253" rx="2.5" ry="2" fill="#2C2C2C"/> <!-- Sağ göz -->
-    <circle cx="175" cy="252" r="0.8" fill="#FFFFFF"/> <!-- Göz parıltısı -->
-    <circle cx="185" cy="252" r="0.8" fill="#FFFFFF"/>
-    <ellipse cx="180" cy="258" rx="1.5" ry="1" fill="#D4B894"/> <!-- Burun -->
-    <path d="M176 262 Q180 265 184 262" stroke="#B8860B" stroke-width="1" fill="none"/> <!-- Gülümseme -->
+    <!-- Saç - Doğal çocuk saçı -->
+    <circle cx="180" cy="240" r="18" fill="#654321"/>
+    <path d="M162 240 Q180 235 198 240 Q195 245 180 245 Q165 245 162 240" fill="#8B4513"/>
+    <!-- Saç buklesi -->
+    <circle cx="170" cy="242" r="4" fill="#654321"/>
+    <circle cx="190" cy="242" r="4" fill="#654321"/>
     
-    <!-- Küçük çocuk kolları -->
-    <ellipse cx="162" cy="280" rx="5" ry="12" fill="url(#childFace)"/>
-    <ellipse cx="198" cy="280" rx="5" ry="12" fill="url(#childFace)"/>
+    <!-- Yüz detayları - Küçük çocuk yüzü -->
+    <!-- Gözler - Büyük çocuk gözleri -->
+    <ellipse cx="175" cy="248" rx="3" ry="2.5" fill="#FFFFFF"/>
+    <ellipse cx="185" cy="248" rx="3" ry="2.5" fill="#FFFFFF"/>
+    <ellipse cx="175" cy="248" rx="2" ry="2" fill="#32CD32"/>
+    <ellipse cx="185" cy="248" rx="2" ry="2" fill="#32CD32"/>
+    <circle cx="175.5" cy="247" r="0.8" fill="#FFFFFF"/>
+    <circle cx="185.5" cy="247" r="0.8" fill="#FFFFFF"/>
+    
+    <!-- Kaşlar - İnce çocuk kaşları -->
+    <path d="M172 245 Q175 244 178 245" stroke="#654321" stroke-width="0.8" fill="none"/>
+    <path d="M182 245 Q185 244 188 245" stroke="#654321" stroke-width="0.8" fill="none"/>
+    
+    <!-- Burun - Küçük çocuk burnu -->
+    <ellipse cx="180" cy="252" rx="1" ry="1.5" fill="#F0D4A8"/>
+    
+    <!-- Ağız - Masum gülümseme -->
+    <path d="M177 256 Q180 259 183 256" stroke="#CD853F" stroke-width="1" fill="none"/>
+    
+    <!-- Yanaklar -->
+    <circle cx="170" cy="252" r="2.5" fill="#FFB6C1" opacity="0.4"/>
+    <circle cx="190" cy="252" r="2.5" fill="#FFB6C1" opacity="0.4"/>
+    
+    <!-- Kollar - Küçük çocuk anatomisi -->
+    <ellipse cx="165" cy="275" rx="4" ry="15" fill="url(#childFace)"/>
+    <ellipse cx="195" cy="275" rx="4" ry="15" fill="url(#childFace)"/>
+    <!-- Küçük eller -->
+    <circle cx="163" cy="288" r="3" fill="url(#childFace)"/>
+    <circle cx="197" cy="288" r="3" fill="url(#childFace)"/>
+    
+    <!-- Ayaklar -->
+    <ellipse cx="175" cy="315" rx="3" ry="6" fill="#4169E1"/>
+    <ellipse cx="185" cy="315" rx="3" ry="6" fill="#4169E1"/>
     
     <!-- Türk Bayrağı - Köşede -->
     <rect x="15" y="15" width="60" height="40" fill="#E30A17"/>
