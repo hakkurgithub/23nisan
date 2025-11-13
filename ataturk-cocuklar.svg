@@ -8,13 +8,13 @@
             <stop offset="0%" style="stop-color:#F4E4BC"/>
             <stop offset="100%" style="stop-color:#E8D4A0"/>
         </linearGradient>
+        <linearGradient id="childFace" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFE8D4"/>
+            <stop offset="100%" style="stop-color:#F8D7B8"/>
+        </linearGradient>
         <linearGradient id="uniform" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" style="stop-color:#2C2C2C"/>
             <stop offset="100%" style="stop-color:#1A1A1A"/>
-        </linearGradient>
-        <linearGradient id="childDress" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#FFFFFF"/>
-            <stop offset="100%" style="stop-color:#F0F0F0"/>
         </linearGradient>
     </defs>
     
@@ -74,51 +74,82 @@
     <!-- Gömlek yakası -->
     <path d="M160 150 L170 150 L175 160 L185 160 L190 150 L200 150 L195 170 L165 170 Z" fill="#FFFFFF"/>
     
-    <!-- Sol çocuk - Beyaz elbiseli kız -->
-    <circle cx="80" cy="230" r="25" fill="url(#childDress)"/>
-    <circle cx="80" cy="200" r="20" fill="url(#face)"/>
+    <!-- Sol ÇOCUK - Kız çocuğu (6-7 yaş) -->
+    <!-- Vücut - Beyaz elbise -->
+    <ellipse cx="80" cy="240" rx="20" ry="35" fill="#FFFFFF"/>
+    <rect x="60" y="220" width="40" height="40" rx="8" fill="#FFFFFF"/>
     
-    <!-- Kız çocuğu saçları - örgülü -->
-    <circle cx="80" cy="192" r="18" fill="#654321"/>
-    <circle cx="65" cy="185" r="8" fill="#654321"/>
-    <circle cx="95" cy="185" r="8" fill="#654321"/>
+    <!-- Kafa -->
+    <circle cx="80" cy="190" r="22" fill="url(#childFace)"/>
     
-    <!-- Kız çocuğu yüzü -->
-    <circle cx="76" cy="198" r="2" fill="#2C2C2C"/>
-    <circle cx="84" cy="198" r="2" fill="#2C2C2C"/>
-    <path d="M76 205 Q80 208 84 205" stroke="#A68B5B" stroke-width="1" fill="none"/>
+    <!-- Saç - Örgülü kız saçı -->
+    <ellipse cx="80" cy="180" rx="25" ry="20" fill="#8B4513"/>
+    <circle cx="60" cy="175" r="8" fill="#8B4513"/> <!-- Sol örgü -->
+    <circle cx="100" cy="175" r="8" fill="#8B4513"/> <!-- Sağ örgü -->
+    <rect x="58" y="183" width="4" height="15" rx="2" fill="#654321"/> <!-- Örgü kurdelası -->
+    <rect x="98" y="183" width="4" height="15" rx="2" fill="#654321"/>
+    
+    <!-- Kız yüz detayları -->
+    <ellipse cx="74" cy="188" rx="3" ry="2" fill="#2C2C2C"/> <!-- Sol göz -->
+    <ellipse cx="86" cy="188" rx="3" ry="2" fill="#2C2C2C"/> <!-- Sağ göz -->
+    <circle cx="74" cy="187" r="1" fill="#FFFFFF"/> <!-- Göz parıltısı -->
+    <circle cx="86" cy="187" r="1" fill="#FFFFFF"/>
+    <ellipse cx="80" cy="195" rx="2" ry="1" fill="#D4B894"/> <!-- Burun -->
+    <path d="M76 200 Q80 203 84 200" stroke="#B8860B" stroke-width="1.5" fill="none"/> <!-- Gülümseme -->
     
     <!-- Kız kolları -->
-    <rect x="55" y="215" width="10" height="20" rx="5" fill="url(#face)"/>
-    <rect x="95" y="215" width="10" height="20" rx="5" fill="url(#face)"/>
+    <ellipse cx="58" cy="225" rx="6" ry="18" fill="url(#childFace)"/>
+    <ellipse cx="102" cy="225" rx="6" ry="18" fill="url(#childFace)"/>
     
-    <!-- Sağ çocuk - Erkek çocuk -->
-    <circle cx="280" cy="240" r="22" fill="#4A4A4A"/>
-    <circle cx="280" cy="210" r="18" fill="url(#face)"/>
+    <!-- Sağ ÇOCUK - Erkek çocuğu (7-8 yaş) -->
+    <!-- Vücut - Gri gömlek, siyah pantolon -->
+    <rect x="250" y="210" width="35" height="25" rx="5" fill="#A0A0A0"/>
+    <rect x="255" y="235" width="25" height="40" rx="3" fill="#2C2C2C"/>
     
-    <!-- Erkek çocuk saçları - kısa -->
-    <path d="M262 200 Q280 190 298 200 L295 210 Q280 200 265 210 Z" fill="#2C2C2C"/>
+    <!-- Kafa -->
+    <circle cx="267" cy="195" r="20" fill="url(#childFace)"/>
     
-    <!-- Erkek çocuk yüzü -->
-    <circle cx="276" cy="208" r="2" fill="#2C2C2C"/>
-    <circle cx="284" cy="208" r="2" fill="#2C2C2C"/>
-    <path d="M276 215 Q280 218 284 215" stroke="#A68B5B" stroke-width="1" fill="none"/>
+    <!-- Saç - Erkek çocuk saçı (kısa, düzgün) -->
+    <path d="M247 185 Q267 175 287 185 L285 195 Q275 185 267 188 Q259 185 249 195 Z" fill="#2C2C2C"/>
+    <path d="M252 190 Q267 185 282 190" stroke="#1A1A1A" stroke-width="1" fill="none"/> <!-- Saç çizgisi -->
+    
+    <!-- Erkek yüz detayları -->
+    <ellipse cx="262" cy="193" rx="3" ry="2" fill="#2C2C2C"/> <!-- Sol göz -->
+    <ellipse cx="272" cy="193" rx="3" ry="2" fill="#2C2C2C"/> <!-- Sağ göz -->
+    <circle cx="262" cy="192" r="1" fill="#FFFFFF"/> <!-- Göz parıltısı -->
+    <circle cx="272" cy="192" r="1" fill="#FFFFFF"/>
+    <ellipse cx="267" cy="199" rx="2" ry="1" fill="#D4B894"/> <!-- Burun -->
+    <path d="M263 204 Q267 207 271 204" stroke="#B8860B" stroke-width="1.5" fill="none"/> <!-- Gülümseme -->
     
     <!-- Erkek kolları -->
-    <rect x="255" y="225" width="10" height="20" rx="5" fill="url(#face)"/>
-    <rect x="295" y="225" width="10" height="20" rx="5" fill="url(#face)"/>
+    <ellipse cx="235" cy="220" rx="6" ry="15" fill="url(#childFace)"/>
+    <ellipse cx="285" cy="220" rx="6" ry="15" fill="url(#childFace)"/>
     
-    <!-- Ön plandaki çocuk - Daha küçük -->
-    <circle cx="180" cy="280" r="20" fill="#FFFFFF"/>
-    <circle cx="180" cy="260" r="16" fill="url(#face)"/>
+    <!-- Ön plandaki ÇOCUK - Küçük çocuk (4-5 yaş) -->
+    <!-- Vücut - Sarı tişört -->
+    <ellipse cx="180" cy="290" rx="18" ry="25" fill="#FFD700"/>
     
-    <!-- Küçük çocuk saçları -->
-    <circle cx="180" cy="252" r="14" fill="#8B4513"/>
+    <!-- Kafa -->
+    <circle cx="180" cy="255" r="18" fill="url(#childFace)"/>
     
-    <!-- Küçük çocuk yüzü -->
-    <circle cx="176" cy="258" r="2" fill="#2C2C2C"/>
-    <circle cx="184" cy="258" r="2" fill="#2C2C2C"/>
-    <path d="M176 264 Q180 267 184 264" stroke="#A68B5B" stroke-width="1" fill="none"/>
+    <!-- Saç - Kıvırcık çocuk saçı -->
+    <circle cx="180" cy="245" r="20" fill="#654321"/>
+    <circle cx="170" cy="240" r="6" fill="#654321"/> <!-- Sol bukle -->
+    <circle cx="190" cy="240" r="6" fill="#654321"/> <!-- Sağ bukle -->
+    <circle cx="175" cy="250" r="4" fill="#654321"/> <!-- Küçük bukle -->
+    <circle cx="185" cy="250" r="4" fill="#654321"/>
+    
+    <!-- Küçük çocuk yüz detayları -->
+    <ellipse cx="175" cy="253" rx="2.5" ry="2" fill="#2C2C2C"/> <!-- Sol göz -->
+    <ellipse cx="185" cy="253" rx="2.5" ry="2" fill="#2C2C2C"/> <!-- Sağ göz -->
+    <circle cx="175" cy="252" r="0.8" fill="#FFFFFF"/> <!-- Göz parıltısı -->
+    <circle cx="185" cy="252" r="0.8" fill="#FFFFFF"/>
+    <ellipse cx="180" cy="258" rx="1.5" ry="1" fill="#D4B894"/> <!-- Burun -->
+    <path d="M176 262 Q180 265 184 262" stroke="#B8860B" stroke-width="1" fill="none"/> <!-- Gülümseme -->
+    
+    <!-- Küçük çocuk kolları -->
+    <ellipse cx="162" cy="280" rx="5" ry="12" fill="url(#childFace)"/>
+    <ellipse cx="198" cy="280" rx="5" ry="12" fill="url(#childFace)"/>
     
     <!-- Türk Bayrağı - Köşede -->
     <rect x="15" y="15" width="60" height="40" fill="#E30A17"/>
@@ -129,23 +160,6 @@
     <!-- 23 Nisan yazısı -->
     <text x="180" y="30" text-anchor="middle" fill="#1A1A1A" font-size="18" font-family="Arial Black" font-weight="bold">23 NİSAN</text>
     <text x="180" y="50" text-anchor="middle" fill="#666666" font-size="12" font-family="Arial" font-weight="normal">Ulusal Egemenlik ve Çocuk Bayramı</text>
-    
-    <!-- Çiçekler - Alt köşelerde -->
-    <g transform="translate(30,320)">
-        <circle cx="0" cy="0" r="5" fill="#FF69B4"/>
-        <circle cx="-5" cy="-5" r="3" fill="#FFB6C1"/>
-        <circle cx="5" cy="-5" r="3" fill="#FFB6C1"/>
-        <circle cx="-5" cy="5" r="3" fill="#FFB6C1"/>
-        <circle cx="5" cy="5" r="3" fill="#FFB6C1"/>
-    </g>
-    
-    <g transform="translate(330,320)">
-        <circle cx="0" cy="0" r="5" fill="#FFA500"/>
-        <circle cx="-5" cy="-5" r="3" fill="#FFD700"/>
-        <circle cx="5" cy="-5" r="3" fill="#FFD700"/>
-        <circle cx="-5" cy="5" r="3" fill="#FFD700"/>
-        <circle cx="5" cy="5" r="3" fill="#FFD700"/>
-    </g>
     
     <!-- Grid çizgileri - puzzle için -->
     <line x1="120" y1="0" x2="120" y2="360" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-dasharray="4,4"/>
