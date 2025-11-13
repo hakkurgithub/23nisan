@@ -72,6 +72,7 @@
             cursor: grab;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
+            background-repeat: no-repeat;
         }
         
         .piece:hover {
@@ -84,17 +85,8 @@
             transform: rotate(5deg);
         }
         
-        /* Yapboz parçalarının arka plan pozisyonları */
+        /* Yapboz parçalarının arka plan pozisyonları - 120px piece boyutuna uygun */
         .piece[data-piece="0"] { background-position: 0 0; }
-        .piece[data-piece="1"] { background-position: -80px 0; }
-        .piece[data-piece="2"] { background-position: -160px 0; }
-        .piece[data-piece="3"] { background-position: 0 -80px; }
-        .piece[data-piece="4"] { background-position: -80px -80px; }
-        .piece[data-piece="5"] { background-position: -160px -80px; }
-        .piece[data-piece="6"] { background-position: 0 -160px; }
-        .piece[data-piece="7"] { background-position: -80px -160px; }
-        .piece[data-piece="8"] { background-position: -160px -160px; }
-        
         .game-controls {
             margin: 20px 0;
         }
@@ -401,6 +393,11 @@
                 piece.dataset.piece = i;
                 piece.style.backgroundImage = `url(${puzzleImage})`;
                 
+                // Küçük parçalar için pozisyon ayarla
+                const row = Math.floor(i / 3);
+                const col = i % 3;
+                piece.style.backgroundPosition = `${-col * 80}px ${-row * 80}px`;
+                
                 // Drag events
                 piece.addEventListener('dragstart', handleDragStart);
                 piece.addEventListener('dragend', handleDragEnd);
@@ -486,8 +483,9 @@
             if (pieceNumber === position) {
                 // Doğru yerleştirme
                 dropZone.style.backgroundImage = `url(${puzzleImage})`;
-                dropZone.style.backgroundSize = '240px 240px';
+                dropZone.style.backgroundSize = '360px 360px';
                 dropZone.style.backgroundPosition = getBackgroundPosition(pieceNumber);
+                dropZone.style.backgroundRepeat = 'no-repeat';
                 dropZone.classList.add('filled');
                 
                 piece.remove();
@@ -519,7 +517,7 @@
         function getBackgroundPosition(pieceNumber) {
             const row = Math.floor(pieceNumber / 3);
             const col = pieceNumber % 3;
-            return `${-col * 80}px ${-row * 80}px`;
+            return `${-col * 120}px ${-row * 120}px`;
         }
 
         function createConfetti(element) {

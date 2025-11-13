@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
+  <defs>
+    <linearGradient id="atolyeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="200" fill="url(#atolyeBg)" rx="12"/>
+  
+  <!-- Bayrak şekli -->
+  <rect x="120" y="50" width="60" height="40" fill="#E74C3C"/>
+  <circle cx="140" cy="70" r="8" fill="white"/>
+  <circle cx="143" cy="70" r="6" fill="#E74C3C"/>
+  <path d="M150 65 L155 70 L150 75 L152 70 Z" fill="white"/>
+  
+  <!-- Bayrak direği -->
+  <rect x="118" y="50" width="4" height="80" fill="#8B4513"/>
+  
+  <text x="150" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">🇹🇷 Bayrak Yapımı</text>
+  <text x="150" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">Kendi bayrağını yap!</text>
+  <text x="150" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">🎨 Yaratıcı Atölye</text>
+</svg>

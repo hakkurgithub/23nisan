@@ -1,0 +1,84 @@
+﻿/* ============================================
+   23 Nisan - Images Optimization CSS
+   ============================================ */
+
+/* SVG Images Optimization */
+img[src$=".svg"] {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Logo specific styles */
+.logo img {
+    width: auto;
+    height: 50px;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+}
+
+/* Game images */
+.game-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Workshop images */
+.workshop-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Hero banner */
+.hero-content img {
+    max-width: 500px;
+    height: auto;
+}
+
+/* Advertisement banners */
+.ad-banner img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Responsive images */
+@media (max-width: 768px) {
+    .logo img {
+        height: 40px;
+    }
+    
+    .hero-content img {
+        max-width: 100%;
+    }
+    
+    .game-card img {
+        height: 150px;
+    }
+}
+
+/* Image loading animation */
+img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+/* Image error fallback */
+img[src=""],
+img:not([src]) {
+    display: none;
+}

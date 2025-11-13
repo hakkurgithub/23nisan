@@ -25,7 +25,7 @@
         <nav class="navbar">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/logo.png" alt="23 Nisan Şenlik Logosu">
+                    <img src="images/logo.svg" alt="23 Nisan Şenlik Logosu">
                 </a>
             </div>
             
@@ -44,6 +44,28 @@
             </div>
         </nav>
     </header>
+
+    <!-- Müzik Player -->
+    <div class="music-player">
+        <div class="music-controls">
+            <h3>🎵 Oyun Müzikleri</h3>
+            <div class="player-buttons">
+                <button id="playBtn" class="play-btn">▶️ Çal</button>
+                <button id="pauseBtn" class="pause-btn" style="display:none;">⏸️ Durdur</button>
+                <select id="musicSelect" class="music-select">
+                    <option value="videos/yaşasın 23 nisan çocuk bayramımız kutlu olsun. .mp4">23 Nisan Şarkısı</option>
+                    <option value="videos/Kırkayakların_Beatles_Şarkısı_Videosu.mp4">Eğlenceli Şarkı</option>
+                    <option value="videos/Slept like a log last night … woke up in the fireplace.mp4">Neşeli Melodi</option>
+                </select>
+                <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="50">
+                <span class="volume-label">🔊</span>
+            </div>
+            <audio id="backgroundMusic" loop>
+                <source src="videos/yaşasın 23 nisan çocuk bayramımız kutlu olsun. .mp4" type="audio/mp4">
+                Tarayıcınız ses dosyalarını desteklemiyor.
+            </audio>
+        </div>
+    </div>
 
     <main>
         <section class="page-header">
@@ -64,7 +86,7 @@
         <section class="games-grid">
             <!-- Ücretsiz Yapboz Oyunu -->
             <div class="game-item free" data-category="puzzle">
-                <img src="images/oyun-yapboz-ataturk.jpg" alt="Atatürk ve Çocuklar Yapbozu">
+                <img src="images/oyun-yapboz-ataturk.svg" alt="Atatürk ve Çocuklar Yapbozu">
                 <div class="game-badge">ÜCRETSİZ</div>
                 <h3>🧩 Atatürk ve Çocuklar Yapbozu</h3>
                 <p>Parçaları birleştir, tarihi anı tamamla!</p>
@@ -81,7 +103,7 @@
 
             <!-- Boyama Oyunu - Artık Herkese Açık -->
             <div class="game-item free" data-category="coloring">
-                <img src="images/oyun-boyama-bayrak.jpg" alt="Türk Bayrağı Boyama">
+                <img src="images/oyun-boyama-bayrak.svg" alt="Türk Bayrağı Boyama">
                 <div class="game-badge">ÜCRETSİZ</div>
                 <h3>🎨 Türk Bayrağı Boyama Sayfası</h3>
                 <p>Ay-yıldızlı bayrağımızı dilediğin gibi boya!</p>
@@ -98,7 +120,7 @@
 
             <!-- Ücretsiz Hafıza Oyunu -->
             <div class="game-item free" data-category="memory">
-                <img src="images/oyun-hafiza-23nisan.jpg" alt="23 Nisan Hafıza Oyunu">
+                <img src="images/oyun-hafiza-23nisan.svg" alt="23 Nisan Hafıza Oyunu">
                 <div class="game-badge">ÜCRETSİZ</div>
                 <h3>🧠 23 Nisan Hafıza Kartları</h3>
                 <p>Eşleştir ve hafızanı güçlendir!</p>
@@ -115,7 +137,7 @@
 
             <!-- Bilgi Yarışması - Artık Herkese Açık -->
             <div class="game-item free" data-category="quiz">
-                <img src="images/oyun-quiz-ataturk.jpg" alt="Atatürk Bilgi Yarışması">
+                <img src="images/oyun-quiz-ataturk.svg" alt="Atatürk Bilgi Yarışması">
                 <div class="game-badge">ÜCRETSİZ</div>
                 <h3>🎯 Atatürk ve 23 Nisan Bilgi Yarışması</h3>
                 <p>Büyük Önder ve bayramımız hakkında sorulara cevap ver!</p>
@@ -132,7 +154,7 @@
 
             <!-- Ücretsiz Boyama -->
             <div class="game-item free" data-category="coloring">
-                <img src="images/oyun-boyama-cocuklar.jpg" alt="Çocuklar Boyama">
+                <img src="images/oyun-boyama-cocuklar.svg" alt="Çocuklar Boyama">
                 <div class="game-badge">ÜCRETSİZ</div>
                 <h3>🖍️ Neşeli Çocuklar Boyama</h3>
                 <p>Mutlu çocukları renklendir!</p>
@@ -149,7 +171,7 @@
 
             <!-- Premium Yapboz -->
             <div class="game-item premium" data-category="puzzle">
-                <img src="images/oyun-yapboz-meclis.jpg" alt="TBMM Yapboz">
+                <img src="images/oyun-yapboz-meclis.svg" alt="TBMM Yapboz">
                 <span class="premium-badge">👑 PREMİUM</span>
                 <h3>🏛️ TBMM Sarayı Yapbozu</h3>
                 <p>Türkiye Büyük Millet Meclisi'ni parça parça inşa et!</p>
@@ -166,7 +188,7 @@
 
             <!-- Eğitici Oyun -->
             <div class="game-item free" data-category="quiz">
-                <img src="images/oyun-egitici-tarih.jpg" alt="Tarih Öğrenme Oyunu">
+                <img src="images/oyun-egitici-tarih.svg" alt="Tarih Öğrenme Oyunu">
                 <div class="game-badge">ÜCRETSİZ</div>
                 <h3>📚 23 Nisan Tarihi Öğrenme</h3>
                 <p>İnteraktif sorularla 23 Nisan'ın tarihini öğren!</p>
@@ -183,7 +205,7 @@
 
             <!-- Premium Gelişmiş Hafıza -->
             <div class="game-item premium" data-category="memory">
-                <img src="images/oyun-hafiza-gelismis.jpg" alt="Gelişmiş Hafıza Oyunu">
+                <img src="images/oyun-hafiza-gelismis.svg" alt="Gelişmiş Hafıza Oyunu">
                 <span class="premium-badge">👑 PREMİUM</span>
                 <h3>🎭 Türk Kültürü Hafıza Kartları</h3>
                 <p>Türk kültürüne ait öğeleri eşleştir!</p>
@@ -237,7 +259,7 @@
         <section class="game-sponsor">
             <h2>🎯 Oyun Sponsorumuz</h2>
             <div class="sponsor-banner">
-                <img src="images/sponsor-oyuncak-dunyasi.jpg" alt="Oyuncak Dünyası">
+                <img src="images/sponsor-oyuncak-dunyasi.svg" alt="Oyuncak Dünyası">
                 <div class="sponsor-content">
                     <h3>Oyuncak Dünyası</h3>
                     <p>Çocuklarımızın hayal gücünü geliştiren, eğitici oyuncakların tek adresi! 23 Nisan özel %25 indirim.</p>
