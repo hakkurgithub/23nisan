@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///D:/23%20nisan/pages/index.js"],"sourcesContent":["import Head from 'next/head'\nimport Link from 'next/link'\n\nexport default function Home() {\n  return (\n    <div>\n      <Head>\n        <title>23 Nisan</title>\n      </Head>\n      <h1>Hello World</h1>\n    </div>\n  )\n}"],"names":[],"mappings":";;;;;AAAA;AACA;;;;AAEe,SAAS;IACtB,qBACE,qKAAC;;0BACC,qKAAC,gIAAI;0BACH,cAAA,qKAAC;8BAAM;;;;;;;;;;;0BAET,qKAAC;0BAAG;;;;;;;;;;;;AAGV"}}]
-}
