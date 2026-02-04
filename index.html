@@ -19,7 +19,34 @@
         .card { background: white; border-radius: 20px; padding: 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         .card-icon { font-size: 3rem; margin-bottom: 1rem; }
         .btn { display: inline-block; background: #E63946; color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 1rem; }
-        .footer { background: #1D3557; color: white; text-align: center; padding: 2rem; margin-top: 3rem; }
+        
+        /* Footer with Silicon Campus */
+        .footer { 
+            background: #1D3557; 
+            color: white; 
+            text-align: center; 
+            padding: 2rem; 
+            margin-top: 3rem; 
+        }
+        .footer-logo {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        .footer-logo img:hover {
+            opacity: 1;
+        }
+        .footer p {
+            color: #a0aec0;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -65,6 +92,10 @@
     
     <footer class="footer">
         <p>Â© 2025 23 Nisan Portali í¾ˆ</p>
+        <div class="footer-logo">
+            <img src="https://raw.githubusercontent.com/hakkurgithub/images/main/silicon-campus-logo.jpg" alt="Silicon Campus Logo">
+            <p>Â© 2024 Tum haklari Silicon Campus e aittir.</p>
+        </div>
     </footer>
 </body>
 </html>
