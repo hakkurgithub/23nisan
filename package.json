@@ -1,9 +1,22 @@
 {
-  "name": "23nisan",
+  "name": "23-nisan-cocuk-portali",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "npx http-server -p 3000 -c-1",
-    "start": "npx http-server -p 3000 -c-1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.9.4",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.563.0",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-jigsaw-puzzle": "^1.0.5",
+    "react-router-dom": "^7.13.0",
+    "tailwind-merge": "^3.4.0"
   }
 }

@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "title": "Kidzania 23 Nisan Çocuk Bayramı Kutlamaları",
+    "description": "Çocuklar Kidzania'da meslekleri deneyimlerken bayram coşkusunu yaşıyor.",
+    "image": "https://istanbul.kidzania.com/media/23-nisan-hero.jpg",
+    "link": "https://istanbul.kidzania.com/23-nisan",
+    "isSponsored": true,
+    "isPremium": false,
+    "category": "Eğlence",
+    "location": "Üsküdar, İstanbul"
+  },
+  {
+    "id": 2,
+    "title": "AKM Çocuk Sanat Festivali",
+    "description": "Tiyatro oyunları, atölyeler ve çocuk konserleri ile sanat dolu bir bayram.",
+    "image": "https://akmistanbul.gov.tr/media/festival-poster.jpg",
+    "link": "https://akmistanbul.gov.tr/tr/cocuk-sanat-festivali",
+    "isSponsored": false,
+    "isPremium": true,
+    "category": "Sanat/Kültür",
+    "location": "Taksim, İstanbul"
+  },
+  {
+    "id": 3,
+    "title": "OMO: Kirlenmek Güzeldir Oyun Parkuru",
+    "description": "Dışarıda oyun oynamanın ve keşfetmenin tadını çıkarın.",
+    "image": "https://www.omo.com/media/omo-oyun.jpg",
+    "link": "https://www.omo.com/tr/kirlenmek-guzeldir/oyunlar/23-nisan-etkinlikleri.html",
+    "isSponsored": true,
+    "isPremium": false,
+    "category": "Oyun",
+    "location": "Online / Mobil"
+  },
+  {
+    "id": 4,
+    "title": "Beylikdüzü Belediyesi Kültür Sanat Etkinlikleri",
+    "description": "Belediye bünyesinde düzenlenen ücretsiz halk şenlikleri ve gösteriler.",
+    "image": "https://ebys.beylikduzu.bel.tr/media/kultur-etkinlik.jpg",
+    "link": "https://ebys.beylikduzu.bel.tr/web.talep.doms?knd=kultur&@talepId=1084",
+    "isSponsored": false,
+    "isPremium": false,
+    "category": "Halk Şenliği",
+    "location": "Beylikdüzü, İstanbul"
+  },
+  {
+    "id": 5,
+    "title": "Neşeli Okulum: 23 Nisan Boyama ve Şarkı Atölyesi",
+    "description": "Okul öncesi çocuklar için özel hazırlanan dijital içerikler ve eğitimler.",
+    "image": "https://www.neseliokulum.com/media/etkinlik-boyama.jpg",
+    "link": "https://www.neseliokulum.com/belirli-gun-ve-haftalar/23-nisan-etkinlikleri/",
+    "isSponsored": false,
+    "isPremium": true,
+    "category": "Eğitim",
+    "location": "Online"
+  }
+]
