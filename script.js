@@ -143,16 +143,13 @@ function initializeGames() {
         });
     });
     
-    // Ücretsiz erişim - Premium kısıtlamaları kaldırıldı
-    // Tüm oyunlar artık herkese açık
-    const allGames = document.querySelectorAll('.game-item');
-    allGames.forEach(game => {
+    // Premium oyun uyarısı
+    const premiumGames = document.querySelectorAll('.premium');
+    premiumGames.forEach(game => {
         game.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Oyuna direkt erişim sağla
-            const gameUrl = this.querySelector('a')?.href;
-            if (gameUrl && !gameUrl.includes('#')) {
-                window.location.href = gameUrl;
+            if (!isPremiumUser()) {
+                e.preventDefault();
+                showPremiumModal();
             }
         });
     });
@@ -326,9 +323,9 @@ function filterEvents(eventCards) {
     });
 }
 
-// Ücretsiz erişim - Herkes premium özelliklere erişebilir
+// Premium kullanıcı kontrolü (simülasyon)
 function isPremiumUser() {
-    return true; // Artık herkes premium sayılıyor
+    return localStorage.getItem('userType') === 'premium';
 }
 
 // Premium modal göster
@@ -512,79 +509,3 @@ document.head.appendChild(style);
 // Debug konsol mesajı
 console.log('🎉 23 Nisan Çocuk Bayramı Web Sitesi yüklendi!');
 console.log('Merhaba küçük kodcular! 👨‍💻👩‍💻');
-// Müzik Player Fonksiyonları
-function initializeMusicPlayer() {
-    const playBtn = document.getElementById('playBtn');
-    const pauseBtn = document.getElementById('pauseBtn');
-    const musicSelect = document.getElementById('musicSelect');
-    const volumeSlider = document.getElementById('volumeSlider');
-    const backgroundMusic = document.getElementById('backgroundMusic');
-
-    if (!backgroundMusic) return; // Müzik player yoksa çık
-
-    // Play button
-    if (playBtn) {
-        playBtn.addEventListener('click', function() {
-            backgroundMusic.play().then(() => {
-                playBtn.style.display = 'none';
-                pauseBtn.style.display = 'block';
-                console.log('🎵 Müzik başlatıldı!');
-            }).catch(err => {
-                console.log('Müzik otomatik başlatılamadı:', err);
-                alert('Müziği başlatmak için sayfa ile etkileşime geçin!');
-            });
-        });
-    }
-
-    // Pause button
-    if (pauseBtn) {
-        pauseBtn.addEventListener('click', function() {
-            backgroundMusic.pause();
-            pauseBtn.style.display = 'none';
-            playBtn.style.display = 'block';
-            console.log('⏸️ Müzik durduruldu!');
-        });
-    }
-
-    // Müzik seçimi
-    if (musicSelect) {
-        musicSelect.addEventListener('change', function() {
-            const selectedSong = this.value;
-            backgroundMusic.src = selectedSong;
-            
-            if (pauseBtn.style.display === 'block') {
-                backgroundMusic.play().catch(err => {
-                    console.log('Yeni müzik yüklenirken hata:', err);
-                });
-            }
-            console.log('🎶 Müzik değiştirildi:', selectedSong);
-        });
-    }
-
-    // Volume control
-    if (volumeSlider) {
-        volumeSlider.addEventListener('input', function() {
-            backgroundMusic.volume = this.value / 100;
-            console.log('🔊 Ses seviyesi:', this.value + '%');
-        });
-        
-        // lk ses seviyesi
-        backgroundMusic.volume = 0.5;
-    }
-
-    // Müzik bittiğinde otomatik yeniden başlat
-    backgroundMusic.addEventListener('ended', function() {
-        this.currentTime = 0;
-        this.play().catch(err => {
-            console.log('Müzik tekrar başlatılamadı:', err);
-        });
-    });
-
-    console.log('🎵 Müzik player hazırlandı!');
-}
-
-// Sayfa yüklendiğinde müzik player'ı başlat
-document.addEventListener('DOMContentLoaded', function() {
-    // Küçük gecikme ile player'ı başlat
-    setTimeout(initializeMusicPlayer, 1000);
-});

@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Oyun Köşesi - 23 Nisan Çocuk Bayramı Eğitici Oyunları</title>
-    <meta name="description" content="23 Nisan temalı eğitici oyunlar! Atatürk yapbozları, bayrak boyama oyunları, hafıza oyunları ve çocuklar için özel quiz oyunları.">
-    <meta name="keywords" content="çocuk oyunları, eğitici oyunlar, 23 nisan oyunları, atatürk oyunları, bayrak oyunu, hafıza oyunu, yapboz">
+    <title>Etkinlik Takvimi - 23 Nisan İstanbul Çocuk Bayramı Etkinlikleri</title>
+    <meta name="description" content="23 Nisan İstanbul etkinlik takvimi! Kidzania, AKM, müzeler ve parklar'da yapılacak çocuk bayramı etkinlikleri ve programı.">
+    <meta name="keywords" content="23 nisan etkinlikleri, istanbul çocuk etkinlikleri, çocuk bayramı programı, kidzania, akm etkinlikleri">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Oyun Köşesi - 23 Nisan Eğitici Oyunları">
-    <meta property="og:description" content="23 Nisan temalı eğitici ve eğlenceli oyunlar çocuklarınızı bekliyor!">
+    <meta property="og:title" content="Etkinlik Takvimi - 23 Nisan İstanbul Etkinlikleri">
+    <meta property="og:description" content="İstanbul'daki en kapsamlı 23 Nisan etkinlik takvimi">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://23nisan-cocuk-senligi.vercel.app/oyunlar.html">
+    <meta property="og:url" content="https://23nisan-cocuk-senligi.vercel.app/etkinlikler.html">
     
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -25,269 +25,209 @@
         <nav class="navbar">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/logo.svg" alt="23 Nisan Şenlik Logosu">
+                    <img src="images/logo.png" alt="23 Nisan Şenlik Logosu">
                 </a>
             </div>
             
             <ul class="nav-links">
                 <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="etkinlikler.html">Etkinlik Takvimi</a></li>
-                <li class="active"><a href="oyunlar.html">Oyun Köşesi</a></li>
+                <li class="active"><a href="etkinlikler.html">Etkinlik Takvimi</a></li>
+                <li><a href="oyunlar.html">Oyun Köşesi</a></li>
                 <li><a href="atolyeler.html">Atölye</a></li>
                 <li><a href="blog.html">Blog (Ebeveyn)</a></li>
             </ul>
 
-            <div class="nav-buttons" style="display: none;">
-                <!-- Üyelik sistemi geçici olarak askıya alındı -->
-                <!-- <a href="giris.html" class="btn btn-secondary">Giriş Yap</a> -->
-                <!-- <a href="kayit.html" class="btn btn-primary">Kayıt Ol</a> -->
+            <div class="nav-buttons">
+                <a href="giris.html" class="btn btn-secondary">Giriş Yap</a>
+                <a href="kayit.html" class="btn btn-primary">Kayıt Ol</a>
             </div>
         </nav>
     </header>
 
-    <!-- Müzik Player -->
-    <div class="music-player">
-        <div class="music-controls">
-            <h3>🎵 Oyun Müzikleri</h3>
-            <div class="player-buttons">
-                <button id="playBtn" class="play-btn">▶️ Çal</button>
-                <button id="pauseBtn" class="pause-btn" style="display:none;">⏸️ Durdur</button>
-                <select id="musicSelect" class="music-select">
-                    <option value="videos/yaşasın 23 nisan çocuk bayramımız kutlu olsun. .mp4">23 Nisan Şarkısı</option>
-                    <option value="videos/Kırkayakların_Beatles_Şarkısı_Videosu.mp4">Eğlenceli Şarkı</option>
-                    <option value="videos/Slept like a log last night … woke up in the fireplace.mp4">Neşeli Melodi</option>
-                </select>
-                <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="50">
-                <span class="volume-label">🔊</span>
-            </div>
-            <audio id="backgroundMusic" loop>
-                <source src="videos/yaşasın 23 nisan çocuk bayramımız kutlu olsun. .mp4" type="audio/mp4">
-                Tarayıcınız ses dosyalarını desteklemiyor.
-            </audio>
-        </div>
-    </div>
-
     <main>
         <section class="page-header">
-            <h1>🎨 İnteraktif Oyun Köşesi</h1>
-            <p>23 Nisan temalı eğlenceli oyunlarla öğren ve eğlen!</p>
+            <h1>🎉 23 Nisan Etkinlik Takvimi</h1>
+            <p>İstanbul'daki tüm 23 Nisan etkinliklerini keşfedin!</p>
         </section>
 
-        <section class="game-categories">
-            <div class="category-tabs">
-                <button class="tab-btn active" data-category="all">Tüm Oyunlar</button>
-                <button class="tab-btn" data-category="puzzle">Yapboz</button>
-                <button class="tab-btn" data-category="coloring">Boyama</button>
-                <button class="tab-btn" data-category="memory">Hafıza</button>
-                <button class="tab-btn" data-category="quiz">Bilgi</button>
-            </div>
-        </section>
+        <section class="filters">
+            <div class="filter-container">
+                <select class="filter-select">
+                    <option value="">Tüm İlçeler</option>
+                    <option value="kadikoy">Kadıköy</option>
+                    <option value="besiktas">Beşiktaş</option>
+                    <option value="sisli">Şişli</option>
+                    <option value="uskudar">Üsküdar</option>
+                    <option value="beyoglu">Beyoğlu</option>
+                    <option value="fatih">Fatih</option>
+                    <option value="beylikduzu">Beylikdüzü</option>
+                </select>
+                
+                <select class="filter-select">
+                    <option value="">Tüm Yaş Grupları</option>
+                    <option value="0-3">0-3 Yaş</option>
+                    <option value="4-7">4-7 Yaş</option>
+                    <option value="8-12">8-12 Yaş</option>
+                    <option value="13+">13+ Yaş</option>
+                </select>
+                
+                <select class="filter-select">
+                    <option value="">Ücret Durumu</option>
+                    <option value="free">Ücretsiz</option>
+                    <option value="paid">Ücretli</option>
+                </select>
 
-        <section class="games-grid">
-            <!-- Ücretsiz Yapboz Oyunu -->
-            <div class="game-item free" data-category="puzzle">
-                <img src="images/oyun-yapboz-ataturk.svg" alt="Atatürk ve Çocuklar Yapbozu">
-                <div class="game-badge">ÜCRETSİZ</div>
-                <h3>🧩 Atatürk ve Çocuklar Yapbozu</h3>
-                <p>Parçaları birleştir, tarihi anı tamamla!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐⭐ Kolay</span>
-                    <span class="age">4-8 Yaş</span>
-                </div>
-                <div class="game-stats">
-                    <span>🎮 2.450 kez oynandı</span>
-                    <span>⏱️ Ortalama 5 dk</span>
-                </div>
-                <a href="oyunlar/yapboz-ataturk.html" class="btn btn-primary">Hemen Oyna</a>
-            </div>
-
-            <!-- Boyama Oyunu - Artık Herkese Açık -->
-            <div class="game-item free" data-category="coloring">
-                <img src="images/oyun-boyama-bayrak.svg" alt="Türk Bayrağı Boyama">
-                <div class="game-badge">ÜCRETSİZ</div>
-                <h3>🎨 Türk Bayrağı Boyama Sayfası</h3>
-                <p>Ay-yıldızlı bayrağımızı dilediğin gibi boya!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐ Çok Kolay</span>
-                    <span class="age">3-10 Yaş</span>
-                </div>
-                <div class="game-stats">
-                    <span>🎮 Herkes oynayabilir</span>
-                    <span>⏱️ Ortalama 10 dk</span>
-                </div>
-                <a href="oyunlar/boyama-bayrak.html" class="btn btn-primary">Hemen Oyna</a>
-            </div>
-
-            <!-- Ücretsiz Hafıza Oyunu -->
-            <div class="game-item free" data-category="memory">
-                <img src="images/oyun-hafiza-23nisan.svg" alt="23 Nisan Hafıza Oyunu">
-                <div class="game-badge">ÜCRETSİZ</div>
-                <h3>🧠 23 Nisan Hafıza Kartları</h3>
-                <p>Eşleştir ve hafızanı güçlendir!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐⭐⭐ Orta</span>
-                    <span class="age">5-12 Yaş</span>
-                </div>
-                <div class="game-stats">
-                    <span>🎮 1.890 kez oynandı</span>
-                    <span>⏱️ Ortalama 8 dk</span>
-                </div>
-                <a href="oyunlar/hafiza-23nisan.html" class="btn btn-primary">Hemen Oyna</a>
-            </div>
-
-            <!-- Bilgi Yarışması - Artık Herkese Açık -->
-            <div class="game-item free" data-category="quiz">
-                <img src="images/oyun-quiz-ataturk.svg" alt="Atatürk Bilgi Yarışması">
-                <div class="game-badge">ÜCRETSİZ</div>
-                <h3>🎯 Atatürk ve 23 Nisan Bilgi Yarışması</h3>
-                <p>Büyük Önder ve bayramımız hakkında sorulara cevap ver!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐⭐⭐⭐ Zor</span>
-                    <span class="age">7-12 Yaş</span>
-                </div>
-                <div class="game-stats">
-                    <span>🎮 Herkes oynayabilir</span>
-                    <span>⏱️ Ortalama 15 dk</span>
-                </div>
-                <a href="oyunlar/quiz-ataturk.html" class="btn btn-primary">Hemen Oyna</a>
-            </div>
-
-            <!-- Ücretsiz Boyama -->
-            <div class="game-item free" data-category="coloring">
-                <img src="images/oyun-boyama-cocuklar.svg" alt="Çocuklar Boyama">
-                <div class="game-badge">ÜCRETSİZ</div>
-                <h3>🖍️ Neşeli Çocuklar Boyama</h3>
-                <p>Mutlu çocukları renklendir!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐ Çok Kolay</span>
-                    <span class="age">3-8 Yaş</span>
-                </div>
-                <div class="game-stats">
-                    <span>🎮 3.210 kez oynandı</span>
-                    <span>⏱️ Ortalama 7 dk</span>
-                </div>
-                <a href="oyunlar/boyama-cocuklar.html" class="btn btn-primary">Hemen Oyna</a>
-            </div>
-
-            <!-- Premium Yapboz -->
-            <div class="game-item premium" data-category="puzzle">
-                <img src="images/oyun-yapboz-meclis.svg" alt="TBMM Yapboz">
-                <span class="premium-badge">👑 PREMİUM</span>
-                <h3>🏛️ TBMM Sarayı Yapbozu</h3>
-                <p>Türkiye Büyük Millet Meclisi'ni parça parça inşa et!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐⭐⭐⭐ Çok Zor</span>
-                    <span class="age">8-14 Yaş</span>
-                </div>
-                <div class="game-stats">
-                    <span>🎮 Premium özel</span>
-                    <span>⏱️ Ortalama 20 dk</span>
-                </div>
-                <span class="premium-lock">👑 Premium üyelik gerekli</span>
-            </div>
-
-            <!-- Eğitici Oyun -->
-            <div class="game-item free" data-category="quiz">
-                <img src="images/oyun-egitici-tarih.svg" alt="Tarih Öğrenme Oyunu">
-                <div class="game-badge">ÜCRETSİZ</div>
-                <h3>📚 23 Nisan Tarihi Öğrenme</h3>
-                <p>İnteraktif sorularla 23 Nisan'ın tarihini öğren!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐⭐ Kolay</span>
-                    <span class="age">6-12 Yaş</span>
-                </div>
-                <div class="game-stats">
-                    <span>🎮 1.567 kez oynandı</span>
-                    <span>⏱️ Ortalama 12 dk</span>
-                </div>
-                <a href="oyunlar/tarih-ogrenme.html" class="btn btn-primary">Hemen Oyna</a>
-            </div>
-
-            <!-- Premium Gelişmiş Hafıza -->
-            <div class="game-item premium" data-category="memory">
-                <img src="images/oyun-hafiza-gelismis.svg" alt="Gelişmiş Hafıza Oyunu">
-                <span class="premium-badge">👑 PREMİUM</span>
-                <h3>🎭 Türk Kültürü Hafıza Kartları</h3>
-                <p>Türk kültürüne ait öğeleri eşleştir!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐⭐⭐⭐ Çok Zor</span>
-                    <span class="age">8-14 Yaş</span>
-                </div>
-                <div class="game-stats">
-                    <span>🎮 Premium özel</span>
-                    <span>⏱️ Ortalama 18 dk</span>
-                </div>
-                <span class="premium-lock">👑 Premium üyelik gerekli</span>
+                <select class="filter-select">
+                    <option value="">Etkinlik Türü</option>
+                    <option value="tiyatro">Tiyatro</option>
+                    <option value="konser">Konser</option>
+                    <option value="atolye">Atölye</option>
+                    <option value="gosteri">Gösteri</option>
+                    <option value="oyun">Oyun</option>
+                </select>
             </div>
         </section>
 
-        <section class="premium-info">
-            <h2>🌟 Premium Üyeliğin Avantajları</h2>
-            <div class="premium-features">
-                <div class="feature">
-                    <h4>🎮 20+ Özel Oyun</h4>
-                    <p>Gelişmiş yapboz, boyama ve eğitici oyunlar</p>
-                </div>
-                <div class="feature">
-                    <h4>📊 İlerleme Takibi</h4>
-                    <p>Çocuğunuzun oyun başarılarını izleyin</p>
-                </div>
-                <div class="feature">
-                    <h4>🚫 Reklamsız Deneyim</h4>
-                    <p>Kesintisiz oyun keyfi</p>
-                </div>
-                <div class="feature">
-                    <h4>🏆 Başarı Rozetleri</h4>
-                    <p>Tamamlanan oyunlar için özel rozetler</p>
-                </div>
-                <div class="feature">
-                    <h4>💾 Oyun Kaydetme</h4>
-                    <p>Oyunları kaldığınız yerden devam ettirin</p>
-                </div>
-                <div class="feature">
-                    <h4>🎨 Kişiselleştirme</h4>
-                    <p>Oyun görünümünü kişiselleştirin</p>
-                </div>
+        <section class="events-grid">
+            <!-- Sponsorlu Etkinlik -->
+            <div class="event-item sponsored">
+                <img src="images/etkinlik-kidzania.jpg" alt="Kidzania Festival">
+                <span class="sponsor-tag">SPONSORLU</span>
+                <h3>🎭 Kidzania 23 Nisan Festivali</h3>
+                <p>📍 Akasya AVM - Kidzania İstanbul</p>
+                <p>📅 22-24 Nisan 2025 | ⏰ 10:00-18:00</p>
+                <p>🎂 4-14 Yaş</p>
+                <p>🎪 Mini şehirde 23 Nisan kutlaması, özel aktiviteler ve hediyeler!</p>
+                <span class="price-tag paid">99 TL</span>
+                <a href="#" class="btn btn-primary">Bilet Al</a>
             </div>
-            <div class="pricing">
-                <h3>Sadece 29 TL/Ay</h3>
-                <p>İlk 7 gün ücretsiz deneme!</p>
+
+            <!-- Ücretsiz Etkinlik -->
+            <div class="event-item">
+                <img src="images/etkinlik-akm.jpg" alt="AKM Çocuk Konseri">
+                <h3>🎵 AKM Çocuk Şarkıları Konseri</h3>
+                <p>📍 Atatürk Kültür Merkezi - Çocuk Sahne</p>
+                <p>📅 23 Nisan 2025 | ⏰ 16:00-17:30</p>
+                <p>🎂 3-12 Yaş</p>
+                <p>🎼 Sevilen çocuk şarkıları ve 23 Nisan marşları</p>
+                <span class="price-tag free">ÜCRETSİZ</span>
+                <a href="#" class="btn btn-secondary">Rezervasyon Yap</a>
             </div>
-            <a href="kayit.html" class="btn btn-primary btn-large">Premium Ol - 7 Gün Bedava</a>
+
+            <!-- Belediye Etkinliği -->
+            <div class="event-item">
+                <img src="images/etkinlik-kadikoy.jpg" alt="Kadıköy Çocuk Tiyatrosu">
+                <h3>🎭 "Atatürk ve Çocuklar" Tiyatro Oyunu</h3>
+                <p>📍 Kadıköy Belediyesi Kültür Merkezi</p>
+                <p>📅 23 Nisan 2025 | ⏰ 14:00-15:00</p>
+                <p>🎂 5-12 Yaş</p>
+                <p>🎪 23 Nisan'ın anlamını anlatan interaktif tiyatro</p>
+                <span class="price-tag free">ÜCRETSİZ</span>
+                <a href="#" class="btn btn-secondary">Katılım Formu</a>
+            </div>
+
+            <!-- Sponsorlu Etkinlik 2 -->
+            <div class="event-item sponsored">
+                <img src="images/etkinlik-torium.jpg" alt="Torium Etkinliği">
+                <span class="sponsor-tag">SPONSORLU</span>
+                <h3>🎨 Torium 23 Nisan Sanat Atölyesi</h3>
+                <p>📍 Torium AVM - Etkinlik Alanı</p>
+                <p>📅 20-23 Nisan 2025 | ⏰ 11:00-17:00</p>
+                <p>🎂 4-10 Yaş</p>
+                <p>🖌️ Bayrak boyama, maske yapımı ve yaratıcı etkinlikler</p>
+                <span class="price-tag free">ÜCRETSİZ</span>
+                <a href="#" class="btn btn-primary">Detayları Gör</a>
+            </div>
+
+            <!-- Park Etkinliği -->
+            <div class="event-item">
+                <img src="images/etkinlik-park.jpg" alt="Göztepe Parkı Etkinliği">
+                <h3>🌳 Göztepe Parkı Çocuk Şenliği</h3>
+                <p>📍 Göztepe 60. Yıl Parkı</p>
+                <p>📅 23 Nisan 2025 | ⏰ 10:00-16:00</p>
+                <p>🎂 0-14 Yaş</p>
+                <p>🎪 Oyun parkuru, yüz boyama, pamuk şeker, çeşitli etkinlikler</p>
+                <span class="price-tag free">ÜCRETSİZ</span>
+                <a href="#" class="btn btn-secondary">Katıl</a>
+            </div>
+
+            <!-- Müze Etkinliği -->
+            <div class="event-item">
+                <img src="images/etkinlik-muze.jpg" alt="Pera Müzesi Atölyesi">
+                <h3>🏛️ Pera Müzesi Çocuk Atölyesi</h3>
+                <p>📍 Pera Müzesi - Eğitim Salonu</p>
+                <p>📅 21 Nisan 2025 | ⏰ 13:00-15:00</p>
+                <p>🎂 6-12 Yaş</p>
+                <p>🎨 "Atatürk'ün Gözünden 23 Nisan" resim atölyesi</p>
+                <span class="price-tag paid">25 TL</span>
+                <a href="#" class="btn btn-secondary">Online Kayıt</a>
+            </div>
+
+            <!-- Kitap Etkinliği -->
+            <div class="event-item">
+                <img src="images/etkinlik-kitap.jpg" alt="Kitap Okuma Etkinliği">
+                <h3>📚 D&R Çocuk Kitap Okuma Etkinliği</h3>
+                <p>📍 D&R Kitap Mağazaları (Tüm Şubeler)</p>
+                <p>📅 19-23 Nisan 2025 | ⏰ 15:00-16:00</p>
+                <p>🎂 4-8 Yaş</p>
+                <p>📖 23 Nisan temalı hikaye okuma ve soru-cevap</p>
+                <span class="price-tag free">ÜCRETSİZ</span>
+                <a href="#" class="btn btn-secondary">Şube Bilgileri</a>
+            </div>
+
+            <!-- Spor Etkinliği -->
+            <div class="event-item">
+                <img src="images/etkinlik-spor.jpg" alt="Çocuk Spor Şenliği">
+                <h3>⚽ Beşiktaş Çocuk Spor Şenliği</h3>
+                <p>📍 Beşiktaş Spor Kompleksi</p>
+                <p>📅 23 Nisan 2025 | ⏰ 09:00-12:00</p>
+                <p>🎂 5-14 Yaş</p>
+                <p>🏃‍♂️ Futbol, basketbol, atletizm ve eğlenceli yarışmalar</p>
+                <span class="price-tag free">ÜCRETSİZ</span>
+                <a href="#" class="btn btn-secondary">Kayıt Ol</a>
+            </div>
         </section>
 
-        <section class="game-sponsor">
-            <h2>🎯 Oyun Sponsorumuz</h2>
-            <div class="sponsor-banner">
-                <img src="images/sponsor-oyuncak-dunyasi.svg" alt="Oyuncak Dünyası">
-                <div class="sponsor-content">
-                    <h3>Oyuncak Dünyası</h3>
-                    <p>Çocuklarımızın hayal gücünü geliştiren, eğitici oyuncakların tek adresi! 23 Nisan özel %25 indirim.</p>
-                    <a href="#" class="btn btn-secondary">Mağazayı Ziyaret Et</a>
+        <section class="sponsors-info">
+            <h2>🤝 Etkinlik Sponsorları</h2>
+            <p>23 Nisan coşkusuna ortak olan değerli partnerlerimiz:</p>
+            <div class="sponsors-grid">
+                <div class="sponsor-card">
+                    <img src="images/sponsor-kidzania.jpg" alt="Kidzania">
+                    <h4>Kidzania İstanbul</h4>
+                    <p>Mini şehirde büyük hayaller</p>
+                </div>
+                <div class="sponsor-card">
+                    <img src="images/sponsor-torium.jpg" alt="Torium AVM">
+                    <h4>Torium AVM</h4>
+                    <p>Ailenin buluşma noktası</p>
+                </div>
+                <div class="sponsor-card">
+                    <img src="images/sponsor-dr.jpg" alt="D&R">
+                    <h4>D&R Kitap</h4>
+                    <p>Okumayı sevdiren mağaza</p>
                 </div>
             </div>
         </section>
 
-        <section class="game-stats-section">
-            <h2>📈 Platform İstatistikleri</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>🎮 12,543</h3>
-                    <p>Toplam Oyun Oynama</p>
+        <section class="event-submission">
+            <h2>📝 Etkinliğinizi Ekleyin</h2>
+            <p>23 Nisan kapsamında düzenlediğiniz etkinlikleri sitemizde ücretsiz yayınlayabilirsiniz!</p>
+            <div class="submission-features">
+                <div class="feature-item">
+                    <h4>🆓 Ücretsiz Listeleme</h4>
+                    <p>Kar amacı gütmeyen etkinlikler</p>
                 </div>
-                <div class="stat-card">
-                    <h3>👦👧 3,891</h3>
-                    <p>Aktif Oyuncu</p>
+                <div class="feature-item">
+                    <h4>⭐ Öne Çıkan Listeleme</h4>
+                    <p>Ticari etkinlikler için ücretli</p>
                 </div>
-                <div class="stat-card">
-                    <h3>🏆 8,234</h3>
-                    <p>Kazanılan Rozet</p>
-                </div>
-                <div class="stat-card">
-                    <h3>⏱️ 45 dk</h3>
-                    <p>Ortalama Oyun Süresi</p>
+                <div class="feature-item">
+                    <h4>📊 Katılımcı Analizi</h4>
+                    <p>Detaylı istatistikler</p>
                 </div>
             </div>
+            <a href="etkinlik-ekle.html" class="btn btn-primary btn-large">Etkinlik Ekle</a>
         </section>
     </main>
 
