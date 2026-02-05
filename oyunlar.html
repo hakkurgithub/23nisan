@@ -3,264 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Oyun Köşesi - 23 Nisan Çocuk Bayramı Eğitici Oyunları</title>
-    <meta name="description" content="23 Nisan temalı eğitici oyunlar! Atatürk yapbozları, bayrak boyama oyunları, hafıza oyunları ve çocuklar için özel quiz oyunları.">
-    <meta name="keywords" content="çocuk oyunları, eğitici oyunlar, 23 nisan oyunları, atatürk oyunları, bayrak oyunu, hafıza oyunu, yapboz">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Oyun Köşesi - 23 Nisan Eğitici Oyunları">
-    <meta property="og:description" content="23 Nisan temalı eğitici ve eğlenceli oyunlar çocuklarınızı bekliyor!">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://23nisan-cocuk-senligi.vercel.app/oyunlar.html">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <title>23 Nisan Oyun Köşesi | Ücretsiz Oyunlar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Nunito', sans-serif; background: linear-gradient(135deg, #F1FAEE 0%, #ffffff 100%); min-height: 100vh; }
+        
+        .header { background: #E63946; color: white; padding: 1.5rem; text-align: center; }
+        .header h1 { font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        
+        .nav { background: #1D3557; padding: 1rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .nav a { color: white; text-decoration: none; padding: 0.8rem 1.5rem; border-radius: 25px; background: rgba(255,255,255,0.1); font-weight: bold; transition: all 0.3s; }
+        .nav a:hover { background: #FFD700; color: #1D3557; }
+        
+        .hero { text-align: center; padding: 3rem 1rem; color: #1D3557; }
+        .hero h2 { font-size: 2rem; margin-bottom: 1rem; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        
+        .oyun-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        
+        .oyun-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border: 3px solid transparent;
+        }
+        
+        .oyun-card:hover {
+            transform: translateY(-10px);
+            border-color: #E63946;
+        }
+        
+        .oyun-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+        
+        .oyun-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #2E7D32;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .oyun-content { padding: 1.5rem; }
+        
+        .oyun-title { color: #1D3557; font-size: 1.4rem; margin-bottom: 0.5rem; }
+        
+        .oyun-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            color: #666;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .oyun-desc { color: #555; margin-bottom: 1rem; line-height: 1.5; }
+        
+        .oyun-stats {
+            background: #F1FAEE;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        
+        .oyun-stats h4 { color: #E63946; margin-bottom: 0.5rem; }
+        
+        .stars { color: #FFD700; }
+        
+        .btn {
+            display: inline-block;
+            background: #E63946;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #FFD700;
+            color: #1D3557;
+        }
+        
+        .footer {
+            background: #1D3557;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-logo { margin-top: 1rem; }
+        
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="23 Nisan Şenlik Logosu">
-                </a>
-            </div>
-            
-            <ul class="nav-links">
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="etkinlikler.html">Etkinlik Takvimi</a></li>
-                <li class="active"><a href="oyunlar.html">Oyun Köşesi</a></li>
-                <li><a href="atolyeler.html">Atölye</a></li>
-                <li><a href="blog.html">Blog (Ebeveyn)</a></li>
-            </ul>
-
-            <div class="nav-buttons">
-                <a href="giris.html" class="btn btn-secondary">Giriş Yap</a>
-                <a href="kayit.html" class="btn btn-primary">Kayıt Ol</a>
-            </div>
-        </nav>
+    <header class="header">
+        <h1>��� 23 Nisan Oyun Köşesi</h1>
+        <p>Eğlenerek öğren, oyun oynarak keşfet!</p>
     </header>
-
-    <main>
-        <section class="page-header">
-            <h1>🎨 İnteraktif Oyun Köşesi</h1>
-            <p>23 Nisan temalı eğlenceli oyunlarla öğren ve eğlen!</p>
-        </section>
-
-        <section class="game-categories">
-            <div class="category-tabs">
-                <button class="tab-btn active" data-category="all">Tüm Oyunlar</button>
-                <button class="tab-btn" data-category="puzzle">Yapboz</button>
-                <button class="tab-btn" data-category="coloring">Boyama</button>
-                <button class="tab-btn" data-category="memory">Hafıza</button>
-                <button class="tab-btn" data-category="quiz">Bilgi</button>
-            </div>
-        </section>
-
-        <section class="games-grid">
-            <!-- Ücretsiz Yapboz Oyunu -->
-            <div class="game-item free" data-category="puzzle">
-                <img src="images/oyun-yapboz-ataturk.jpg" alt="Atatürk ve Çocuklar Yapbozu">
-                <div class="game-badge">ÜCRETSİZ</div>
-                <h3>🧩 Atatürk ve Çocuklar Yapbozu</h3>
-                <p>Parçaları birleştir, tarihi anı tamamla!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐⭐ Kolay</span>
-                    <span class="age">4-8 Yaş</span>
+    
+    <nav class="nav">
+        <a href="/">��� Ana Sayfa</a>
+        <a href="/etkinlikler.html">��� Etkinlikler</a>
+        <a href="/oyunlar.html">��� Oyunlar</a>
+        <a href="/atolyeler.html">��� Atölyeler</a>
+    </nav>
+    
+    <section class="hero">
+        <h2>Oyun Oynayarak 23 Nisan'ı Keşfet!</h2>
+        <p>Yapbozdan boyamaya, hafızadan bilgi yarışmasına kadar birçok oyun seni bekliyor.</p>
+    </section>
+    
+    <div class="container">
+        <div class="oyun-grid">
+            
+            <!-- Oyun 1 -->
+            <article class="oyun-card">
+                <div class="oyun-image">���
+                    <span class="oyun-badge">ÜCRETSİZ</span>
                 </div>
-                <div class="game-stats">
-                    <span>🎮 2.450 kez oynandı</span>
-                    <span>⏱️ Ortalama 5 dk</span>
+                <div class="oyun-content">
+                    <h3 class="oyun-title">Atatürk ve Çocuklar Yapbozu</h3>
+                    <div class="oyun-meta">
+                        <span class="stars">⭐⭐⭐</span>
+                        <span>Orta</span>
+                        <span>��� 5-12 yaş</span>
+                    </div>
+                    <p class="oyun-desc">Atatürk'ün çocuklarla olan bu tarihi fotoğrafını parça parça birleştir. Tarihi yaşayarak öğren!</p>
+                    <div class="oyun-stats">
+                        <h4>��� Oyun Detayları</h4>
+                        <span>⏱️ Ortalama 15 dk</span><br>
+                        <span>���️ 12 parça</span><br>
+                        <span>��� 2.450 kez oynandı</span>
+                    </div>
+                    <a href="/oyunlar/yapboz-ataturk.html" class="btn">��� Hemen Oyna</a>
                 </div>
-                <a href="oyunlar/yapboz-ataturk.html" class="btn btn-primary">Hemen Oyna</a>
-            </div>
-
-            <!-- Premium Boyama Oyunu -->
-            <div class="game-item free" data-category="coloring">
-                <img src="images/oyun-boyama-bayrak.jpg" alt="Türk Bayrağı Boyama">
-                <span class="premium-badge">👑 PREMİUM</span>
-                <h3>🎨 Türk Bayrağı Boyama Sayfası</h3>
-                <p>Ay-yıldızlı bayrağımızı dilediğin gibi boya!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐ Çok Kolay</span>
-                    <span class="age">3-10 Yaş</span>
+            </article>
+            
+            <!-- Oyun 2 -->
+            <article class="oyun-card">
+                <div class="oyun-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">���
+                    <span class="oyun-badge">ÜCRETSİZ</span>
                 </div>
-                <div class="game-stats">
-                    <span>🎮 Premium özel</span>
-                    <span>⏱️ Ortalama 10 dk</span>
+                <div class="oyun-content">
+                    <h3 class="oyun-title">Türk Bayrağı Boyama</h3>
+                    <div class="oyun-meta">
+                        <span class="stars">⭐⭐</span>
+                        <span>Çok Kolay</span>
+                        <span>��� 3-10 yaş</span>
+                    </div>
+                    <p class="oyun-desc">Ay-yıldızlı bayrağımızı istediğin gibi boya! Kırmızı ve beyaz renkleri kullanarak harika bir bayrak oluştur.</p>
+                    <div class="oyun-stats">
+                        <h4>��� Oyun Detayları</h4>
+                        <span>⏱️ Ortalama 10 dk</span><br>
+                        <span>��� 8 farklı renk</span><br>
+                        <span>��� 3.890 kez oynandı</span>
+                    </div>
+                    <a href="/oyunlar/boyama-bayrak.html" class="btn">��� Hemen Oyna</a>
                 </div>
-                <span class="premium-lock">👑 Premium üyelik gerekli</span>
-            </div>
-
-            <!-- Ücretsiz Hafıza Oyunu -->
-            <div class="game-item free" data-category="memory">
-                <img src="images/oyun-hafiza-23nisan.jpg" alt="23 Nisan Hafıza Oyunu">
-                <div class="game-badge">ÜCRETSİZ</div>
-                <h3>🧠 23 Nisan Hafıza Kartları</h3>
-                <p>Eşleştir ve hafızanı güçlendir!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐⭐⭐ Orta</span>
-                    <span class="age">5-12 Yaş</span>
+            </article>
+            
+            <!-- Oyun 3 -->
+            <article class="oyun-card">
+                <div class="oyun-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">���
+                    <span class="oyun-badge">ÜCRETSİZ</span>
                 </div>
-                <div class="game-stats">
-                    <span>🎮 1.890 kez oynandı</span>
-                    <span>⏱️ Ortalama 8 dk</span>
+                <div class="oyun-content">
+                    <h3 class="oyun-title">23 Nisan Hafıza Kartları</h3>
+                    <div class="oyun-meta">
+                        <span class="stars">⭐⭐⭐⭐</span>
+                        <span>Orta</span>
+                        <span>��� 5-12 yaş</span>
+                    </div>
+                    <p class="oyun-desc">23 Nisan temalı kartları eşleştir! Bayrak, Atatürk, çocuklar ve daha fazlasını hatırla.</p>
+                    <div class="oyun-stats">
+                        <h4>��� Oyun Detayları</h4>
+                        <span>⏱️ Ortalama 8 dk</span><br>
+                        <span>��� 16 kart (8 çift)</span><br>
+                        <span>��� 1.890 kez oynandı</span>
+                    </div>
+                    <a href="/oyunlar/hafiza-23nisan.html" class="btn">��� Hemen Oyna</a>
                 </div>
-                <a href="oyunlar/hafiza-23nisan.html" class="btn btn-primary">Hemen Oyna</a>
-            </div>
-
-            <!-- Premium Bilgi Yarışması -->
-            <div class="game-item free" data-category="quiz">
-                <img src="images/oyun-quiz-ataturk.jpg" alt="Atatürk Bilgi Yarışması">
-                <span class="premium-badge">👑 PREMİUM</span>
-                <h3>🎯 Atatürk ve 23 Nisan Bilgi Yarışması</h3>
-                <p>Büyük Önder ve bayramımız hakkında sorulara cevap ver!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐⭐⭐⭐ Zor</span>
-                    <span class="age">7-12 Yaş</span>
+            </article>
+            
+            <!-- Oyun 4 -->
+            <article class="oyun-card">
+                <div class="oyun-image" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);">���
+                    <span class="oyun-badge">ÜCRETSİZ</span>
                 </div>
-                <div class="game-stats">
-                    <span>🎮 Premium özel</span>
-                    <span>⏱️ Ortalama 15 dk</span>
+                <div class="oyun-content">
+                    <h3 class="oyun-title">Atatürk ve 23 Nisan Bilgi Yarışması</h3>
+                    <div class="oyun-meta">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span>Zor</span>
+                        <span>��� 7-12 yaş</span>
+                    </div>
+                    <p class="oyun-desc">Büyük Önder ve bayramımız hakkında bilgini test et! 10 soruluk eğlenceli bir yarışma seni bekliyor.</p>
+                    <div class="oyun-stats">
+                        <h4>��� Oyun Detayları</h4>
+                        <span>⏱️ Ortalama 15 dk</span><br>
+                        <span>❓ 10 soru</span><br>
+                        <span>��� 1.230 kez oynandı</span>
+                    </div>
+                    <a href="/oyunlar/quiz-ataturk.html" class="btn">��� Hemen Oyna</a>
                 </div>
-                <span class="premium-lock">👑 Premium üyelik gerekli</span>
-            </div>
-
-            <!-- Ücretsiz Boyama -->
-            <div class="game-item free" data-category="coloring">
-                <img src="images/oyun-boyama-cocuklar.jpg" alt="Çocuklar Boyama">
-                <div class="game-badge">ÜCRETSİZ</div>
-                <h3>🖍️ Neşeli Çocuklar Boyama</h3>
-                <p>Mutlu çocukları renklendir!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐ Çok Kolay</span>
-                    <span class="age">3-8 Yaş</span>
+            </article>
+            
+            <!-- Oyun 5 -->
+            <article class="oyun-card">
+                <div class="oyun-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">���️
+                    <span class="oyun-badge">ÜCRETSİZ</span>
                 </div>
-                <div class="game-stats">
-                    <span>🎮 3.210 kez oynandı</span>
-                    <span>⏱️ Ortalama 7 dk</span>
+                <div class="oyun-content">
+                    <h3 class="oyun-title">Neşeli Çocuklar Boyama</h3>
+                    <div class="oyun-meta">
+                        <span class="stars">⭐⭐</span>
+                        <span>Çok Kolay</span>
+                        <span>��� 3-8 yaş</span>
+                    </div>
+                    <p class="oyun-desc">23 Nisan coşkusu içindeki mutlu çocukları renklendir! İstediğin renkleri kullan, yaratıcı ol.</p>
+                    <div class="oyun-stats">
+                        <h4>��� Oyun Detayları</h4>
+                        <span>⏱️ Ortalama 7 dk</span><br>
+                        <span>��� 12 renk paleti</span><br>
+                        <span>��� 2.150 kez oynandı</span>
+                    </div>
+                    <a href="/oyunlar/boyama-cocuklar.html" class="btn">��� Hemen Oyna</a>
                 </div>
-                <a href="oyunlar/boyama-cocuklar.html" class="btn btn-primary">Hemen Oyna</a>
-            </div>
-
-            <!-- Premium Yapboz -->
-            <div class="game-item free" data-category="puzzle">
-                <img src="images/oyun-yapboz-meclis.jpg" alt="TBMM Yapboz">
-                <span class="premium-badge">👑 PREMİUM</span>
-                <h3>🏛️ TBMM Sarayı Yapbozu</h3>
-                <p>Türkiye Büyük Millet Meclisi'ni parça parça inşa et!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐⭐⭐⭐ Çok Zor</span>
-                    <span class="age">8-14 Yaş</span>
+            </article>
+            
+            <!-- Oyun 6 -->
+            <article class="oyun-card">
+                <div class="oyun-image" style="background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);">���️
+                    <span class="oyun-badge">ÜCRETSİZ</span>
                 </div>
-                <div class="game-stats">
-                    <span>🎮 Premium özel</span>
-                    <span>⏱️ Ortalama 20 dk</span>
+                <div class="oyun-content">
+                    <h3 class="oyun-title">TBMM Sarayı Yapbozu</h3>
+                    <div class="oyun-meta">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span>Çok Zor</span>
+                        <span>��� 8-14 yaş</span>
+                    </div>
+                    <p class="oyun-desc">Türkiye Büyük Millet Meclisi'nin tarihi binasını parça parça inşa et! 24 parçalık süper zorlu yapboz.</p>
+                    <div class="oyun-stats">
+                        <h4>��� Oyun Detayları</h4>
+                        <span>⏱️ Ortalama 20 dk</span><br>
+                        <span>���️ 24 parça</span><br>
+                        <span>��� 980 kez oynandı</span>
+                    </div>
+                    <a href="/oyunlar/yapboz-meclis.html" class="btn">��� Hemen Oyna</a>
                 </div>
-                <span class="premium-lock">👑 Premium üyelik gerekli</span>
-            </div>
-
-            <!-- Eğitici Oyun -->
-            <div class="game-item free" data-category="quiz">
-                <img src="images/oyun-egitici-tarih.jpg" alt="Tarih Öğrenme Oyunu">
-                <div class="game-badge">ÜCRETSİZ</div>
-                <h3>📚 23 Nisan Tarihi Öğrenme</h3>
-                <p>İnteraktif sorularla 23 Nisan'ın tarihini öğren!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐⭐ Kolay</span>
-                    <span class="age">6-12 Yaş</span>
-                </div>
-                <div class="game-stats">
-                    <span>🎮 1.567 kez oynandı</span>
-                    <span>⏱️ Ortalama 12 dk</span>
-                </div>
-                <a href="oyunlar/tarih-ogrenme.html" class="btn btn-primary">Hemen Oyna</a>
-            </div>
-
-            <!-- Premium Gelişmiş Hafıza -->
-            <div class="game-item free" data-category="memory">
-                <img src="images/oyun-hafiza-gelismis.jpg" alt="Gelişmiş Hafıza Oyunu">
-                <span class="premium-badge">👑 PREMİUM</span>
-                <h3>🎭 Türk Kültürü Hafıza Kartları</h3>
-                <p>Türk kültürüne ait öğeleri eşleştir!</p>
-                <div class="game-info">
-                    <span class="difficulty">⭐⭐⭐⭐⭐ Çok Zor</span>
-                    <span class="age">8-14 Yaş</span>
-                </div>
-                <div class="game-stats">
-                    <span>🎮 Premium özel</span>
-                    <span>⏱️ Ortalama 18 dk</span>
-                </div>
-                <span class="premium-lock">👑 Premium üyelik gerekli</span>
-            </div>
-        </section>
-
-
-        <section class="game-sponsor">
-            <h2>🎯 Oyun Sponsorumuz</h2>
-            <div class="sponsor-banner">
-                <img src="images/sponsor-oyuncak-dunyasi.jpg" alt="Oyuncak Dünyası">
-                <div class="sponsor-content">
-                    <h3>Oyuncak Dünyası</h3>
-                    <p>Çocuklarımızın hayal gücünü geliştiren, eğitici oyuncakların tek adresi! 23 Nisan özel %25 indirim.</p>
-                    <a href="#" class="btn btn-secondary">Mağazayı Ziyaret Et</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="game-stats-section">
-            <h2>📈 Platform İstatistikleri</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>🎮 12,543</h3>
-                    <p>Toplam Oyun Oynama</p>
-                </div>
-                <div class="stat-card">
-                    <h3>👦👧 3,891</h3>
-                    <p>Aktif Oyuncu</p>
-                </div>
-                <div class="stat-card">
-                    <h3>🏆 8,234</h3>
-                    <p>Kazanılan Rozet</p>
-                </div>
-                <div class="stat-card">
-                    <h3>⏱️ 45 dk</h3>
-                    <p>Ortalama Oyun Süresi</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h4>Hakkımızda</h4>
-                <p>23 Nisan coşkusunu yıl boyu yaşatmayı hedefleyen interaktif çocuk platformu.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Hızlı Menü</h4>
-                <ul>
-                    <li><a href="etkinlikler.html">Etkinlikler</a></li>
-                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
-                    <li><a href="iletisim.html">İletişim</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>İş Birlikleri</h4>
-                <ul>
-                    <li><a href="reklam.html">Reklam Ver</a></li>
-                    <li><a href="partner.html">Partnerlerimiz</a></li>
-                </ul>
-            </div>
+            </article>
+            
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 - 23 Nisan Çocuk Şenliği. Tüm Hakları Saklıdır.</p>
+    </div>
+    
+    <footer class="footer">
+        <p>© 2025 23 Nisan Portali ���</p>
+        <div class="footer-logo">
+            <img src="https://raw.githubusercontent.com/hakkurgithub/images/main/silicon-campus-logo.jpg" alt="Silicon Campus Logo">
+            <p style="color: #a0aec0; font-size: 0.9rem; font-style: italic;">© 2024 Tüm hakları Silicon Campus'e aittir.</p>
         </div>
     </footer>
-    
-    <script src="script.js"></script>
 </body>
 </html>
