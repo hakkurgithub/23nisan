@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23 Nisan Sanat Atölyeleri | Ücretsiz Etkinlikler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Nunito', sans-serif; background: linear-gradient(135deg, #F1FAEE 0%, #ffffff 100%); min-height: 100vh; }
+        
+        .header { background: #E63946; color: white; padding: 1.5rem; text-align: center; }
+        .header h1 { font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        
+        .nav { background: #1D3557; padding: 1rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .nav a { color: white; text-decoration: none; padding: 0.8rem 1.5rem; border-radius: 25px; background: rgba(255,255,255,0.1); font-weight: bold; transition: all 0.3s; }
+        .nav a:hover { background: #FFD700; color: #1D3557; }
+        
+        .hero { text-align: center; padding: 3rem 1rem; color: #1D3557; }
+        .hero h2 { font-size: 2rem; margin-bottom: 1rem; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        
+        .atolye-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        
+        .atolye-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border: 3px solid transparent;
+        }
+        
+        .atolye-card:hover {
+            transform: translateY(-10px);
+            border-color: #E63946;
+        }
+        
+        .atolye-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        
+        .atolye-content { padding: 1.5rem; }
+        
+        .atolye-badge {
+            display: inline-block;
+            background: #2E7D32;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .atolye-title { color: #1D3557; font-size: 1.4rem; margin-bottom: 0.5rem; }
+        
+        .atolye-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            color: #666;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .atolye-desc { color: #555; margin-bottom: 1rem; line-height: 1.5; }
+        
+        .materials {
+            background: #F1FAEE;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        
+        .materials h4 { color: #E63946; margin-bottom: 0.5rem; }
+        
+        .materials ul { list-style: none; padding-left: 0; }
+        
+        .materials li { padding: 0.3rem 0; padding-left: 1.5rem; position: relative; }
+        
+        .materials li:before { content: "✂️"; position: absolute; left: 0; }
+        
+        .btn {
+            display: inline-block;
+            background: #E63946;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #FFD700;
+            color: #1D3557;
+        }
+        
+        .footer {
+            background: #1D3557;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-logo { margin-top: 1rem; }
+        
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>��� 23 Nisan Sanat Atölyeleri</h1>
+        <p>Evde yapabileceğin ücretsiz etkinlikler!</p>
+    </header>
+    
+    <nav class="nav">
+        <a href="/">��� Ana Sayfa</a>
+        <a href="/etkinlikler.html">��� Etkinlikler</a>
+        <a href="/oyunlar.html">��� Oyunlar</a>
+        <a href="/atolyeler.html">��� Atölyeler</a>
+    </nav>
+    
+    <section class="hero">
+        <h2>Yaratıcı Fikirler, Eğlenceli Aktiviteler!</h2>
+        <p>23 Nisan ruhunu evinize taşıyacak sanat projeleri</p>
+    </section>
+    
+    <div class="container">
+        <div class="atolye-grid">
+            
+            <!-- Atölye 1 -->
+            <article class="atolye-card">
+                <div class="atolye-image">������</div>
+                <div class="atolye-content">
+                    <span class="atolye-badge">ÜCRETSİZ</span>
+                    <h3 class="atolye-title">Türk Bayrağı Yapımı</h3>
+                    <div class="atolye-meta">
+                        <span>⏱️ 30 dk</span>
+                        <span>��� 5 malzeme</span>
+                        <span>��� 4-10 yaş</span>
+                    </div>
+                    <p class="atolye-desc">Kendi bayrağını kendin yap! Kırmızı karton, beyaz kağıt ve biraz yaratıcılıkla harika bir Türk bayrağı oluştur.</p>
+                    <div class="materials">
+                        <h4>��� Gerekli Malzemeler</h4>
+                        <ul>
+                            <li>Kırmızı karton</li>
+                            <li>Beyaz kağıt (ay ve yıldız için)</li>
+                            <li>Makas</li>
+                            <li>Yapıştırıcı</li>
+                            <li>Sopa (direk için)</li>
+                        </ul>
+                    </div>
+                    <a href="/atolye/bayrak-yapimi.html" class="btn">��� Videolu Anlatım</a>
+                </div>
+            </article>
+            
+            <!-- Atölye 2 -->
+            <article class="atolye-card">
+                <div class="atolye-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">���️</div>
+                <div class="atolye-content">
+                    <span class="atolye-badge">ÜCRETSİZ</span>
+                    <h3 class="atolye-title">23 Nisan Çerçevesi</h3>
+                    <div class="atolye-meta">
+                        <span>⏱️ 45 dk</span>
+                        <span>��� 6 malzeme</span>
+                        <span>��� 5-12 yaş</span>
+                    </div>
+                    <p class="atolye-desc">Atatürk ve çocukların fotoğrafı için özel bir çerçeve yap! 23 Nisan temalı süslemelerle dolu.</p>
+                    <div class="materials">
+                        <h4>��� Gerekli Malzemeler</h4>
+                        <ul>
+                            <li>Karton çerçeve</li>
+                            <li>Kırmızı ve beyaz boya</li>
+                            <li>Sünger (baskı için)</li>
+                            <li>Yapıştırıcı</li>
+                            <li>Süslemeler (pul, sim)</li>
+                            <li>Makas</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn">Başla</a>
+                </div>
+            </article>
+            
+            <!-- Atölye 3 -->
+            <article class="atolye-card">
+                <div class="atolye-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">���</div>
+                <div class="atolye-content">
+                    <span class="atolye-badge">ÜCRETSİZ</span>
+                    <h3 class="atolye-title">Atatürk Maskesi</h3>
+                    <div class="atolye-meta">
+                        <span>⏱️ 40 dk</span>
+                        <span>��� 4 malzeme</span>
+                        <span>��� 6-12 yaş</span>
+                    </div>
+                    <p class="atolye-desc">Karton ve boya ile Atatürk maskesi yap! Tiyatro oyunlarında kullanabilirsin.</p>
+                    <div class="materials">
+                        <h4>��� Gerekli Malzemeler</h4>
+                        <ul>
+                            <li>Beyaz karton</li>
+                            <li>Siyah boya ve fırça</li>
+                            <li>Elastik ip</li>
+                            <li>Makas</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn">Başla</a>
+                </div>
+            </article>
+            
+            <!-- Atölye 4 -->
+            <article class="atolye-card">
+                <div class="atolye-image" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);">���</div>
+                <div class="atolye-content">
+                    <span class="atolye-badge">ÜCRETSİZ</span>
+                    <h3 class="atolye-title">23 Nisan Rozeti</h3>
+                    <div class="atolye-meta">
+                        <span>⏱️ 20 dk</span>
+                        <span>��� 4 malzeme</span>
+                        <span>��� 4-10 yaş</span>
+                    </div>
+                    <p class="atolye-desc">Göğsünüzde taşıyabileceğiniz özel 23 Nisan rozeti yapın! Arkadaşlarınıza hediye edin.</p>
+                    <div class="materials">
+                        <h4>��� Gerekli Malzemeler</h4>
+                        <ul>
+                            <li>Kartvizit kartonu</li>
+                            <li>Kırmızı keçeli kalem</li>
+                            <li>Yıldız çıkartması</li>
+                            <li>Rozet iğnesi</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn">Başla</a>
+                </div>
+            </article>
+            
+            <!-- Atölye 5 -->
+            <article class="atolye-card">
+                <div class="atolye-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">✉️</div>
+                <div class="atolye-content">
+                    <span class="atolye-badge">ÜCRETSİZ</span>
+                    <h3 class="atolye-title">Tebrik Kartı Tasarımı</h3>
+                    <div class="atolye-meta">
+                        <span>⏱️ 35 dk</span>
+                        <span>��� 5 malzeme</span>
+                        <span>��� 5-12 yaş</span>
+                    </div>
+                    <p class="atolye-desc">Arkadaşlarınıza ve öğretmenlerinize 23 Nisan tebrik kartı yapın! Yaratıcı süslemelerle dolu.</p>
+                    <div class="materials">
+                        <h4>��� Gerekli Malzemeler</h4>
+                        <ul>
+                            <li>Renkli kartonlar</li>
+                            <li>Yapıştırıcı</li>
+                            <li>Pul ve sim</li>
+                            <li>Keçeli kalemler</li>
+                            <li>Süsleme malzemeleri</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn">Başla</a>
+                </div>
+            </article>
+            
+            <!-- Atölye 6 -->
+            <article class="atolye-card">
+                <div class="atolye-image" style="background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);">���</div>
+                <div class="atolye-content">
+                    <span class="atolye-badge">ÜCRETSİZ</span>
+                    <h3 class="atolye-title">Sınıf Köşesi Dekorasyonu</h3>
+                    <div class="atolye-meta">
+                        <span>⏱️ 60 dk</span>
+                        <span>��� 7 malzeme</span>
+                        <span>��� 7-14 yaş</span>
+                    </div>
+                    <p class="atolye-desc">Okulunuzdaki 23 Nisan köşesini siz süsleyin! Poster, flama ve süslemeler hazırlayın.</p>
+                    <div class="materials">
+                        <h4>��� Gerekli Malzemeler</h4>
+                        <ul>
+                            <li>Büyük kartonlar</li>
+                            <li>Poster boyaları</li>
+                            <li>Kırmızı-beyaz krepon kağıdı</li>
+                            <li>Makas ve yapıştırıcı</li>
+                            <li>İp (flama için)</li>
+                            <li>Süslü bantlar</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn">Başla</a>
+                </div>
+            </article>
+            
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>© 2025 23 Nisan Portali ���</p>
+        <div class="footer-logo">
+            <img src="https://raw.githubusercontent.com/hakkurgithub/images/main/silicon-campus-logo.jpg" alt="Silicon Campus Logo">
+            <p style="color: #a0aec0; font-size: 0.9rem; font-style: italic;">© 2024 Tüm hakları Silicon Campus'e aittir.</p>
+        </div>
+    </footer>
+</body>
+</html>
