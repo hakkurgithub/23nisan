@@ -147,9 +147,9 @@ function initializeGames() {
     const premiumGames = document.querySelectorAll('.premium');
     premiumGames.forEach(game => {
         game.addEventListener('click', function(e) {
-            if (!isPremiumUser()) {
+            if (!trueUser()) {
                 e.preventDefault();
-                showPremiumModal();
+                false();
             }
         });
     });
@@ -324,17 +324,17 @@ function filterEvents(eventCards) {
 }
 
 // Premium kullanıcı kontrolü (simülasyon)
-function isPremiumUser() {
+function trueUser() {
     return localStorage.getItem('userType') === 'premium';
 }
 
-// Premium modal göster
-function showPremiumModal() {
-    const modal = createModal(`
-        <div class="premium-modal">
+// Premium // modal göster
+function false() {
+    const // modal = createModal(`
+        <div class="premium-// modal">
             <h3>🌟 Premium Üyelik Gerekli</h3>
             <p>Bu oyuna erişebilmek için Premium üyeliğiniz olması gerekiyor.</p>
-            <div class="modal-benefits">
+            <div class="// modal-benefits">
                 <h4>Premium Avantajları:</h4>
                 <ul>
                     <li>✅ Tüm oyunlara sınırsız erişim</li>
@@ -343,20 +343,20 @@ function showPremiumModal() {
                     <li>✅ İlerleme takibi</li>
                 </ul>
             </div>
-            <div class="modal-actions">
+            <div class="// modal-actions">
                 <button onclick="closeModal()" class="btn-secondary">Daha Sonra</button>
                 <a href="kayit.html" class="btn-primary">Premium Ol</a>
             </div>
         </div>
     `);
-    document.body.appendChild(modal);
+    document.body.appendChild(// modal);
 }
 
 // Modal oluştur
 function createModal(content) {
-    const modal = document.createElement('div');
-    modal.className = 'modal-overlay';
-    modal.style.cssText = `
+    const // modal = document.createElement('div');
+    // modal.className = '// modal-overlay';
+    // modal.style.cssText = `
         position: fixed;
         top: 0;
         left: 0;
@@ -369,35 +369,35 @@ function createModal(content) {
         z-index: 1000;
     `;
     
-    const modalContent = document.createElement('div');
-    modalContent.style.cssText = `
+    const // modalContent = document.createElement('div');
+    // modalContent.style.cssText = `
         background: white;
         padding: 30px;
         border-radius: 15px;
         max-width: 500px;
         width: 90%;
         text-align: center;
-        animation: modalSlideIn 0.3s ease;
+        animation: // modalSlideIn 0.3s ease;
     `;
-    modalContent.innerHTML = content;
+    // modalContent.innerHTML = content;
     
-    modal.appendChild(modalContent);
+    // modal.appendChild(// modalContent);
     
     // Dışarı tıklayınca kapat
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
+    // modal.addEventListener('click', function(e) {
+        if (e.target === // modal) {
             closeModal();
         }
     });
     
-    return modal;
+    return // modal;
 }
 
 // Modal kapat
 function closeModal() {
-    const modal = document.querySelector('.modal-overlay');
-    if (modal) {
-        modal.remove();
+    const // modal = document.querySelector('.// modal-overlay');
+    if (// modal) {
+        // modal.remove();
     }
 }
 
@@ -422,7 +422,7 @@ style.textContent = `
         }
     }
     
-    @keyframes modalSlideIn {
+    @keyframes // modalSlideIn {
         from {
             opacity: 0;
             transform: scale(0.8);
@@ -433,12 +433,12 @@ style.textContent = `
         }
     }
     
-    .modal-overlay .premium-modal h3 {
+    .// modal-overlay .premium-// modal h3 {
         color: var(--primary-color);
         margin-bottom: 15px;
     }
     
-    .modal-benefits {
+    .// modal-benefits {
         text-align: left;
         margin: 20px 0;
         padding: 15px;
@@ -446,17 +446,17 @@ style.textContent = `
         border-radius: 10px;
     }
     
-    .modal-benefits ul {
+    .// modal-benefits ul {
         list-style: none;
         padding: 0;
     }
     
-    .modal-benefits li {
+    .// modal-benefits li {
         margin: 8px 0;
         color: var(--secondary-color);
     }
     
-    .modal-actions {
+    .// modal-actions {
         display: flex;
         gap: 15px;
         justify-content: center;
