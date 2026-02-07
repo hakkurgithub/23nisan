@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atatürk ve 23 Nisan Bilgi Yarışması - 23 Nisan Oyunları</title>
-    <meta name="description" content="Atatürk ve 23 Nisan hakkında bilgini test et! Eğlenceli bilgi yarışması oyunu.">
+    <title>Ataturk ve 23 Nisan Bilgi Yarismasi - 23 Nisan Oyunlari</title>
+    <meta name="description" content="Ataturk ve 23 Nisan hakkinda bilgini test et! Eglenceli bilgi yarismasi oyunu.">
     
     <link rel="stylesheet" href="../style.css">
     <style>
@@ -287,7 +287,7 @@
             <ul class="nav-links">
                 <li><a href="../index.html">Ana Sayfa</a></li>
                 <li><a href="../oyunlar.html" class="active">Oyunlar</a></li>
-                <li><a href="../atolyeler.html">Atölyeler</a></li>
+                <li><a href="../atolyeler.html">Atolyeler</a></li>
                 <li><a href="../etkinlikler.html">Etkinlikler</a></li>
             </ul>
         </nav>
@@ -295,8 +295,8 @@
 
     <main>
         <div class="game-container">
-            <h1>🎯 Atatürk ve 23 Nisan Bilgi Yarışması</h1>
-            <p>Büyük Önder Atatürk ve 23 Nisan Çocuk Bayramı hakkında bilgini test et!</p>
+            <h1>🎯 Ataturk ve 23 Nisan Bilgi Yarismasi</h1>
+            <p>Buyuk Onder Ataturk ve 23 Nisan Cocuk Bayrami hakkinda bilgini test et!</p>
             
             <div class="game-stats">
                 <div class="stat-item">
@@ -305,7 +305,7 @@
                 </div>
                 <div class="stat-item">
                     <div class="stat-value" id="correctAnswers">0</div>
-                    <div class="stat-label">Doğru</div>
+                    <div class="stat-label">Dogru</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value" id="score">0</div>
@@ -313,15 +313,15 @@
                 </div>
                 <div class="stat-item">
                     <div class="stat-value" id="timer">30</div>
-                    <div class="stat-label">Süre</div>
+                    <div class="stat-label">Sure</div>
                 </div>
             </div>
             
             <div class="quiz-container">
-                <!-- Başlangıç Ekranı -->
+                <!-- Baslangic Ekrani -->
                 <div class="quiz-start" id="startScreen">
-                    <h2>🚀 Bilgi Yarışmasına Hoş Geldin!</h2>
-                    <p>Zorluk seviyeni seç ve yarışmaya başla!</p>
+                    <h2>🚀 Bilgi Yarismasina Hos Geldin!</h2>
+                    <p>Zorluk seviyeni sec ve yarismaya basla!</p>
                     
                     <div class="difficulty-selector">
                         <button class="difficulty-btn" data-level="easy">🟢 Kolay (10 Soru)</button>
@@ -329,10 +329,10 @@
                         <button class="difficulty-btn" data-level="hard">🔴 Zor (20 Soru)</button>
                     </div>
                     
-                    <button class="btn btn-primary btn-large" onclick="startQuiz()">🎮 Yarışmaya Başla!</button>
+                    <button class="btn btn-primary btn-large" onclick="startQuiz()">🎮 Yarismaya Basla!</button>
                 </div>
                 
-                <!-- Quiz Ekranı -->
+                <!-- Quiz Ekrani -->
                 <div class="quiz-screen" id="quizScreen" style="display: none;">
                     <div class="progress-bar">
                         <div class="progress-fill" id="progressFill"></div>
@@ -341,11 +341,11 @@
                     <div class="question-counter" id="questionCounter">Soru 1 / 10</div>
                     
                     <div class="question-text" id="questionText">
-                        Soru yükleniyor...
+                        Soru yukleniyor...
                     </div>
                     
                     <div class="answers-grid" id="answersGrid">
-                        <!-- Cevap butonları buraya gelecek -->
+                        <!-- Cevap butonlari buraya gelecek -->
                     </div>
                     
                     <button class="next-btn" id="nextBtn" onclick="nextQuestion()">
@@ -353,7 +353,7 @@
                     </button>
                 </div>
                 
-                <!-- Sonuç Ekranı -->
+                <!-- Sonuc Ekrani -->
                 <div class="result-screen" id="resultScreen">
                     <div class="medal" id="medalIcon">🏆</div>
                     <div class="result-score" id="finalScore">0</div>
@@ -361,11 +361,11 @@
                     
                     <div class="score-breakdown">
                         <div class="score-item">
-                            <span>Doğru Cevaplar:</span>
+                            <span>Dogru Cevaplar:</span>
                             <span id="finalCorrect">0/10</span>
                         </div>
                         <div class="score-item">
-                            <span>Başarı Oranı:</span>
+                            <span>Basari Orani:</span>
                             <span id="successRate">0%</span>
                         </div>
                         <div class="score-item">
@@ -375,242 +375,242 @@
                     </div>
                     
                     <button class="btn btn-primary" onclick="resetQuiz()">🔄 Tekrar Oyna</button>
-                    <button class="btn btn-secondary" onclick="goBack()">🏠 Geri Dön</button>
+                    <button class="btn btn-secondary" onclick="goBack()">🏠 Geri Don</button>
                 </div>
             </div>
         </div>
     </main>
 
     <script>
-        // Soru bankası
+        // Soru bankasi
         const questionBank = {
             easy: [
                 {
-                    question: "23 Nisan hangi yıl Çocuk Bayramı ilan edildi?",
+                    question: "23 Nisan hangi yil Cocuk Bayrami ilan edildi?",
                     answers: ["1921", "1929", "1935", "1920"],
                     correct: 1
                 },
                 {
-                    question: "Atatürk'ün gerçek adı nedir?",
-                    answers: ["Mustafa Kemal", "Mehmet Ali", "İsmet İnönü", "Enver Paşa"],
+                    question: "Ataturk'un gercek adi nedir?",
+                    answers: ["Mustafa Kemal", "Mehmet Ali", "Ismet Inonu", "Enver Pasa"],
                     correct: 0
                 },
                 {
-                    question: "23 Nisan neyin açılış günüdür?",
-                    answers: ["Okul", "TBMM", "Hastane", "Müze"],
+                    question: "23 Nisan neyin acilis gunudur?",
+                    answers: ["Okul", "TBMM", "Hastane", "Muze"],
                     correct: 1
                 },
                 {
-                    question: "Türk bayrağında kaç yıldız vardır?",
+                    question: "Turk bayraginda kac yildiz vardir?",
                     answers: ["2", "3", "1", "5"],
                     correct: 2
                 },
                 {
-                    question: "Atatürk kaç yaşında vefat etti?",
+                    question: "Ataturk kac yasinda vefat etti?",
                     answers: ["55", "57", "59", "61"],
                     correct: 1
                 },
                 {
-                    question: "Hangi şehir Türkiye'nin başkentidir?",
-                    answers: ["İstanbul", "İzmir", "Ankara", "Bursa"],
+                    question: "Hangi sehir Turkiye'nin baskentidir?",
+                    answers: ["Istanbul", "Izmir", "Ankara", "Bursa"],
                     correct: 2
                 },
                 {
-                    question: "23 Nisan'da çocuklar ne yapar?",
-                    answers: ["Uyur", "Şenlik yapar", "Ders çalışır", "Çalışır"],
+                    question: "23 Nisan'da cocuklar ne yapar?",
+                    answers: ["Uyur", "Senlik yapar", "Ders calisir", "Calisir"],
                     correct: 1
                 },
                 {
                     question: "TBMM ne demektir?",
-                    answers: ["Türkiye Büyük Millet Meclisi", "Türk Birlik Merkez Müdürlüğü", "Türkiye Bayrak Müze Merkezi", "Türk Barış Merkez Müdürlüğü"],
+                    answers: ["Turkiye Buyuk Millet Meclisi", "Turk Birlik Merkez Mudurlugu", "Turkiye Bayrak Muze Merkezi", "Turk Baris Merkez Mudurlugu"],
                     correct: 0
                 },
                 {
-                    question: "Atatürk'ün çocuklar için söylediği ünlü sözü hangisidir?",
-                    answers: ["Yarın sizsiniz", "Geleceğe koşun", "Çocuklar geleceğimizdir", "Yavrularım"],
+                    question: "Ataturk'un cocuklar icin soyledigi unlu sozu hangisidir?",
+                    answers: ["Yarin sizsiniz", "Gelecege kosun", "Cocuklar gelecegimizdir", "Yavrularim"],
                     correct: 0
                 },
                 {
-                    question: "23 Nisan'da hangi renk bayraklar asılır?",
-                    answers: ["Mavi-beyaz", "Kırmızı-beyaz", "Yeşil-kırmızı", "Sarı-mavi"],
+                    question: "23 Nisan'da hangi renk bayraklar asilir?",
+                    answers: ["Mavi-beyaz", "Kirmizi-beyaz", "Yesil-kirmizi", "Sari-mavi"],
                     correct: 1
                 }
             ],
             medium: [
                 {
-                    question: "Atatürk 23 Nisan'ı çocuklara hangi yıl armağan etti?",
+                    question: "Ataturk 23 Nisan'i cocuklara hangi yil armagan etti?",
                     answers: ["1920", "1921", "1929", "1935"],
                     correct: 2
                 },
                 {
-                    question: "İlk Çocuk Bayramı kutlaması hangi şehirde yapıldı?",
-                    answers: ["İstanbul", "Ankara", "İzmir", "Samsun"],
+                    question: "Ilk Cocuk Bayrami kutlamasi hangi sehirde yapildi?",
+                    answers: ["Istanbul", "Ankara", "Izmir", "Samsun"],
                     correct: 1
                 },
                 {
-                    question: "Atatürk'ün çocuklara dair ünlü sözü hangisidir?",
-                    answers: ["Büyüyünce anlarsınız", "Türk çocuğu! Senin birinci vazifen...", "Çocuklar oyun oynasın", "Okula gidin"],
+                    question: "Ataturk'un cocuklara dair unlu sozu hangisidir?",
+                    answers: ["Buyuyunce anlarsiniz", "Turk cocugu! Senin birinci vazifen...", "Cocuklar oyun oynasin", "Okula gidin"],
                     correct: 1
                 },
                 {
-                    question: "23 Nisan, dünyada çocuklara armağan edilen ilk gün müdür?",
-                    answers: ["Hayır", "Evet", "Bilmiyorum", "Belki"],
+                    question: "23 Nisan, dunyada cocuklara armagan edilen ilk gun mudur?",
+                    answers: ["Hayir", "Evet", "Bilmiyorum", "Belki"],
                     correct: 1
                 },
                 {
-                    question: "TBMM kaç üyeden oluşur?",
+                    question: "TBMM kac uyeden olusur?",
                     answers: ["550", "600", "650", "500"],
                     correct: 1
                 },
                 {
-                    question: "Atatürk'ün doğum tarihi nedir?",
+                    question: "Ataturk'un dogum tarihi nedir?",
                     answers: ["1880", "1881", "1882", "1883"],
                     correct: 1
                 },
                 {
-                    question: "İlk kadın milletvekilleri hangi yıl TBMM'ye girdi?",
+                    question: "Ilk kadin milletvekilleri hangi yil TBMM'ye girdi?",
                     answers: ["1930", "1934", "1935", "1940"],
                     correct: 2
                 },
                 {
-                    question: "Milli Egemenlik kavramını kim getirdi?",
-                    answers: ["İnönü", "Atatürk", "Bayar", "Özal"],
+                    question: "Milli Egemenlik kavramini kim getirdi?",
+                    answers: ["Inonu", "Ataturk", "Bayar", "Ozal"],
                     correct: 1
                 },
                 {
-                    question: "23 Nisan 1920'de açılan meclisin adı nedir?",
-                    answers: ["Osmanlı Meclisi", "Türkiye Büyük Millet Meclisi", "Milli Meclis", "Genel Meclis"],
+                    question: "23 Nisan 1920'de acilan meclisin adi nedir?",
+                    answers: ["Osmanli Meclisi", "Turkiye Buyuk Millet Meclisi", "Milli Meclis", "Genel Meclis"],
                     correct: 1
                 },
                 {
-                    question: "Çocuk Bayramı'nda çocuklar geleneksel olarak ne yapar?",
-                    answers: ["Resital verirler", "Meclis'e çıkarlar", "Dans ederler", "Hepsi"],
+                    question: "Cocuk Bayrami'nda cocuklar geleneksel olarak ne yapar?",
+                    answers: ["Resital verirler", "Meclis'e cikarlar", "Dans ederler", "Hepsi"],
                     correct: 3
                 },
                 {
-                    question: "Atatürk hangi savaşta ün kazandı?",
-                    answers: ["Balkan Savaşı", "Çanakkale Savaşı", "1. Dünya Savaşı", "İstiklal Savaşı"],
+                    question: "Ataturk hangi savasta un kazandi?",
+                    answers: ["Balkan Savasi", "Canakkale Savasi", "1. Dunya Savasi", "Istiklal Savasi"],
                     correct: 1
                 },
                 {
-                    question: "23 Nisan'ın uluslararası tanınması hangi yıl oldu?",
+                    question: "23 Nisan'in uluslararasi taninmasi hangi yil oldu?",
                     answers: ["1979", "1980", "1981", "1982"],
                     correct: 0
                 },
                 {
-                    question: "Türkiye Cumhuriyeti'nin kurucusu kimdir?",
-                    answers: ["İsmet İnönü", "Mustafa Kemal Atatürk", "Celal Bayar", "Fevzi Çakmak"],
+                    question: "Turkiye Cumhuriyeti'nin kurucusu kimdir?",
+                    answers: ["Ismet Inonu", "Mustafa Kemal Ataturk", "Celal Bayar", "Fevzi Cakmak"],
                     correct: 1
                 },
                 {
-                    question: "23 Nisan'da çocuklar hangi koltuğa otururlar?",
-                    answers: ["Bakan koltuğu", "Başbakan koltuğu", "Cumhurbaşkanı koltuğu", "Meclis Başkanı koltuğu"],
+                    question: "23 Nisan'da cocuklar hangi koltuga otururlar?",
+                    answers: ["Bakan koltugu", "Basbakan koltugu", "Cumhurbaskani koltugu", "Meclis Baskani koltugu"],
                     correct: 3
                 },
                 {
-                    question: "Atatürk'ün çocuklara verdiği mesajın ana teması nedir?",
-                    answers: ["Eğitim", "Spor", "Gelecek ve sorumluluk", "Sanat"],
+                    question: "Ataturk'un cocuklara verdigi mesajin ana temasi nedir?",
+                    answers: ["Egitim", "Spor", "Gelecek ve sorumluluk", "Sanat"],
                     correct: 2
                 }
             ],
             hard: [
                 {
-                    question: "TBMM'nin açılışında kaç mebus vardı?",
+                    question: "TBMM'nin acilisinda kac mebus vardi?",
                     answers: ["337", "356", "372", "392"],
                     correct: 0
                 },
                 {
-                    question: "Atatürk'ün 'Çocuk' konulu ilk konuşması hangi tarihte yapılmıştır?",
+                    question: "Ataturk'un 'Cocuk' konulu ilk konusmasi hangi tarihte yapilmistir?",
                     answers: ["23 Nisan 1920", "23 Nisan 1921", "23 Nisan 1922", "23 Nisan 1929"],
                     correct: 3
                 },
                 {
-                    question: "İlk Uluslararası Çocuk Şenliği hangi yıl düzenlenmiştir?",
+                    question: "Ilk Uluslararasi Cocuk Senligi hangi yil duzenlenmistir?",
                     answers: ["1979", "1980", "1981", "1982"],
                     correct: 0
                 },
                 {
-                    question: "23 Nisan'ın 'Dünya Çocukları Günü' olarak UNESCO tarafından kabulü hangi yıldır?",
+                    question: "23 Nisan'in 'Dunya Cocuklari Gunu' olarak UNESCO tarafindan kabulu hangi yildir?",
                     answers: ["1979", "1980", "1981", "1983"],
                     correct: 0
                 },
                 {
-                    question: "Atatürk'ün çocuklarla ilgili en ünlü fotoğrafı hangi yıl çekilmiştir?",
+                    question: "Ataturk'un cocuklarla ilgili en unlu fotografi hangi yil cekilmistir?",
                     answers: ["1922", "1923", "1925", "1927"],
                     correct: 1
                 },
                 {
-                    question: "TBMM binasının mimarı kimdir?",
-                    answers: ["Vedat Tek", "Clemens Holzmeister", "Sedad Hakkı Eldem", "Henri Prost"],
+                    question: "TBMM binasinin mimari kimdir?",
+                    answers: ["Vedat Tek", "Clemens Holzmeister", "Sedad Hakki Eldem", "Henri Prost"],
                     correct: 1
                 },
                 {
-                    question: "İlk 23 Nisan kutlamalarında çocuklar TBMM'de hangi görevleri üstlendi?",
-                    answers: ["Sadece dinleyici", "Meclis Başkanlığı", "Bakan yardımcılığı", "Hepsi"],
+                    question: "Ilk 23 Nisan kutlamalarinda cocuklar TBMM'de hangi gorevleri ustlendi?",
+                    answers: ["Sadece dinleyici", "Meclis Baskanligi", "Bakan yardimciligi", "Hepsi"],
                     correct: 1
                 },
                 {
-                    question: "Atatürk'ün çocuklara armağan ettiği 23 Nisan'ın felsefi temeli nedir?",
-                    answers: ["Milli egemenlik", "Çocuk hakları", "Geleceğe güven", "Hepsi"],
+                    question: "Ataturk'un cocuklara armagan ettigi 23 Nisan'in felsefi temeli nedir?",
+                    answers: ["Milli egemenlik", "Cocuk haklari", "Gelecege guven", "Hepsi"],
                     correct: 3
                 },
                 {
-                    question: "İlk çocuk meclisi hangi okul öğrencilerinden oluştu?",
-                    answers: ["Galatasaray Lisesi", "Ankara Erkek Lisesi", "İstanbul Erkek Lisesi", "Çeşitli okullar"],
+                    question: "Ilk cocuk meclisi hangi okul ogrencilerinden olustu?",
+                    answers: ["Galatasaray Lisesi", "Ankara Erkek Lisesi", "Istanbul Erkek Lisesi", "Cesitli okullar"],
                     correct: 3
                 },
                 {
-                    question: "23 Nisan 1920'de mecliste yapılan ilk oturum kaç saat sürdü?",
+                    question: "23 Nisan 1920'de mecliste yapilan ilk oturum kac saat surdu?",
                     answers: ["2 saat", "3 saat", "4 saat", "5 saat"],
                     correct: 2
                 },
                 {
-                    question: "Atatürk'ün çocuk sevgisini gösteren ilk belgelenmiş olay hangi savaştadır?",
-                    answers: ["Balkan Savaşı", "Trablusgarp", "Çanakkale", "Kurtuluş Savaşı"],
+                    question: "Ataturk'un cocuk sevgisini gosteren ilk belgelenmis olay hangi savastadir?",
+                    answers: ["Balkan Savasi", "Trablusgarp", "Canakkale", "Kurtulus Savasi"],
                     correct: 2
                 },
                 {
-                    question: "23 Nisan'ın çocuklara armağan edilmesinin ardındaki politik düşünce nedir?",
-                    answers: ["Çocuk hakları", "Geleceğe yatırım", "Milli birlik", "Tümü"],
+                    question: "23 Nisan'in cocuklara armagan edilmesinin ardindaki politik dusunce nedir?",
+                    answers: ["Cocuk haklari", "Gelecege yatirim", "Milli birlik", "Tumu"],
                     correct: 3
                 },
                 {
-                    question: "İlk kez 23 Nisan'da TBMM'ye gelen çocuk kaç yaşındaydı?",
+                    question: "Ilk kez 23 Nisan'da TBMM'ye gelen cocuk kac yasindaydi?",
                     answers: ["7", "8", "9", "10"],
                     correct: 1
                 },
                 {
-                    question: "Atatürk'ün çocuklara olan yaklaşımının temel felsefesi nedir?",
-                    answers: ["Eğitim odaklı", "Gelecek odaklı", "Hak odaklı", "Sorumluluk odaklı"],
+                    question: "Ataturk'un cocuklara olan yaklasiminin temel felsefesi nedir?",
+                    answers: ["Egitim odakli", "Gelecek odakli", "Hak odakli", "Sorumluluk odakli"],
                     correct: 1
                 },
                 {
-                    question: "23 Nisan geleneğinin dünyaya yayılmasında etkili olan uluslararası kuruluş hangisidir?",
-                    answers: ["UNICEF", "UNESCO", "BM", "AVRUPA KONSEYİ"],
+                    question: "23 Nisan geleneginin dunyaya yayilmasinda etkili olan uluslararasi kurulus hangisidir?",
+                    answers: ["UNICEF", "UNESCO", "BM", "AVRUPA KONSEYI"],
                     correct: 1
                 },
                 {
-                    question: "TBMM'nin açılışında okunan ilk kanun teklifi neydi?",
-                    answers: ["Teşkilat-ı Esasiye", "Misak-ı Milli", "Saltanatın kaldırılması", "Hâkimiyet-i Milliye"],
+                    question: "TBMM'nin acilisinda okunan ilk kanun teklifi neydi?",
+                    answers: ["Teskilat-i Esasiye", "Misak-i Milli", "Saltanatin kaldirilmasi", "Hâkimiyet-i Milliye"],
                     correct: 3
                 },
                 {
-                    question: "Atatürk'ün çocuk eğitimine dair en önemli reformu hangisidir?",
-                    answers: ["Harf Devrimi", "Karma eğitim", "Zorunlu ilköğretim", "Üniversite reformu"],
+                    question: "Ataturk'un cocuk egitimine dair en onemli reformu hangisidir?",
+                    answers: ["Harf Devrimi", "Karma egitim", "Zorunlu ilkogretim", "Universite reformu"],
                     correct: 2
                 },
                 {
-                    question: "23 Nisan 1920'de TBMM'nin aldığı ilk karar nedir?",
-                    answers: ["Bağımsızlık ilanı", "Geçici anayasa", "Hükümet kurulması", "Meclis başkanlığı seçimi"],
+                    question: "23 Nisan 1920'de TBMM'nin aldigi ilk karar nedir?",
+                    answers: ["Bagimsizlik ilani", "Gecici anayasa", "Hukumet kurulmasi", "Meclis baskanligi secimi"],
                     correct: 3
                 },
                 {
-                    question: "Atatürk'ün çocuklara verdiği mesajın tam adı nedir?",
-                    answers: ["Türk Çocuğuna Hitabe", "Çocuklara Armağan", "Gençliğe Hitabe", "Türk Çocuğu Sen"],
+                    question: "Ataturk'un cocuklara verdigi mesajin tam adi nedir?",
+                    answers: ["Turk Cocuguna Hitabe", "Cocuklara Armagan", "Genclige Hitabe", "Turk Cocugu Sen"],
                     correct: 0
                 },
                 {
-                    question: "İlk 23 Nisan kutlamasına kaç ülkeden çocuk katıldı?",
+                    question: "Ilk 23 Nisan kutlamasina kac ulkeden cocuk katildi?",
                     answers: ["12", "15", "18", "23"],
                     correct: 3
                 }
@@ -656,7 +656,7 @@
                 isAnswered: false
             };
 
-            // Soruları karıştır
+            // Sorulari karistir
             gameState.questions.sort(() => Math.random() - 0.5);
 
             showScreen('quizScreen');
@@ -677,16 +677,16 @@
             const questionNumber = gameState.currentQuestionIndex + 1;
             const totalQuestions = gameState.questions.length;
 
-            // Progress bar güncelle
+            // Progress bar guncelle
             const progress = (questionNumber / totalQuestions) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
 
-            // Soru bilgilerini güncelle
+            // Soru bilgilerini guncelle
             document.getElementById('questionCounter').textContent = `Soru ${questionNumber} / ${totalQuestions}`;
             document.getElementById('questionText').textContent = question.question;
             document.getElementById('currentQuestion').textContent = questionNumber;
 
-            // Cevap butonlarını oluştur
+            // Cevap butonlarini olustur
             const answersGrid = document.getElementById('answersGrid');
             answersGrid.innerHTML = '';
 
@@ -702,7 +702,7 @@
             document.getElementById('nextBtn').classList.remove('show');
             gameState.isAnswered = false;
 
-            // Timer'ı sıfırla
+            // Timer'i sifirla
             gameState.timeLeft = 30;
             updateStats();
         }
@@ -714,31 +714,31 @@
             const question = gameState.questions[gameState.currentQuestionIndex];
             const buttons = document.querySelectorAll('.answer-btn');
 
-            // Tüm butonları devre dışı bırak
+            // Tum butonlari devre disi birak
             buttons.forEach(btn => btn.classList.add('disabled'));
 
-            // Doğru ve yanlış cevapları işaretle
+            // Dogru ve yanlis cevaplari isaretle
             buttons[question.correct].classList.add('correct');
             
             if (answerIndex === question.correct) {
-                // Doğru cevap
+                // Dogru cevap
                 gameState.correctAnswers++;
                 gameState.score += 100;
                 
-                // Süre bonusu
+                // Sure bonusu
                 if (gameState.timeLeft > 20) gameState.score += 50;
                 else if (gameState.timeLeft > 10) gameState.score += 25;
                 
                 createConfetti();
             } else {
-                // Yanlış cevap
+                // Yanlis cevap
                 buttons[answerIndex].classList.add('wrong');
                 gameState.score = Math.max(0, gameState.score - 10);
             }
 
             updateStats();
             
-            // Next butonunu göster
+            // Next butonunu goster
             setTimeout(() => {
                 document.getElementById('nextBtn').classList.add('show');
             }, 1500);
@@ -762,9 +762,9 @@
                 updateStats();
                 
                 if (gameState.timeLeft <= 0) {
-                    // Süre bitti, otomatik geç
+                    // Sure bitti, otomatik gec
                     if (!gameState.isAnswered) {
-                        // Hiç cevap verilmedi
+                        // Hic cevap verilmedi
                         gameState.isAnswered = true;
                         const buttons = document.querySelectorAll('.answer-btn');
                         buttons.forEach(btn => btn.classList.add('disabled'));
@@ -815,7 +815,7 @@
             const successRate = Math.round((gameState.correctAnswers / totalQuestions) * 100);
             let bonusPoints = 0;
             
-            // Başarı bonusu
+            // Basari bonusu
             if (successRate >= 90) bonusPoints += 200;
             else if (successRate >= 80) bonusPoints += 150;
             else if (successRate >= 70) bonusPoints += 100;
@@ -823,7 +823,7 @@
             
             gameState.score += bonusPoints;
             
-            // Sonuç ekranını doldur
+            // Sonuc ekranini doldur
             document.getElementById('finalScore').textContent = gameState.score;
             document.getElementById('finalCorrect').textContent = `${gameState.correctAnswers}/${totalQuestions}`;
             document.getElementById('successRate').textContent = successRate + '%';
@@ -833,19 +833,19 @@
             let medal, message;
             if (successRate >= 90) {
                 medal = '🥇';
-                message = 'Mükemmel! Atatürk ve 23 Nisan uzmanısın!';
+                message = 'Mukemmel! Ataturk ve 23 Nisan uzmanisin!';
             } else if (successRate >= 80) {
                 medal = '🥈';
-                message = 'Harika! Çok iyi bir performans!';
+                message = 'Harika! Cok iyi bir performans!';
             } else if (successRate >= 70) {
                 medal = '🥉';
-                message = 'Güzel! İyi bir başlangıç!';
+                message = 'Guzel! Iyi bir baslangic!';
             } else if (successRate >= 60) {
                 medal = '🏅';
-                message = 'Fena değil! Biraz daha çalışabilirsin!';
+                message = 'Fena degil! Biraz daha calisabilirsin!';
             } else {
                 medal = '📚';
-                message = 'Daha çok öğrenmeye ihtiyacın var!';
+                message = 'Daha cok ogrenmeye ihtiyacin var!';
             }
             
             document.getElementById('medalIcon').textContent = medal;
@@ -862,7 +862,7 @@
             window.location.href = '../oyunlar.html';
         }
 
-        // Confetti animasyonu için CSS
+        // Confetti animasyonu icin CSS
         const style = document.createElement('style');
         style.textContent = `
             @keyframes confetti-fall {
@@ -878,7 +878,7 @@
         `;
         document.head.appendChild(style);
 
-        // Oyunu başlat
+        // Oyunu baslat
         window.addEventListener('load', initQuiz);
     </script>
 </body>

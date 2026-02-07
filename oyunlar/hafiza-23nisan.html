@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>23 Nisan Hafıza Kartları - 23 Nisan Oyunları</title>
-    <meta name="description" content="23 Nisan temalı hafıza kartları oyunu. Eşleştir ve hafızanı güçlendir!">
+    <title>23 Nisan Hafiza Kartlari - 23 Nisan Oyunlari</title>
+    <meta name="description" content="23 Nisan temali hafiza kartlari oyunu. Eslestir ve hafizani guclendir!">
     
     <link rel="stylesheet" href="../style.css">
     <style>
@@ -239,7 +239,7 @@
             <ul class="nav-links">
                 <li><a href="../index.html">Ana Sayfa</a></li>
                 <li><a href="../oyunlar.html" class="active">Oyunlar</a></li>
-                <li><a href="../atolyeler.html">Atölyeler</a></li>
+                <li><a href="../atolyeler.html">Atolyeler</a></li>
                 <li><a href="../etkinlikler.html">Etkinlikler</a></li>
             </ul>
         </nav>
@@ -247,11 +247,11 @@
 
     <main>
         <div class="game-container">
-            <h1>🧠 23 Nisan Hafıza Kartları</h1>
-            <p>Aynı kartları eşleştirerek hafızanı test et! 23 Nisan temalı sembolleri bul.</p>
+            <h1>🧠 23 Nisan Hafiza Kartlari</h1>
+            <p>Ayni kartlari eslestirerek hafizani test et! 23 Nisan temali sembolleri bul.</p>
             
             <div class="difficulty-selector">
-                <h4>Zorluk Seviyesi Seç:</h4>
+                <h4>Zorluk Seviyesi Sec:</h4>
                 <button class="difficulty-btn" data-level="easy">🟢 Kolay (3x3)</button>
                 <button class="difficulty-btn active" data-level="medium">🟡 Orta (4x4)</button>
                 <button class="difficulty-btn" data-level="hard">🔴 Zor (5x4)</button>
@@ -264,11 +264,11 @@
                 </div>
                 <div class="stat-item">
                     <div class="stat-value" id="matches">0</div>
-                    <div class="stat-label">Eşleşme</div>
+                    <div class="stat-label">Eslesme</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value" id="timer">00:00</div>
-                    <div class="stat-label">Süre</div>
+                    <div class="stat-label">Sure</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value" id="score">0</div>
@@ -282,13 +282,13 @@
             
             <div class="game-controls">
                 <button class="btn btn-primary" onclick="startNewGame()">🎮 Yeni Oyun</button>
-                <button class="btn btn-secondary" onclick="showHint()">💡 İpucu</button>
-                <button class="btn btn-secondary" onclick="goBack()">🏠 Geri Dön</button>
+                <button class="btn btn-secondary" onclick="showHint()">💡 Ipucu</button>
+                <button class="btn btn-secondary" onclick="goBack()">🏠 Geri Don</button>
             </div>
         </div>
     </main>
     
-    <!-- Başarı Modal -->
+    <!-- Basari Modal -->
     <div class="success-modal" id="successModal">
         <div class="success-content">
             <div class="fireworks" style="top: 10px; left: 10px;">🎆</div>
@@ -297,7 +297,7 @@
             <div class="fireworks" style="bottom: 10px; right: 10px; animation-delay: 1.5s;">🌟</div>
             
             <h2>🎉 Tebrikler!</h2>
-            <p>Hafıza oyununu başarıyla tamamladın!</p>
+            <p>Hafiza oyununu basariyla tamamladin!</p>
             <div id="finalStats"></div>
             <br>
             <button class="btn btn-primary" onclick="startNewGame()">🔄 Tekrar Oyna</button>
@@ -306,24 +306,24 @@
     </div>
 
     <script>
-        // 23 Nisan temalı kartlar
+        // 23 Nisan temali kartlar
         const cardSymbols = [
-            { emoji: '🇹🇷', text: 'Türk\nBayrağı' },
-            { emoji: '👨‍🎓', text: 'Atatürk' },
-            { emoji: '👶', text: 'Çocuk' },
+            { emoji: '🇹🇷', text: 'Turk\nBayragi' },
+            { emoji: '👨‍🎓', text: 'Ataturk' },
+            { emoji: '👶', text: 'Cocuk' },
             { emoji: '🎊', text: 'Bayram' },
             { emoji: '🏛️', text: 'TBMM' },
-            { emoji: '📚', text: 'Eğitim' },
+            { emoji: '📚', text: 'Egitim' },
             { emoji: '🎭', text: 'Tiyatro' },
-            { emoji: '🎵', text: 'Müzik' },
+            { emoji: '🎵', text: 'Muzik' },
             { emoji: '🎨', text: 'Sanat' },
-            { emoji: '⭐', text: 'Yıldız' },
+            { emoji: '⭐', text: 'Yildiz' },
             { emoji: '🌙', text: 'Ay' },
-            { emoji: '🕊️', text: 'Barış' },
-            { emoji: '🎪', text: 'Şenlik' },
+            { emoji: '🕊️', text: 'Baris' },
+            { emoji: '🎪', text: 'Senlik' },
             { emoji: '🎈', text: 'Balon' },
             { emoji: '🎯', text: 'Hedef' },
-            { emoji: '🏃‍♂️', text: 'Koşu' },
+            { emoji: '🏃‍♂️', text: 'Kosu' },
             { emoji: '⚽', text: 'Futbol' },
             { emoji: '📖', text: 'Kitap' },
             { emoji: '✏️', text: 'Kalem' },
@@ -390,18 +390,18 @@
             const board = document.getElementById('gameBoard');
             const settings = difficultySettings[gameState.difficulty];
             
-            // Grid ayarları
+            // Grid ayarlari
             board.style.gridTemplateColumns = `repeat(${settings.cols}, 1fr)`;
             board.innerHTML = '';
 
-            // Kart çiftleri oluştur
+            // Kart ciftleri olustur
             const selectedSymbols = cardSymbols.slice(0, settings.pairs);
             const cards = [...selectedSymbols, ...selectedSymbols];
             
-            // Kartları karıştır
+            // Kartlari karistir
             cards.sort(() => Math.random() - 0.5);
 
-            // DOM elementleri oluştur
+            // DOM elementleri olustur
             cards.forEach((symbol, index) => {
                 const card = createCard(symbol, index);
                 board.appendChild(card);
@@ -437,17 +437,17 @@
                 return;
             }
 
-            // İlk hamle
+            // Ilk hamle
             if (gameState.startTime === null) {
                 gameState.startTime = Date.now();
                 gameState.timerInterval = setInterval(updateTimer, 1000);
             }
 
-            // Kartı çevir
+            // Karti cevir
             card.classList.add('flipped');
             gameState.flippedCards.push(card);
 
-            // İki kart çevrildi mi?
+            // Iki kart cevrildi mi?
             if (gameState.flippedCards.length === 2) {
                 gameState.moves++;
                 updateStats();
@@ -464,7 +464,7 @@
             const symbol2 = card2.dataset.symbol;
 
             if (symbol1 === symbol2) {
-                // Eşleşme var
+                // Eslesme var
                 card1.classList.add('matched');
                 card2.classList.add('matched');
                 gameState.matches++;
@@ -479,7 +479,7 @@
                     setTimeout(gameCompleted, 500);
                 }
             } else {
-                // Eşleşme yok
+                // Eslesme yok
                 card1.classList.remove('flipped');
                 card2.classList.remove('flipped');
                 gameState.score = Math.max(0, gameState.score - 10);
@@ -541,14 +541,14 @@
         function showHint() {
             if (gameState.flippedCards.length > 0) return;
 
-            // Rastgele iki eşleşen kartı kısa süre göster
+            // Rastgele iki eslesen karti kisa sure goster
             const unmatchedCards = gameState.cards.filter(card => 
                 !card.classList.contains('matched')
             );
 
             if (unmatchedCards.length < 2) return;
 
-            // Aynı sembolden iki kart bul
+            // Ayni sembolden iki kart bul
             const symbols = {};
             unmatchedCards.forEach(card => {
                 const symbol = card.dataset.symbol;
@@ -585,7 +585,7 @@
             const seconds = elapsed % 60;
             const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-            // Süre bonusu
+            // Sure bonusu
             if (elapsed < 60) gameState.score += 200;
             else if (elapsed < 120) gameState.score += 100;
             else if (elapsed < 180) gameState.score += 50;
@@ -597,7 +597,7 @@
             }
 
             const finalStats = `
-                <p><strong>Süre:</strong> ${timeString}</p>
+                <p><strong>Sure:</strong> ${timeString}</p>
                 <p><strong>Hamle:</strong> ${gameState.moves}</p>
                 <p><strong>Final Puan:</strong> ${gameState.score}</p>
             `;
@@ -614,7 +614,7 @@
             window.location.href = '../oyunlar.html';
         }
 
-        // Confetti animasyonu için CSS ekle
+        // Confetti animasyonu icin CSS ekle
         const style = document.createElement('style');
         style.textContent = `
             @keyframes confettiPop {
@@ -635,7 +635,7 @@
         `;
         document.head.appendChild(style);
 
-        // Oyunu başlat
+        // Oyunu baslat
         window.addEventListener('load', initGame);
     </script>
 </body>

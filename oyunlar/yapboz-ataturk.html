@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atatürk ve Çocuklar Yapbozu - 23 Nisan Oyunları</title>
-    <meta name="description" content="Atatürk ve çocuklar yapboz oyunu. Parçaları sürükleyip resmi tamamla!">
+    <title>Ataturk ve Cocuklar Yapbozu - 23 Nisan Oyunlari</title>
+    <meta name="description" content="Ataturk ve cocuklar yapboz oyunu. Parcalari surukleyip resmi tamamla!">
     
     <link rel="stylesheet" href="../style.css">
     <style>
@@ -85,7 +85,7 @@
             transform: rotate(5deg);
         }
         
-        /* Yapboz parçalarının arka plan pozisyonları - 120px piece boyutuna uygun */
+        /* Yapboz parcalarinin arka plan pozisyonlari - 120px piece boyutuna uygun */
         .piece[data-piece="0"] { background-position: 0 0; }
         .game-controls {
             margin: 20px 0;
@@ -163,7 +163,7 @@
             <ul class="nav-links">
                 <li><a href="../index.html">Ana Sayfa</a></li>
                 <li><a href="../oyunlar.html" class="active">Oyunlar</a></li>
-                <li><a href="../atolyeler.html">Atölyeler</a></li>
+                <li><a href="../atolyeler.html">Atolyeler</a></li>
                 <li><a href="../etkinlikler.html">Etkinlikler</a></li>
             </ul>
         </nav>
@@ -171,17 +171,17 @@
 
     <main>
         <div class="game-container">
-            <h1>🧩 Atatürk ve Çocuklar Yapbozu</h1>
-            <p>Parçaları sürükleyerek Atatürk'ün çocuklarla olan bu güzel resmi tamamla!</p>
+            <h1>🧩 Ataturk ve Cocuklar Yapbozu</h1>
+            <p>Parcalari surukleyerek Ataturk'un cocuklarla olan bu guzel resmi tamamla!</p>
             
             <div class="game-info">
-                <div class="timer">⏱️ Süre: <span id="timer">00:00</span></div>
+                <div class="timer">⏱️ Sure: <span id="timer">00:00</span></div>
                 <div class="score">🎯 Puan: <span id="score">0</span></div>
-                <div class="score">✅ Doğru: <span id="correct">0</span>/9</div>
+                <div class="score">✅ Dogru: <span id="correct">0</span>/9</div>
             </div>
             
             <div class="puzzle-area" id="puzzleArea">
-                <!-- 3x3 yapboz alanı -->
+                <!-- 3x3 yapboz alani -->
                 <div class="puzzle-piece" data-position="0"></div>
                 <div class="puzzle-piece" data-position="1"></div>
                 <div class="puzzle-piece" data-position="2"></div>
@@ -194,24 +194,24 @@
             </div>
             
             <div class="pieces-container" id="piecesContainer">
-                <!-- Karışık yapboz parçaları buraya gelecek -->
+                <!-- Karisik yapboz parcalari buraya gelecek -->
             </div>
             
             <div class="game-controls">
                 <button class="btn btn-primary" onclick="startGame()">🎮 Yeni Oyun</button>
-                <button class="btn btn-secondary" onclick="showHint()">💡 İpucu</button>
-                <button class="btn btn-secondary" onclick="goBack()">🏠 Geri Dön</button>
+                <button class="btn btn-secondary" onclick="showHint()">💡 Ipucu</button>
+                <button class="btn btn-secondary" onclick="goBack()">🏠 Geri Don</button>
             </div>
         </div>
     </main>
     
-    <!-- Başarı Modal -->
+    <!-- Basari Modal -->
     <div class="success-modal" id="successModal">
         <div class="success-content">
             <h2>🎉 Tebrikler!</h2>
-            <p>Yapbozu başarıyla tamamladın!</p>
-            <p><strong>Süren:</strong> <span id="finalTime"></span></p>
-            <p><strong>Puanın:</strong> <span id="finalScore"></span></p>
+            <p>Yapbozu basariyla tamamladin!</p>
+            <p><strong>Suren:</strong> <span id="finalTime"></span></p>
+            <p><strong>Puanin:</strong> <span id="finalScore"></span></p>
             <button class="btn btn-primary" onclick="startGame()">🔄 Tekrar Oyna</button>
             <button class="btn btn-secondary" onclick="closeModal()">✅ Tamam</button>
         </div>
@@ -227,7 +227,7 @@
             pieces: []
         };
 
-        // GitHub'dan Atatürk ve çocuklar SVG resmi
+        // GitHub'dan Ataturk ve cocuklar SVG resmi
         const puzzleImage = 'https://raw.githubusercontent.com/hakkurgithub/23nisan/main/ataturk-cocuklar.svg';
 
         function initGame() {
@@ -247,7 +247,7 @@
                 piece.dataset.piece = i;
                 piece.style.backgroundImage = `url(${puzzleImage})`;
                 
-                // Küçük parçalar için pozisyon ayarla
+                // Kucuk parcalar icin pozisyon ayarla
                 const row = Math.floor(i / 3);
                 const col = i % 3;
                 piece.style.backgroundPosition = `${-col * 80}px ${-row * 80}px`;
@@ -278,16 +278,16 @@
             gameState.score = 0;
             gameState.correctPieces = 0;
             
-            // Timer başlat
+            // Timer baslat
             if (gameState.timerInterval) {
                 clearInterval(gameState.timerInterval);
             }
             gameState.timerInterval = setInterval(updateTimer, 1000);
             
-            // Parçaları karıştır
+            // Parcalari karistir
             shufflePieces();
             
-            // Puzzle alanını temizle
+            // Puzzle alanini temizle
             document.querySelectorAll('.puzzle-piece').forEach(piece => {
                 piece.innerHTML = '';
                 piece.classList.remove('filled');
@@ -333,9 +333,9 @@
             const pieceNumber = parseInt(piece.dataset.piece);
             const position = parseInt(dropZone.dataset.position);
             
-            // Doğru pozisyon kontrolü
+            // Dogru pozisyon kontrolu
             if (pieceNumber === position) {
-                // Doğru yerleştirme
+                // Dogru yerlestirme
                 dropZone.style.backgroundImage = `url(${puzzleImage})`;
                 dropZone.style.backgroundSize = '360px 360px';
                 dropZone.style.backgroundPosition = getBackgroundPosition(pieceNumber);
@@ -351,12 +351,12 @@
                 
                 updateScore();
                 
-                // Oyun tamamlandı mı?
+                // Oyun tamamlandi mi?
                 if (gameState.correctPieces === 9) {
                     setTimeout(gameCompleted, 500);
                 }
             } else {
-                // Yanlış yerleştirme
+                // Yanlis yerlestirme
                 gameState.score = Math.max(0, gameState.score - 10);
                 updateScore();
                 
@@ -483,7 +483,7 @@
         `;
         document.head.appendChild(style);
 
-        // Oyunu başlat
+        // Oyunu baslat
         window.addEventListener('load', initGame);
     </script>
 </body>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Türk Bayrağı Boyama - 23 Nisan Oyunları</title>
-    <meta name="description" content="Türk bayrağını dilediğin gibi boya! Eğlenceli ve eğitici boyama oyunu.">
+    <title>Turk Bayragi Boyama - 23 Nisan Oyunlari</title>
+    <meta name="description" content="Turk bayragini diledigin gibi boya! Eglenceli ve egitici boyama oyunu.">
     
     <link rel="stylesheet" href="../style.css">
     <style>
@@ -184,7 +184,7 @@
             <ul class="nav-links">
                 <li><a href="../index.html">Ana Sayfa</a></li>
                 <li><a href="../oyunlar.html" class="active">Oyunlar</a></li>
-                <li><a href="../atolyeler.html">Atölyeler</a></li>
+                <li><a href="../atolyeler.html">Atolyeler</a></li>
                 <li><a href="../etkinlikler.html">Etkinlikler</a></li>
             </ul>
         </nav>
@@ -192,32 +192,32 @@
 
     <main>
         <div class="game-container">
-            <h1>🎨 Türk Bayrağı Boyama</h1>
-            <p>Ay-yıldızlı bayrağımızı dilediğin renklerle boya! Yaratıcılığını konuştur.</p>
+            <h1>🎨 Turk Bayragi Boyama</h1>
+            <p>Ay-yildizli bayragimizi diledigin renklerle boya! Yaraticiligini konustur.</p>
             
             <div class="instructions">
-                <h4>🚀 Nasıl Oynanır?</h4>
+                <h4>🚀 Nasil Oynanir?</h4>
                 <p>
-                    1. Aşağıdan bir renk seç<br>
-                    2. Fırça boyutunu ayarla<br>
-                    3. Tuval üzerinde boyamaya başla<br>
-                    4. İstediğin kadar yaratıcı ol!
+                    1. Asagidan bir renk sec<br>
+                    2. Firca boyutunu ayarla<br>
+                    3. Tuval uzerinde boyamaya basla<br>
+                    4. Istedigin kadar yaratici ol!
                 </p>
             </div>
             
             <div class="canvas-container">
                 <canvas id="drawingCanvas" width="500" height="300"></canvas>
                 <div class="flag-template" id="flagTemplate">
-                    Türk Bayrağı Şablonu
+                    Turk Bayragi Sablonu
                 </div>
             </div>
             
             <div class="color-palette">
-                <div class="color-btn active" style="background-color: #E63946;" data-color="#E63946" title="Kırmızı"></div>
+                <div class="color-btn active" style="background-color: #E63946;" data-color="#E63946" title="Kirmizi"></div>
                 <div class="color-btn" style="background-color: #FFFFFF; border-color: #ccc;" data-color="#FFFFFF" title="Beyaz"></div>
-                <div class="color-btn" style="background-color: #FFD60A;" data-color="#FFD60A" title="Sarı"></div>
+                <div class="color-btn" style="background-color: #FFD60A;" data-color="#FFD60A" title="Sari"></div>
                 <div class="color-btn" style="background-color: #003566;" data-color="#003566" title="Lacivert"></div>
-                <div class="color-btn" style="background-color: #06D6A0;" data-color="#06D6A0" title="Yeşil"></div>
+                <div class="color-btn" style="background-color: #06D6A0;" data-color="#06D6A0" title="Yesil"></div>
                 <div class="color-btn" style="background-color: #F72585;" data-color="#F72585" title="Pembe"></div>
                 <div class="color-btn" style="background-color: #7209B7;" data-color="#7209B7" title="Mor"></div>
                 <div class="color-btn" style="background-color: #FF8500;" data-color="#FF8500" title="Turuncu"></div>
@@ -227,26 +227,26 @@
             
             <div class="tools-container">
                 <div class="tool-group">
-                    <label>🖌️ Fırça Boyutu:</label>
+                    <label>🖌️ Firca Boyutu:</label>
                     <input type="range" class="brush-size" id="brushSize" min="2" max="30" value="8">
                     <span id="brushSizeValue">8px</span>
                 </div>
                 
                 <div class="tool-group">
-                    <button class="btn btn-secondary" onclick="drawFlag()">🇹🇷 Bayrak Çiz</button>
+                    <button class="btn btn-secondary" onclick="drawFlag()">🇹🇷 Bayrak Ciz</button>
                     <button class="btn btn-secondary" onclick="clearCanvas()">🗑️ Temizle</button>
                 </div>
             </div>
             
             <div class="game-controls">
                 <button class="btn btn-primary" onclick="saveDrawing()">💾 Kaydet</button>
-                <button class="btn btn-secondary" onclick="downloadDrawing()">⬇️ İndir</button>
-                <button class="btn btn-secondary" onclick="goBack()">🏠 Geri Dön</button>
+                <button class="btn btn-secondary" onclick="downloadDrawing()">⬇️ Indir</button>
+                <button class="btn btn-secondary" onclick="goBack()">🏠 Geri Don</button>
             </div>
             
             <div class="gallery" id="gallery">
-                <h4 style="width: 100%; margin: 10px 0;">🖼️ Kayıtlı Çizimlerim</h4>
-                <!-- Kayıtlı çizimler buraya gelecek -->
+                <h4 style="width: 100%; margin: 10px 0;">🖼️ Kayitli Cizimlerim</h4>
+                <!-- Kayitli cizimler buraya gelecek -->
             </div>
         </div>
     </main>
@@ -254,12 +254,12 @@
     <!-- Kaydetme Modal -->
     <div class="save-modal" id="saveModal">
         <div class="save-content">
-            <h3>🎉 Çizimin Kaydedildi!</h3>
-            <p>Harika bir çalışma! Çizimin başarıyla kaydedildi.</p>
+            <h3>🎉 Cizimin Kaydedildi!</h3>
+            <p>Harika bir calisma! Cizimin basariyla kaydedildi.</p>
             <canvas id="previewCanvas" width="200" height="120" style="border: 1px solid #ccc; border-radius: 8px;"></canvas>
             <br><br>
             <button class="btn btn-primary" onclick="closeModal()">✅ Tamam</button>
-            <button class="btn btn-secondary" onclick="drawNew()">🎨 Yeni Çizim</button>
+            <button class="btn btn-secondary" onclick="drawNew()">🎨 Yeni Cizim</button>
         </div>
     </div>
 
@@ -274,7 +274,7 @@
             canvas = document.getElementById('drawingCanvas');
             ctx = canvas.getContext('2d');
             
-            // Canvas arka planını beyaz yap
+            // Canvas arka planini beyaz yap
             ctx.fillStyle = 'white';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
@@ -374,7 +374,7 @@
         function drawFlag() {
             clearCanvas();
             
-            // Kırmızı arka plan
+            // Kirmizi arka plan
             ctx.fillStyle = '#E63946';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
@@ -384,13 +384,13 @@
             ctx.arc(180, 150, 40, 0, 2 * Math.PI);
             ctx.fill();
             
-            // Ay'ın içindeki çukur
+            // Ay'in icindeki cukur
             ctx.fillStyle = '#E63946';
             ctx.beginPath();
             ctx.arc(195, 150, 32, 0, 2 * Math.PI);
             ctx.fill();
             
-            // Yıldız
+            // Yildiz
             drawStar(280, 150, 5, 25, 12);
         }
 
@@ -432,7 +432,7 @@
             savedDrawings.push(drawing);
             localStorage.setItem('turkishFlagDrawings', JSON.stringify(savedDrawings));
             
-            // Preview'e küçük versiyonu çiz
+            // Preview'e kucuk versiyonu ciz
             const previewCanvas = document.getElementById('previewCanvas');
             const previewCtx = previewCanvas.getContext('2d');
             const img = new Image();
@@ -441,10 +441,10 @@
             };
             img.src = dataURL;
             
-            // Gallery'yi güncelle
+            // Gallery'yi guncelle
             updateGallery();
             
-            // Modal'ı göster
+            // Modal'i goster
             document.getElementById('saveModal').style.display = 'flex';
         }
 
@@ -467,7 +467,7 @@
                 item.className = 'gallery-item';
                 item.width = 100;
                 item.height = 60;
-                item.title = `Çizim: ${drawing.timestamp}`;
+                item.title = `Cizim: ${drawing.timestamp}`;
                 
                 const itemCtx = item.getContext('2d');
                 const img = new Image();
@@ -513,7 +513,7 @@
             window.location.href = '../oyunlar.html';
         }
 
-        // Oyunu başlat
+        // Oyunu baslat
         window.addEventListener('load', initCanvas);
     </script>
 </body>
