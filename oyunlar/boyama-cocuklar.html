@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neseli Cocuklar Boyama - 23 Nisan Oyunlari</title>
+    <title>Neşeli Çocuklar Boyama - 23 Nisan Oyunları</title>
     <style>
         * {
             margin: 0;
@@ -12,8 +12,8 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Comic Sans MS', 'Segoe UI', cursive, sans-serif;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -23,9 +23,9 @@
 
         .game-card {
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            max-width: 400px;
+            border-radius: 25px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+            max-width: 420px;
             width: 100%;
             overflow: hidden;
             position: relative;
@@ -33,247 +33,391 @@
 
         .image-container {
             position: relative;
-            height: 250px;
-            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            height: 260px;
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-        }
-
-        .image-container::before {
-            content: '';
-            font-size: 120px;
-            opacity: 0.3;
-            position: absolute;
-        }
-
-        .kids-illustration {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: relative;
-            z-index: 1;
         }
 
         .badge {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: #27ae60;
+            background: #00b894;
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 25px;
             font-weight: bold;
             font-size: 14px;
             z-index: 2;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .geometric-preview {
+            width: 200px;
+            height: 200px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .content {
-            padding: 25px;
+            padding: 30px;
         }
 
         .title {
-            font-size: 28px;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-weight: 700;
+            font-size: 26px;
+            color: #2d3436;
+            margin-bottom: 12px;
+            font-weight: 800;
         }
 
         .meta {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             margin-bottom: 20px;
-            color: #7f8c8d;
+            color: #636e72;
             font-size: 14px;
+            font-weight: 600;
         }
 
         .meta span {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            background: #dfe6e9;
+            padding: 6px 12px;
+            border-radius: 15px;
         }
 
         .description {
-            color: #555;
-            line-height: 1.6;
+            color: #2d3436;
+            line-height: 1.7;
             margin-bottom: 25px;
             font-size: 15px;
         }
 
         .details-box {
-            background: #f0fff4;
-            border-left: 4px solid #27ae60;
+            background: #e8f5e9;
+            border: 3px solid #00b894;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 15px;
             margin-bottom: 25px;
         }
 
         .details-title {
-            color: #e74c3c;
-            font-weight: 600;
-            margin-bottom: 12px;
-            font-size: 16px;
-        }
-
-        .details-list {
-            list-style: none;
-            color: #2c3e50;
-            font-size: 14px;
-        }
-
-        .details-list li {
-            margin-bottom: 8px;
+            color: #d63031;
+            font-weight: 800;
+            margin-bottom: 15px;
+            font-size: 18px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
+        .details-list {
+            list-style: none;
+            color: #2d3436;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .details-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 0;
+        }
+
         .details-list li::before {
-            content: '✓';
-            color: #27ae60;
-            font-weight: bold;
+            content: '★';
+            color: #fdcb6e;
+            font-size: 16px;
         }
 
         .play-button {
             width: 100%;
-            background: #e74c3c;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
             color: white;
             border: none;
-            padding: 18px;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: 600;
+            padding: 20px;
+            border-radius: 35px;
+            font-size: 20px;
+            font-weight: 800;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .play-button:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(231, 76, 60, 0.7);
         }
 
         .play-button:active {
             transform: translateY(0);
         }
 
+        /* Boyama Oyunu Stilleri */
         .coloring-game {
             display: none;
+            background: #f8f9fa;
+        }
+
+        .game-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .game-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: white;
+            color: #764ba2;
+        }
+
+        .canvas-area {
             padding: 20px;
             background: white;
         }
 
         .canvas-container {
             position: relative;
-            border: 3px solid #ddd;
-            border-radius: 10px;
+            border: 4px solid #ddd;
+            border-radius: 15px;
             overflow: hidden;
-            margin-bottom: 20px;
             background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         #drawingCanvas {
-            cursor: crosshair;
             display: block;
             width: 100%;
+            cursor: crosshair;
         }
 
-        .tools {
+        /* Araçlar Bölümü */
+        .tools-section {
+            padding: 20px;
+            background: #f1f2f6;
+        }
+
+        .tool-group {
+            margin-bottom: 20px;
+        }
+
+        .tool-label {
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Fırça Seçimi */
+        .brush-tools {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .brush-option {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+            background: white;
         }
 
-        .color-palette {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
+        .brush-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .color-btn {
+        .brush-option.active {
+            border-color: #667eea;
+            background: #e8f0fe;
+        }
+
+        .brush-icon {
             width: 40px;
             height: 40px;
-            border: 3px solid transparent;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
         }
 
-        .color-btn:hover {
+        .brush-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #636e72;
+        }
+
+        /* Boya Paleti */
+        .paint-palette {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            padding: 25px 20px 20px 20px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 20px 0;
+        }
+
+        .palette-hole {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 20px;
+            background: #5d4037;
+            border-radius: 50%;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .paint-colors {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .paint-color {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 4px solid rgba(255,255,255,0.3);
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .paint-color::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            width: 30%;
+            height: 30%;
+            background: rgba(255,255,255,0.4);
+            border-radius: 50%;
+        }
+
+        .paint-color:hover {
+            transform: scale(1.15);
+            border-color: white;
+        }
+
+        .paint-color.active {
+            border-color: #fff;
+            box-shadow: 0 0 0 4px #667eea, 0 6px 20px rgba(0,0,0,0.4);
             transform: scale(1.1);
         }
 
-        .color-btn.active {
-            border-color: #2c3e50;
-            transform: scale(1.15);
+        /* Boyut Seçici */
+        .size-slider {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: #dfe6e9;
+            outline: none;
+            -webkit-appearance: none;
         }
 
-        .brush-sizes {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .size-btn {
-            background: #ecf0f1;
-            border: 2px solid #bdc3c7;
+        .size-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
+            background: #667eea;
             cursor: pointer;
-            transition: all 0.2s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .size-btn.active {
-            background: #3498db;
-            border-color: #2980b9;
+        .size-display {
+            text-align: center;
+            margin-top: 8px;
+            font-weight: 700;
+            color: #2d3436;
         }
 
-        .size-small { width: 20px; height: 20px; }
-        .size-medium { width: 30px; height: 30px; }
-        .size-large { width: 40px; height: 40px; }
-
+        /* Aksiyon Butonları */
         .action-buttons {
             display: flex;
-            gap: 10px;
-            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .action-btn {
-            padding: 10px 20px;
+            flex: 1;
+            padding: 15px;
             border: none;
-            border-radius: 20px;
+            border-radius: 12px;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .clear-btn {
-            background: #95a5a6;
+            background: #b2bec3;
             color: white;
         }
 
         .clear-btn:hover {
-            background: #7f8c8d;
+            background: #95a5a6;
+            transform: translateY(-2px);
         }
 
         .save-btn {
-            background: #27ae60;
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
             color: white;
         }
 
         .save-btn:hover {
-            background: #229954;
-        }
-
-        .back-btn {
-            background: #34495e;
-            color: white;
-            margin-bottom: 15px;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,184,148,0.4);
         }
 
         .hidden {
@@ -281,144 +425,158 @@
         }
 
         .game-active .game-card {
-            max-width: 600px;
-        }
-
-        .outline-image {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            height: 80%;
-            opacity: 0.2;
-            pointer-events: none;
+            max-width: 650px;
         }
     </style>
+<base target="_blank">
 </head>
 <body>
 
     <div class="game-card" id="gameCard">
-        <div class="image-container">
-            <span class="badge">UCRETSIZ</span>
-            <svg class="kids-illustration" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
-                <rect x="50" y="30" width="60" height="40" fill="#e74c3c" rx="3"/>
-                <circle cx="80" cy="50" r="12" fill="white"/>
-                <rect x="290" y="30" width="60" height="40" fill="#e74c3c" rx="3"/>
-                <circle cx="320" cy="50" r="12" fill="white"/>
-                <circle cx="120" cy="120" r="25" fill="#f39c12" opacity="0.8"/>
-                <ellipse cx="120" cy="170" rx="30" ry="40" fill="#3498db" opacity="0.8"/>
-                <circle cx="112" cy="115" r="3" fill="#2c3e50"/>
-                <circle cx="128" cy="115" r="3" fill="#2c3e50"/>
-                <path d="M 110 130 Q 120 140 130 130" stroke="#2c3e50" stroke-width="2" fill="none"/>
-                <circle cx="200" cy="110" r="28" fill="#e74c3c" opacity="0.8"/>
-                <ellipse cx="200" cy="165" rx="35" ry="45" fill="#f1c40f" opacity="0.8"/>
-                <circle cx="190" cy="105" r="3" fill="#2c3e50"/>
-                <circle cx="210" cy="105" r="3" fill="#2c3e50"/>
-                <path d="M 188 120 Q 200 135 212 120" stroke="#2c3e50" stroke-width="2" fill="none"/>
-                <circle cx="280" cy="125" r="23" fill="#9b59b6" opacity="0.8"/>
-                <ellipse cx="280" cy="175" rx="28" ry="38" fill="#1abc9c" opacity="0.8"/>
-                <circle cx="273" cy="120" r="3" fill="#2c3e50"/>
-                <circle cx="287" cy="120" r="3" fill="#2c3e50"/>
-                <path d="M 272 135 Q 280 145 288 135" stroke="#2c3e50" stroke-width="2" fill="none"/>
-                <ellipse cx="90" cy="80" rx="15" ry="20" fill="#e74c3c" opacity="0.6"/>
-                <line x1="90" y1="100" x2="90" y2="120" stroke="#2c3e50" stroke-width="1"/>
-                <ellipse cx="310" cy="90" rx="12" ry="18" fill="#3498db" opacity="0.6"/>
-                <line x1="310" y1="108" x2="310" y2="125" stroke="#2c3e50" stroke-width="1"/>
-            </svg>
+        <!-- Ana Menü -->
+        <div id="mainMenu">
+            <div class="image-container">
+                <span class="badge">Ücretsiz</span>
+                <div class="geometric-preview">
+                    <!-- Geometrik Ev Çizimi -->
+                    <svg width="180" height="180" viewBox="0 0 200 200">
+                        <!-- Güneş -->
+                        <circle cx="170" cy="30" r="20" fill="#f1c40f" stroke="#f39c12" stroke-width="3"/>
+                        <line x1="170" y1="5" x2="170" y2="-5" stroke="#f39c12" stroke-width="3"/>
+                        <line x1="170" y1="65" x2="170" y2="55" stroke="#f39c12" stroke-width="3"/>
+                        <line x1="145" y1="30" x2="135" y2="30" stroke="#f39c12" stroke-width="3"/>
+                        <line x1="205" y1="30" x2="195" y2="30" stroke="#f39c12" stroke-width="3"/>
+
+                        <!-- Ev Gövdesi -->
+                        <rect x="40" y="80" width="120" height="100" fill="#ecf0f1" stroke="#2c3e50" stroke-width="4"/>
+
+                        <!-- Çatı -->
+                        <polygon points="30,80 100,20 170,80" fill="#e74c3c" stroke="#c0392b" stroke-width="4"/>
+
+                        <!-- Kapı -->
+                        <rect x="85" y="130" width="30" height="50" fill="#8e44ad" stroke="#6c3483" stroke-width="3"/>
+                        <circle cx="108" cy="155" r="3" fill="#f1c40f"/>
+
+                        <!-- Pencere Sol -->
+                        <rect x="50" y="100" width="25" height="25" fill="#3498db" stroke="#2980b9" stroke-width="3"/>
+                        <line x1="62.5" y1="100" x2="62.5" y2="125" stroke="#2980b9" stroke-width="2"/>
+                        <line x1="50" y1="112.5" x2="75" y2="112.5" stroke="#2980b9" stroke-width="2"/>
+
+                        <!-- Pencere Sağ -->
+                        <rect x="125" y="100" width="25" height="25" fill="#3498db" stroke="#2980b9" stroke-width="3"/>
+                        <line x1="137.5" y1="100" x2="137.5" y2="125" stroke="#2980b9" stroke-width="2"/>
+                        <line x1="125" y1="112.5" x2="150" y2="112.5" stroke="#2980b9" stroke-width="2"/>
+
+                        <!-- Bacı -->
+                        <rect x="130" y="45" width="15" height="25" fill="#7f8c8d" stroke="#566573" stroke-width="3"/>
+                        <rect x="127" y="40" width="21" height="8" fill="#566573" stroke="#3c4556" stroke-width="2"/>
+
+                        <!-- Ağaç -->
+                        <rect x="15" y="120" width="12" height="60" fill="#8B4513" stroke="#5d4037" stroke-width="3"/>
+                        <circle cx="21" cy="110" r="25" fill="#27ae60" stroke="#1e8449" stroke-width="3"/>
+                        <circle cx="10" cy="100" r="15" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+                        <circle cx="32" cy="100" r="15" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+
+                        <!-- Bulut -->
+                        <ellipse cx="50" cy="40" rx="20" ry="12" fill="white" stroke="#bdc3c7" stroke-width="2"/>
+                        <ellipse cx="65" cy="35" rx="15" ry="10" fill="white" stroke="#bdc3c7" stroke-width="2"/>
+                        <ellipse cx="35" cy="35" rx="15" ry="10" fill="white" stroke="#bdc3c7" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="content">
+                <h1 class="title">Neşeli Çocuklar Boyama</h1>
+
+                <div class="meta">
+                    <span>🎯 Çok Kolay</span>
+                    <span>👶 3-8 yaş</span>
+                </div>
+
+                <p class="description">
+                    23 Nisan coşkusu içindeki evi, ağacı ve güneşi renklendir! Geometrik şekillerle oluşturulmuş bu eğlenceli resmi fırçanla boya. İstediğin renkleri kullan, yaratıcı ol!
+                </p>
+
+                <div class="details-box">
+                    <div class="details-title">🎨 Oyun Detayları</div>
+                    <ul class="details-list">
+                        <li>Ortalama 7 dk</li>
+                        <li>12 renkli boya paleti</li>
+                        <li>3 farklı fırça tipi</li>
+                        <li>2.150 kez oynandı</li>
+                    </ul>
+                </div>
+
+                <button class="play-button" onclick="startGame()">🚀 Hemen Oyna</button>
+            </div>
         </div>
 
-        <div class="content" id="gameInfo">
-            <h1 class="title">Neseli Cocuklar Boyama</h1>
-            <div class="meta">
-                <span>Cok Kolay</span>
-                <span>3-8 yas</span>
-            </div>
-            <p class="description">
-                23 Nisan coskusu icindeki mutlu cocuklari renklendir! Istedigin renkleri kullan, yaratici ol. Bayraklar, balonlar ve sevimli cocuklar seni bekliyor.
-            </p>
-            <div class="details-box">
-                <div class="details-title">Oyun Detaylari</div>
-                <ul class="details-list">
-                    <li>Ortalama 7 dk</li>
-                    <li>12 renk paleti</li>
-                    <li>2.150 kez oynandi</li>
-                    <li>Kaydet ve paylas</li>
-                </ul>
-            </div>
-            <button class="play-button" onclick="startGame()">Hemen Oyna</button>
-        </div>
-
+        <!-- Boyama Oyunu -->
         <div class="coloring-game" id="coloringGame">
-            <button class="action-btn back-btn" onclick="backToMenu()">Geri Don</button>
-            <div class="canvas-container">
-                <canvas id="drawingCanvas" width="560" height="400"></canvas>
-                <svg class="outline-image" viewBox="0 0 560 400" xmlns="http://www.w3.org/2000/svg" id="templateSvg">
-                    <defs>
-                        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f0f0f0" stroke-width="1"/>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#grid)" />
-                    <g stroke="#333" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="40" y="40" width="80" height="60" rx="2"/>
-                        <circle cx="80" cy="70" r="15"/>
-                        <rect x="440" y="40" width="80" height="60" rx="2"/>
-                        <circle cx="480" cy="70" r="15"/>
-                        <circle cx="150" cy="180" r="35"/>
-                        <ellipse cx="150" cy="260" rx="40" ry="55"/>
-                        <circle cx="140" cy="175" r="4" fill="#333"/>
-                        <circle cx="160" cy="175" r="4" fill="#333"/>
-                        <path d="M 135 195 Q 150 210 165 195"/>
-                        <path d="M 115 170 Q 150 130 185 170"/>
-                        <circle cx="280" cy="160" r="40"/>
-                        <ellipse cx="280" cy="250" rx="45" ry="60"/>
-                        <circle cx="265" cy="155" r="4" fill="#333"/>
-                        <circle cx="295" cy="155" r="4" fill="#333"/>
-                        <path d="M 260 175 Q 280 195 300 175"/>
-                        <path d="M 240 150 Q 280 100 320 150"/>
-                        <circle cx="240" cy="160" r="15"/>
-                        <circle cx="320" cy="160" r="15"/>
-                        <circle cx="410" cy="180" r="35"/>
-                        <ellipse cx="410" cy="260" rx="40" ry="55"/>
-                        <circle cx="400" cy="175" r="4" fill="#333"/>
-                        <circle cx="420" cy="175" r="4" fill="#333"/>
-                        <path d="M 395 195 Q 410 210 425 195"/>
-                        <path d="M 375 170 Q 410 140 445 170"/>
-                        <ellipse cx="100" cy="120" rx="20" ry="28"/>
-                        <line x1="100" y1="148" x2="100" y2="180" stroke-width="2"/>
-                        <ellipse cx="460" cy="130" rx="18" ry="25"/>
-                        <line x1="460" y1="155" x2="460" y2="185" stroke-width="2"/>
-                        <path d="M 20 340 Q 280 320 540 340" stroke-width="4"/>
-                    </g>
-                </svg>
+            <div class="game-header">
+                <span class="game-title">🎨 Boyama Zamanı!</span>
+                <button class="back-btn" onclick="backToMenu()">← Menü</button>
             </div>
 
-            <div class="tools">
-                <div class="color-palette">
-                    <button class="color-btn active" style="background: #000000" data-color="#000000"></button>
-                    <button class="color-btn" style="background: #e74c3c" data-color="#e74c3c"></button>
-                    <button class="color-btn" style="background: #e67e22" data-color="#e67e22"></button>
-                    <button class="color-btn" style="background: #f1c40f" data-color="#f1c40f"></button>
-                    <button class="color-btn" style="background: #2ecc71" data-color="#2ecc71"></button>
-                    <button class="color-btn" style="background: #1abc9c" data-color="#1abc9c"></button>
-                    <button class="color-btn" style="background: #3498db" data-color="#3498db"></button>
-                    <button class="color-btn" style="background: #9b59b6" data-color="#9b59b6"></button>
-                    <button class="color-btn" style="background: #e91e63" data-color="#e91e63"></button>
-                    <button class="color-btn" style="background: #795548" data-color="#795548"></button>
-                    <button class="color-btn" style="background: #95a5a6" data-color="#95a5a6"></button>
-                    <button class="color-btn" style="background: #ffffff; border: 2px solid #ddd" data-color="#ffffff"></button>
+            <div class="canvas-area">
+                <div class="canvas-container">
+                    <canvas id="drawingCanvas" width="600" height="450"></canvas>
+                </div>
+            </div>
+
+            <div class="tools-section">
+                <!-- Fırça Seçimi -->
+                <div class="tool-group">
+                    <div class="tool-label">🖌️ Fırça Seç</div>
+                    <div class="brush-tools">
+                        <div class="brush-option active" data-brush="round">
+                            <div class="brush-icon">⚫</div>
+                            <span class="brush-name">Yuvarlak</span>
+                        </div>
+                        <div class="brush-option" data-brush="flat">
+                            <div class="brush-icon">⬛</div>
+                            <span class="brush-name">Düz</span>
+                        </div>
+                        <div class="brush-option" data-brush="spray">
+                            <div class="brush-icon">✨</div>
+                            <span class="brush-name">Sprey</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="brush-sizes">
-                    <button class="size-btn size-small" data-size="3"></button>
-                    <button class="size-btn size-medium active" data-size="8"></button>
-                    <button class="size-btn size-large" data-size="15"></button>
+                <!-- Boya Paleti -->
+                <div class="tool-group">
+                    <div class="tool-label">🎨 Boya Paleti</div>
+                    <div class="paint-palette">
+                        <div class="palette-hole"></div>
+                        <div class="paint-colors">
+                            <div class="paint-color active" style="background: #000000" data-color="#000000"></div>
+                            <div class="paint-color" style="background: #e74c3c" data-color="#e74c3c"></div>
+                            <div class="paint-color" style="background: #e67e22" data-color="#e67e22"></div>
+                            <div class="paint-color" style="background: #f1c40f" data-color="#f1c40f"></div>
+                            <div class="paint-color" style="background: #2ecc71" data-color="#2ecc71"></div>
+                            <div class="paint-color" style="background: #1abc9c" data-color="#1abc9c"></div>
+                            <div class="paint-color" style="background: #3498db" data-color="#3498db"></div>
+                            <div class="paint-color" style="background: #9b59b6" data-color="#9b59b6"></div>
+                            <div class="paint-color" style="background: #e91e63" data-color="#e91e63"></div>
+                            <div class="paint-color" style="background: #795548" data-color="#795548"></div>
+                            <div class="paint-color" style="background: #95a5a6" data-color="#95a5a6"></div>
+                            <div class="paint-color" style="background: #ffffff; border: 3px solid #bdc3c7" data-color="#ffffff"></div>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Boyut Ayarı -->
+                <div class="tool-group">
+                    <div class="tool-label">📏 Fırça Boyutu</div>
+                    <input type="range" class="size-slider" id="sizeSlider" min="2" max="50" value="8">
+                    <div class="size-display" id="sizeDisplay">8 px</div>
+                </div>
+
+                <!-- Butonlar -->
                 <div class="action-buttons">
-                    <button class="action-btn clear-btn" onclick="clearCanvas()">Temizle</button>
-                    <button class="action-btn save-btn" onclick="saveDrawing()">Kaydet</button>
+                    <button class="action-btn clear-btn" onclick="clearCanvas()">🗑️ Temizle</button>
+                    <button class="action-btn save-btn" onclick="saveDrawing()">💾 Kaydet</button>
                 </div>
             </div>
         </div>
@@ -429,20 +587,22 @@
         let isDrawing = false;
         let currentColor = '#000000';
         let currentSize = 8;
+        let currentBrush = 'round';
         let lastX = 0;
         let lastY = 0;
 
         function startGame() {
-            document.getElementById('gameInfo').classList.add('hidden');
+            document.getElementById('mainMenu').classList.add('hidden');
             document.getElementById('coloringGame').style.display = 'block';
             document.body.classList.add('game-active');
+
             setTimeout(() => {
                 initCanvas();
             }, 100);
         }
 
         function backToMenu() {
-            document.getElementById('gameInfo').classList.remove('hidden');
+            document.getElementById('mainMenu').classList.remove('hidden');
             document.getElementById('coloringGame').style.display = 'none';
             document.body.classList.remove('game-active');
         }
@@ -450,72 +610,241 @@
         function initCanvas() {
             canvas = document.getElementById('drawingCanvas');
             ctx = canvas.getContext('2d');
+
+            // Canvas boyutlarını ayarla
             const container = canvas.parentElement;
             canvas.width = container.offsetWidth;
-            canvas.height = 400;
+            canvas.height = 450;
+
+            // Başlangıç ayarları
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
             ctx.strokeStyle = currentColor;
             ctx.lineWidth = currentSize;
-            drawTemplate();
-            
+
+            // Geometrik resmi çiz
+            drawGeometricImage();
+
+            // Event listeners
             canvas.addEventListener('mousedown', startDrawing);
             canvas.addEventListener('mousemove', draw);
             canvas.addEventListener('mouseup', stopDrawing);
             canvas.addEventListener('mouseout', stopDrawing);
-            
-            canvas.addEventListener('touchstart', handleTouch);
-            canvas.addEventListener('touchmove', handleTouch);
+
+            // Touch events
+            canvas.addEventListener('touchstart', handleTouch, {passive: false});
+            canvas.addEventListener('touchmove', handleTouch, {passive: false});
             canvas.addEventListener('touchend', stopDrawing);
-            
-            document.querySelectorAll('.color-btn').forEach(btn => {
+
+            // Fırça seçimi
+            document.querySelectorAll('.brush-option').forEach(btn => {
                 btn.addEventListener('click', function() {
-                    document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.brush-option').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentBrush = this.getAttribute('data-brush');
+                });
+            });
+
+            // Renk seçimi
+            document.querySelectorAll('.paint-color').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.paint-color').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     currentColor = this.getAttribute('data-color');
                     ctx.strokeStyle = currentColor;
+                    ctx.fillStyle = currentColor;
                 });
             });
-            
-            document.querySelectorAll('.size-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    currentSize = parseInt(this.getAttribute('data-size'));
-                    ctx.lineWidth = currentSize;
-                });
+
+            // Boyut slider
+            const sizeSlider = document.getElementById('sizeSlider');
+            const sizeDisplay = document.getElementById('sizeDisplay');
+            sizeSlider.addEventListener('input', function() {
+                currentSize = parseInt(this.value);
+                sizeDisplay.textContent = currentSize + ' px';
+                ctx.lineWidth = currentSize;
             });
         }
 
-        function drawTemplate() {
+        function drawGeometricImage() {
+            const w = canvas.width;
+            const h = canvas.height;
+            const scale = Math.min(w, h) / 250;
+            const offsetX = (w - 200 * scale) / 2;
+            const offsetY = (h - 200 * scale) / 2 + 20;
+
+            // Beyaz zemin
             ctx.fillStyle = 'white';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.strokeStyle = '#cccccc';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            for(let i = 0; i < canvas.width; i += 20) {
+            ctx.fillRect(0, 0, w, h);
+
+            // Grid çiz (hafif)
+            ctx.strokeStyle = '#f0f0f0';
+            ctx.lineWidth = 1;
+            for(let i = 0; i < w; i += 20) {
+                ctx.beginPath();
                 ctx.moveTo(i, 0);
-                ctx.lineTo(i, canvas.height);
+                ctx.lineTo(i, h);
+                ctx.stroke();
             }
-            for(let i = 0; i < canvas.height; i += 20) {
+            for(let i = 0; i < h; i += 20) {
+                ctx.beginPath();
                 ctx.moveTo(0, i);
-                ctx.lineTo(canvas.width, i);
+                ctx.lineTo(w, i);
+                ctx.stroke();
             }
+
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = '#2c3e50';
+            ctx.lineJoin = 'round';
+
+            // Güneş (sağ üst)
+            ctx.beginPath();
+            ctx.arc(offsetX + 170 * scale, offsetY + 30 * scale, 20 * scale, 0, Math.PI * 2);
+            ctx.fillStyle = '#fff3cd';
+            ctx.fill();
+            ctx.stroke();
+            // Güneş ışınları
+            for(let i = 0; i < 8; i++) {
+                const angle = (i * 45) * Math.PI / 180;
+                ctx.beginPath();
+                ctx.moveTo(offsetX + 170 * scale + Math.cos(angle) * 25 * scale, offsetY + 30 * scale + Math.sin(angle) * 25 * scale);
+                ctx.lineTo(offsetX + 170 * scale + Math.cos(angle) * 35 * scale, offsetY + 30 * scale + Math.sin(angle) * 35 * scale);
+                ctx.stroke();
+            }
+
+            // Ev gövdesi
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(offsetX + 40 * scale, offsetY + 80 * scale, 120 * scale, 100 * scale);
+            ctx.strokeRect(offsetX + 40 * scale, offsetY + 80 * scale, 120 * scale, 100 * scale);
+
+            // Çatı (üçgen)
+            ctx.beginPath();
+            ctx.moveTo(offsetX + 30 * scale, offsetY + 80 * scale);
+            ctx.lineTo(offsetX + 100 * scale, offsetY + 20 * scale);
+            ctx.lineTo(offsetX + 170 * scale, offsetY + 80 * scale);
+            ctx.closePath();
+            ctx.fillStyle = '#ffffff';
+            ctx.fill();
+            ctx.stroke();
+
+            // Kapı
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(offsetX + 85 * scale, offsetY + 130 * scale, 30 * scale, 50 * scale);
+            ctx.strokeRect(offsetX + 85 * scale, offsetY + 130 * scale, 30 * scale, 50 * scale);
+            // Kapı kolu
+            ctx.beginPath();
+            ctx.arc(offsetX + 108 * scale, offsetY + 155 * scale, 3 * scale, 0, Math.PI * 2);
+            ctx.fillStyle = '#2c3e50';
+            ctx.fill();
+
+            // Sol Pencere
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(offsetX + 50 * scale, offsetY + 100 * scale, 25 * scale, 25 * scale);
+            ctx.strokeRect(offsetX + 50 * scale, offsetY + 100 * scale, 25 * scale, 25 * scale);
+            ctx.beginPath();
+            ctx.moveTo(offsetX + 62.5 * scale, offsetY + 100 * scale);
+            ctx.lineTo(offsetX + 62.5 * scale, offsetY + 125 * scale);
+            ctx.moveTo(offsetX + 50 * scale, offsetY + 112.5 * scale);
+            ctx.lineTo(offsetX + 75 * scale, offsetY + 112.5 * scale);
+            ctx.stroke();
+
+            // Sağ Pencere
+            ctx.fillRect(offsetX + 125 * scale, offsetY + 100 * scale, 25 * scale, 25 * scale);
+            ctx.strokeRect(offsetX + 125 * scale, offsetY + 100 * scale, 25 * scale, 25 * scale);
+            ctx.beginPath();
+            ctx.moveTo(offsetX + 137.5 * scale, offsetY + 100 * scale);
+            ctx.lineTo(offsetX + 137.5 * scale, offsetY + 125 * scale);
+            ctx.moveTo(offsetX + 125 * scale, offsetY + 112.5 * scale);
+            ctx.lineTo(offsetX + 150 * scale, offsetY + 112.5 * scale);
+            ctx.stroke();
+
+            // Bacı
+            ctx.fillRect(offsetX + 130 * scale, offsetY + 45 * scale, 15 * scale, 25 * scale);
+            ctx.strokeRect(offsetX + 130 * scale, offsetY + 45 * scale, 15 * scale, 25 * scale);
+            ctx.fillRect(offsetX + 127 * scale, offsetY + 40 * scale, 21 * scale, 8 * scale);
+            ctx.strokeRect(offsetX + 127 * scale, offsetY + 40 * scale, 21 * scale, 8 * scale);
+
+            // Ağaç gövdesi
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(offsetX + 15 * scale, offsetY + 120 * scale, 12 * scale, 60 * scale);
+            ctx.strokeRect(offsetX + 15 * scale, offsetY + 120 * scale, 12 * scale, 60 * scale);
+            // Ağaç yaprakları (daireler)
+            ctx.beginPath();
+            ctx.arc(offsetX + 21 * scale, offsetY + 110 * scale, 25 * scale, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(offsetX + 10 * scale, offsetY + 100 * scale, 15 * scale, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(offsetX + 32 * scale, offsetY + 100 * scale, 15 * scale, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            // Bulut (sol üst)
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.ellipse(offsetX + 50 * scale, offsetY + 40 * scale, 20 * scale, 12 * scale, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.ellipse(offsetX + 65 * scale, offsetY + 35 * scale, 15 * scale, 10 * scale, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.ellipse(offsetX + 35 * scale, offsetY + 35 * scale, 15 * scale, 10 * scale, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            // Zemin çizgisi
+            ctx.beginPath();
+            ctx.moveTo(0, offsetY + 180 * scale);
+            ctx.lineTo(w, offsetY + 180 * scale);
+            ctx.lineWidth = 5;
             ctx.stroke();
         }
 
         function startDrawing(e) {
             isDrawing = true;
             [lastX, lastY] = [e.offsetX, e.offsetY];
+
+            if (currentBrush === 'spray') {
+                sprayPaint(e.offsetX, e.offsetY);
+            }
         }
 
         function draw(e) {
             if (!isDrawing) return;
-            ctx.beginPath();
-            ctx.moveTo(lastX, lastY);
-            ctx.lineTo(e.offsetX, e.offsetY);
-            ctx.stroke();
+
+            if (currentBrush === 'spray') {
+                sprayPaint(e.offsetX, e.offsetY);
+            } else if (currentBrush === 'flat') {
+                // Düz fırça - dikdörtgen çiz
+                ctx.fillStyle = currentColor;
+                const halfSize = currentSize / 2;
+                ctx.fillRect(e.offsetX - halfSize, e.offsetY - halfSize, currentSize, currentSize);
+            } else {
+                // Yuvarlak fırça - normal çizgi
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+            }
+
             [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
+
+        function sprayPaint(x, y) {
+            const density = currentSize * 2;
+            ctx.fillStyle = currentColor;
+            for (let i = 0; i < density; i++) {
+                const offsetX = (Math.random() - 0.5) * currentSize * 2;
+                const offsetY = (Math.random() - 0.5) * currentSize * 2;
+                if (offsetX * offsetX + offsetY * offsetY <= currentSize * currentSize) {
+                    ctx.fillRect(x + offsetX, y + offsetY, 1, 1);
+                }
+            }
         }
 
         function stopDrawing() {
@@ -528,33 +857,43 @@
             const rect = canvas.getBoundingClientRect();
             const x = touch.clientX - rect.left;
             const y = touch.clientY - rect.top;
-            
+
             if (e.type === 'touchstart') {
                 isDrawing = true;
                 [lastX, lastY] = [x, y];
+                if (currentBrush === 'spray') {
+                    sprayPaint(x, y);
+                }
             } else if (e.type === 'touchmove' && isDrawing) {
-                ctx.beginPath();
-                ctx.moveTo(lastX, lastY);
-                ctx.lineTo(x, y);
-                ctx.stroke();
+                if (currentBrush === 'spray') {
+                    sprayPaint(x, y);
+                } else if (currentBrush === 'flat') {
+                    ctx.fillStyle = currentColor;
+                    const halfSize = currentSize / 2;
+                    ctx.fillRect(x - halfSize, y - halfSize, currentSize, currentSize);
+                } else {
+                    ctx.beginPath();
+                    ctx.moveTo(lastX, lastY);
+                    ctx.lineTo(x, y);
+                    ctx.stroke();
+                }
                 [lastX, lastY] = [x, y];
             }
         }
 
         function clearCanvas() {
-            ctx.fillStyle = 'white';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            drawTemplate();
+            drawGeometricImage();
         }
 
         function saveDrawing() {
             const link = document.createElement('a');
-            link.download = '23-nisan-boyamam.png';
+            link.download = 'benim-boyamam.png';
             link.href = canvas.toDataURL();
             link.click();
+
             const btn = document.querySelector('.save-btn');
             const originalText = btn.innerHTML;
-            btn.innerHTML = 'Kaydedildi!';
+            btn.innerHTML = '✅ Kaydedildi!';
             setTimeout(() => {
                 btn.innerHTML = originalText;
             }, 2000);
@@ -562,9 +901,7 @@
 
         window.addEventListener('resize', () => {
             if (document.getElementById('coloringGame').style.display === 'block') {
-                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                canvas.width = canvas.parentElement.offsetWidth;
-                ctx.putImageData(imageData, 0, 0);
+                initCanvas();
             }
         });
     </script>
