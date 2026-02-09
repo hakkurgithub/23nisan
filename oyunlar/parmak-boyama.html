@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Parmak Boyama Sanati - 23 Nisan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body { 
+            font-family: 'Nunito', sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Mobil Header */
+        .header { 
+            background: #E63946; 
+            color: white; 
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 { font-size: 1.5rem; }
+        .header p { font-size: 0.9rem; opacity: 0.9; }
+        
+        /* Mobil Nav - Hamburger Menu */
+        .nav-toggle {
+            display: block;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .nav {
+            background: #1D3557;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .nav.active {
+            max-height: 300px;
+            padding: 1rem;
+        }
+        
+        .nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 1rem;
+        }
+        
+        /* Ana Container */
+        .container {
+            max-width: 100%;
+            padding: 1rem;
+        }
+        
+        /* Hero Bolumu */
+        .hero {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .hero h2 {
+            color: #1D3557;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .badge {
+            background: #E63946;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
+        .badge.green { background: #2E7D32; }
+        .badge.blue { background: #3498db; }
+        
+        /* Video/Animasyon Bolumu */
+        .video-section {
+            background: white;
+            border-radius: 15px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .video-placeholder {
+            background: linear-gradient(135deg, #E63946 0%, #FF6B6B 100%);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: #E63946;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* Malzemeler Bolumu */
+        .materials-section {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            color: #1D3557;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .materials-list {
+            list-style: none;
+        }
+        
+        .materials-list li {
+            padding: 0.8rem;
+            background: #F1FAEE;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+        }
+        
+        .materials-list li:before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background: #E63946;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+        
+        /* Adimlar Bolumu */
+        .steps-section {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .step-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #E63946;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #E63946;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-title {
+            color: #1D3557;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-desc {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .step-time {
+            display: inline-block;
+            background: #FFD700;
+            color: #1D3557;
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            font-weight: bold;
+        }
+        
+        /* Interaktif Boyama Alani */
+        .paint-section {
+            background: white;
+            border-radius: 15px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .canvas-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            touch-action: none;
+        }
+        
+        #paintCanvas {
+            width: 100%;
+            height: 300px;
+            background: white;
+            border-radius: 8px;
+            border: 2px dashed #ddd;
+            touch-action: none;
+        }
+        
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .color-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .color-btn:active {
+            transform: scale(0.9);
+        }
+        
+        .color-btn.active {
+            border-color: #333;
+            transform: scale(1.1);
+        }
+        
+        .brush-sizes {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .size-btn {
+            background: #e9ecef;
+            border: 2px solid #dee2e6;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        .size-btn.active {
+            background: #E63946;
+            color: white;
+            border-color: #E63946;
+        }
+        
+        .action-btns {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary {
+            background: #E63946;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-success {
+            background: #2E7D32;
+            color: white;
+        }
+        
+        /* Ipucu Kartlari */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        .tip-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tip-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tip-title {
+            color: #1D3557;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tip-text {
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1D3557;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-logo img {
+            height: 35px;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Mobil Optimizasyonlar */
+        @media (min-width: 768px) {
+            .container { max-width: 800px; margin: 0 auto; }
+            .tips-grid { grid-template-columns: 1fr 1fr; }
+            .nav-toggle { display: none; }
+            .nav {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                max-height: none;
+                padding: 1rem;
+            }
+            .nav a {
+                display: inline-block;
+                border-bottom: none;
+                padding: 0.5rem 1rem;
+            }
+        }
+        
+        /* Yukari kaydir butonu */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: #E63946;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 99;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <button class="nav-toggle" onclick="toggleNav()">â˜°</button>
+        <h1>Parmak Boyama</h1>
+        <p>23 Nisan Sanat Atolyesi</p>
+    </header>
+    
+    <nav class="nav" id="mainNav">
+        <a href="/">Ana Sayfa</a>
+        <a href="/etkinlikler.html">Etkinlikler</a>
+        <a href="/oyunlar.html">Oyunlar</a>
+        <a href="/atolyeler.html">Atolyeler</a>
+    </nav>
+    
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <h2>Parmaklarinla Sanat Yarat!</h2>
+            <p>Parmak boyama, cocuklarin yaraticiligini gelistiren, motor becerilerini guclendiren eglenceli bir aktivitedir.</p>
+            <div class="badges">
+                <span class="badge green">4-6 Yas</span>
+                <span class="badge blue">30 Dakika</span>
+                <span class="badge">Ucretsiz</span>
+            </div>
+        </section>
+        
+        <!-- Video -->
+        <section class="video-section">
+            <div class="video-placeholder" onclick="alert('Video yukleniyor...')">
+                <div class="play-btn">â–¶</div>
+                <h3>Nasil Yapilir?</h3>
+                <p>Adim adim parmak boyama tekniklerini ogren</p>
+            </div>
+        </section>
+        
+        <!-- Malzemeler -->
+        <section class="materials-section">
+            <h2 class="section-title">Gerekli Malzemeler</h2>
+            <ul class="materials-list">
+                <li>Su bazli boyalar (kirmizi, mavi, sari, yesil)</li>
+                <li>Buyuk boy cizim kagidi (A3)</li>
+                <li>Islak mendil</li>
+                <li>Onluk veya eski kiyafet</li>
+                <li>Su kabi</li>
+                <li>Havlu</li>
+            </ul>
+        </section>
+        
+        <!-- Adimlar -->
+        <section class="steps-section">
+            <h2 class="section-title">Adim Adim Yapilisi</h2>
+            
+            <div class="step-card">
+                <span class="step-number">1</span>
+                <h3 class="step-title">Calisma Alani Hazirligi</h3>
+                <p class="step-desc">Masayi gazete veya plastik ortuyle koruyun. Boyalari kucuk tabaklara koyun.</p>
+                <span class="step-time">5 dk</span>
+            </div>
+            
+            <div class="step-card">
+                <span class="step-number">2</span>
+                <h3 class="step-title">Ilk Renk Deneyimi</h3>
+                <p class="step-desc">Tek bir renkle baslayin. Isaret parmagini boyaya batir kagida noktalar yap.</p>
+                <span class="step-time">5 dk</span>
+            </div>
+            
+            <div class="step-card">
+                <span class="step-number">3</span>
+                <h3 class="step-title">Renkleri Kesfet</h3>
+                <p class="step-desc">Mavi + Sari = Yesil! Kirmiziyi ekleyerek turuncu olustur. Kendi karisimlarini dene.</p>
+                <span class="step-time">8 dk</span>
+            </div>
+            
+            <div class="step-card">
+                <span class="step-number">4</span>
+                <h3 class="step-title">Tum Elin Gucu</h3>
+                <p class="step-desc">Simdi tum eli boyaya batir. El izleri cikararak agac yapraklari olustur.</p>
+                <span class="step-time">7 dk</span>
+            </div>
+            
+            <div class="step-card">
+                <span class="step-number">5</span>
+                <h3 class="step-title">Sanat Eserini Tamamla</h3>
+                <p class="step-desc">Son dokunuslari yap, kendi ismini koseye yaz. Elleri temizle ve eseri incele!</p>
+                <span class="step-time">5 dk</span>
+            </div>
+        </section>
+        
+        <!-- Interaktif Boyama -->
+        <section class="paint-section">
+            <h2 class="section-title">Dene ve Yap!</h2>
+            <div class="canvas-container">
+                <canvas id="paintCanvas"></canvas>
+            </div>
+            
+            <div class="color-palette">
+                <button class="color-btn active" style="background: #000000" data-color="#000000"></button>
+                <button class="color-btn" style="background: #E63946" data-color="#E63946"></button>
+                <button class="color-btn" style="background: #3498db" data-color="#3498db"></button>
+                <button class="color-btn" style="background: #2E7D32" data-color="#2E7D32"></button>
+                <button class="color-btn" style="background: #FFD700" data-color="#FFD700"></button>
+                <button class="color-btn" style="background: #9b59b6" data-color="#9b59b6"></button>
+            </div>
+            
+            <div class="brush-sizes">
+                <button class="size-btn" data-size="5">Ince</button>
+                <button class="size-btn active" data-size="10">Orta</button>
+                <button class="size-btn" data-size="20">KalÄ±n</button>
+            </div>
+            
+            <div class="action-btns">
+                <button class="btn btn-secondary" onclick="clearCanvas()">Temizle</button>
+                <button class="btn btn-success" onclick="saveDrawing()">Kaydet</button>
+            </div>
+        </section>
+        
+        <!-- Ipuclari -->
+        <section class="steps-section">
+            <h2 class="section-title">Uzman Ipuclari</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">í¾¨</div>
+                    <h4 class="tip-title">Renk Karistirma</h4>
+                    <p class="tip-text">Boyalar henuz kurumamisken karistir. Ayni rengin acik ve koyu tonlarini kullan.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">âœ‹</div>
+                    <h4 class="tip-title">El Teknikleri</h4>
+                    <p class="tip-text">Parmak ucu kucuk noktalar icin, avuc ici buyuk alanlar icin, tum el buyuk sekiller icin.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">í·¼</div>
+                    <h4 class="tip-title">Temizlik</h4>
+                    <p class="tip-text">Her renk degisiminde elleri yika. Sadece cocuk guvenlikli boyalar kullan.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">í¾­</div>
+                    <h4 class="tip-title">Yaraticilik</h4>
+                    <p class="tip-text">Cocugun kendi yolunu bulmasina izin ver. Her girisimi destekle ve ov.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-logo">
+            <img src="https://raw.githubusercontent.com/hakkurgithub/images/main/silicon-campus-logo.jpg" alt="Silicon Campus">
+        </div>
+        <p>Â© 2025 23 Nisan Portali</p>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Tum haklari Silicon Campus e aittir</p>
+    </footer>
+    
+    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">â†‘</div>
+    
+    <script>
+        // Nav toggle
+        function toggleNav() {
+            document.getElementById('mainNav').classList.toggle('active');
+        }
+        
+        // Canvas setup
+        const canvas = document.getElementById('paintCanvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let currentColor = '#000000';
+        let currentSize = 10;
+        
+        // Canvas boyutlandirma
+        function resizeCanvas() {
+            const container = canvas.parentElement;
+            canvas.width = container.offsetWidth - 32;
+            canvas.height = 300;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Cizim fonksiyonlari
+        function startDraw(e) {
+            isDrawing = true;
+            draw(e);
+        }
+        
+        function draw(e) {
+            if (!isDrawing) return;
+            
+            const rect = canvas.getBoundingClientRect();
+            const x = (e.clientX || e.touches[0].clientX) - rect.left;
+            const y = (e.clientY || e.touches[0].clientY) - rect.top;
+            
+            ctx.lineWidth = currentSize;
+            ctx.strokeStyle = currentColor;
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+        
+        function stopDraw() {
+            isDrawing = false;
+            ctx.beginPath();
+        }
+        
+        // Event listeners
+        canvas.addEventListener('mousedown', startDraw);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDraw);
+        canvas.addEventListener('mouseout', stopDraw);
+        
+        canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startDraw(e); });
+        canvas.addEventListener('touchmove', (e) => { e.preventDefault(); draw(e); });
+        canvas.addEventListener('touchend', stopDraw);
+        
+        // Renk secimi
+        document.querySelectorAll('.color-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentColor = this.dataset.color;
+            });
+        });
+        
+        // Boyut secimi
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentSize = parseInt(this.dataset.size);
+            });
+        });
+        
+        // Temizle
+        function clearCanvas() {
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+        
+        // Kaydet
+        function saveDrawing() {
+            const link = document.createElement('a');
+            link.download = 'parmak-boyamam.png';
+            link.href = canvas.toDataURL();
+            link.click();
+            alert('Resim kaydedildi!');
+        }
+        
+        // Yukari kaydir
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.getElementById('scrollTop');
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Baslangic temizligi
+        clearCanvas();
+    </script>
+</body>
+</html>
