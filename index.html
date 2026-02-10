@@ -4,30 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>23 Nisan Portali</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
-        .header { background: #E63946; color: white; padding: 1.5rem; text-align: center; }
-        .nav { background: #1D3557; padding: 1rem; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .nav a { color: white; text-decoration: none; padding: 10px 20px; border-radius: 20px; background: rgba(255,255,255,0.1); font-weight: bold; }
-        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-        .card { background: white; border-radius: 15px; padding: 2rem; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        .btn { display: inline-block; background: #E63946; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 1rem; }
-    </style>
-</head>
+    <link rel="stylesheet" href="style.css"> </head>
 <body>
-    <header class="header"><h1>23 Nisan Portali</h1></header>
-    <nav class="nav">
-        <a href="index.html">Ana Sayfa</a>
-        <a href="blog.html">Ebeveyn Blogu</a>
-    </nav>
-    <div class="container">
-        <div class="cards">
-            <div class="card"><h3>Oyunlar</h3><a href="#" class="btn">Oyna</a></div>
-            <div class="card"><h3>Atölyeler</h3><a href="#" class="btn">Başla</a></div>
-            <div class="card"><h3>Ebeveyn Blogu</h3><a href="blog.html" class="btn" style="background:#1D3557">Yazıları Oku</a></div>
-        </div>
+    <header class="header" style="background: #E63946; color: white; padding: 1rem; text-align: center;">
+        <h1>23 Nisan Portali</h1>
+        <p>Ulusal Egemenlik ve Çocuk Bayramı</p>
+    </header>
+
+    <nav class="nav" style="background: #1D3557; padding: 1rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="index.html" style="color:white; text-decoration:none;">Ana Sayfa</a>
+        <a href="etkinlikler.html" style="color:white; text-decoration:none;">Etkinlikler</a>
+        <a href="oyunlar.html" style="color:white; text-decoration:none;">Oyunlar</a>
+        <a href="atolyeler.html" style="color:white; text-decoration:none;">Atölyeler</a>
+        <a href="sanat.html" style="color:white; text-decoration:none;">Sanat Projeleri</a>
+        <a href="blog.html" style="color:#ff6b6b; text-decoration:none; font-weight:bold;">Ebeveyn Blogu</a> </nav>
+
+    <section class="hero" style="text-align: center; padding: 3rem; background: #f8f9fa;">
+        <h2>Dünyanın İlk ve Tek Çocuk Bayramı!</h2>
+    </section>
+
+    <div class="container" style="max-width: 1000px; margin: auto; padding: 2rem;">
+        <div class="cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div class="card" style="background:white; padding:2rem; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1); text-align:center;">
+                <h3>Oyun Köşesi</h3>
+                <a href="oyunlar.html" class="btn" style="display:inline-block; margin-top:10px; padding:10px 20px; background:#E63946; color:white; border-radius:20px; text-decoration:none;">Oyna</a>
+            </div>
+            
+            <div class="card" style="background:white; padding:2rem; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1); text-align:center;">
+                <h3>Ebeveyn Rehberi</h3>
+                <p>Çocuk gelişimi ve makaleler</p>
+                <a href="blog.html" class="btn" style="display:inline-block; margin-top:10px; padding:10px 20px; background:#1D3557; color:white; border-radius:20px; text-decoration:none;">Blogu Oku</a>
+            </div>
+            </div>
     </div>
-</body>
+
+    <footer style="background: #1D3557; color: white; text-align: center; padding: 2rem; margin-top: 3rem;">
+        <p>© 2025 23 Nisan - Silicon Campus</p>
+        <a href="admin.html" style="color:rgba(255,255,255,0.3); font-size:10px; text-decoration:none;">Yönetim Paneli</a>
+    </footer>
+
+    <script src="script.js"></script> </body>
 </html>
