@@ -3,73 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ebeveyn Blogu - 23 Nisan</title>
-    <link rel="stylesheet" href="style.css"> <style>
-        /* Dinamik eklenen kartlar için ek stil */
-        .dynamic-post img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px 10px 0 0; }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    <title>Blog - 23 Nisan</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; }
+        .nav { background: #1D3557; padding: 1rem; text-align: center; }
+        .nav a { color: white; margin: 0 10px; text-decoration: none; }
+        .container { max-width: 800px; margin: 2rem auto; padding: 1rem; }
+        .post { background: white; border-radius: 10px; margin-bottom: 2rem; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .post img { width: 100%; height: auto; display: block; }
+        .post-content { padding: 1.5rem; }
+        .category { color: #E63946; font-weight: bold; font-size: 0.8rem; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="nav" style="background:#1D3557; display:flex; justify-content:center; padding:10px;">
-            <a href="index.html" style="color:white; margin:0 15px; text-decoration:none;">Ana Sayfa</a>
-            <a href="blog.html" style="color:white; margin:0 15px; text-decoration:none; font-weight:bold;">Blog</a>
-            <a href="admin.html" style="color:rgba(255,255,255,0.5); margin:0 15px; text-decoration:none; font-size:0.8rem;">Yönetim</a>
-        </nav>
-    </header>
-
-    <main class="container">
-        <section class="page-header" style="text-align:center; padding:40px 0;">
-            <h1>📚 Ebeveyn Rehber Blogu</h1>
-        </section>
-
-        <section class="blog-grid" id="dynamic-grid">
-            </section>
-
-        <hr style="margin: 50px 0; border: 0; border-top: 1px solid #eee;">
-
-        <section class="blog-grid">
-             <article class="blog-post">
-                <img src="images/blog-ana-yazi.jpg" alt="23 Nisan">
-                <div class="blog-content">
-                    <span class="blog-category">EĞİTİM</span>
-                    <h3>23 Nisan'ın Anlamı</h3>
-                    <p>Statik içerik örneği...</p>
-                </div>
-            </article>
-        </section>
-    </main>
+    <nav class="nav"><a href="index.html">Ana Sayfa</a><a href="admin.html">Yönetim</a></nav>
+    <div class="container" id="blog-container">
+        </div>
 
     <script>
-        function loadPosts() {
-            const grid = document.getElementById('dynamic-grid');
-            const posts = JSON.parse(localStorage.getItem('23NisanPosts')) || [];
+        function renderBlog() {
+            const container = document.getElementById('blog-container');
+            const posts = JSON.parse(localStorage.getItem('myBlogData')) || [];
+            container.innerHTML = posts.length ? '' : '<h2>Henüz yazı eklenmemiş.</h2>';
             
             posts.reverse().forEach(post => {
-                const article = document.createElement('article');
-                article.className = 'blog-post dynamic-post';
+                const postEl = document.createElement('div');
+                postEl.className = 'post';
+                let media = post.type === 'video' 
+                    ? `<div class="video-wrapper"><iframe src="https://www.youtube.com/embed/${post.videoUrl.split('v=')[1]}" frameborder="0" allowfullscreen></iframe></div>`
+                    : `<img src="${post.image || 'https://via.placeholder.com/800x400'}">`;
                 
-                let mediaElement = `<img src="${post.image || 'images/default.jpg'}" alt="Blog">`;
-                if(post.type === 'video' && post.videoUrl) {
-                    const videoId = post.videoUrl.split('v=')[1] || post.videoUrl.split('/').pop();
-                    mediaElement = `<div class="video-container"><iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe></div>`;
-                }
-
-                article.innerHTML = `
-                    ${mediaElement}
-                    <div class="blog-content">
-                        <span class="blog-category" style="background:#E63946; color:white; padding:2px 8px; border-radius:5px; font-size:0.7rem;">${post.category.toUpperCase()}</span>
-                        <h3>${post.title}</h3>
-                        <p>${post.content.substring(0, 120)}...</p>
-                        <div class="blog-meta"><span>📅 ${post.date}</span></div>
-                    </div>
-                `;
-                grid.appendChild(article);
+                postEl.innerHTML = `
+                    ${media}
+                    <div class="post-content">
+                        <span class="category">${post.category.toUpperCase()}</span>
+                        <h2>${post.title}</h2>
+                        <p>${post.content}</p>
+                        <small>${post.date}</small>
+                    </div>`;
+                container.appendChild(postEl);
             });
         }
-        window.onload = loadPosts;
+        renderBlog();
     </script>
 </body>
 </html>
