@@ -2,51 +2,106 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>23 Nisan Portali</title>
+    <title>Blog Yönetimi - 23 Nisan</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
-        .header { background: #E63946; color: white; padding: 1rem; text-align: center; }
-        .nav { background: #1D3557; padding: 1rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-        .nav a { color: white; text-decoration: none; padding: 0.8rem 1.5rem; border-radius: 25px; background: rgba(255,255,255,0.2); font-weight: bold; }
-        .hero { text-align: center; padding: 3rem 1rem; color: white; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .card { background: white; border-radius: 20px; padding: 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .btn { display: inline-block; background: #E63946; color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 1rem; }
-        .footer { background: #1D3557; color: white; text-align: center; padding: 2rem; margin-top: 3rem; }
-        .footer-logo { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); }
-        .footer-logo img { height: 40px; margin-bottom: 1rem; opacity: 0.8; }
+        body { font-family: sans-serif; background: #f0f2f5; padding: 20px; }
+        .container { max-width: 900px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .box { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        input, textarea, select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; }
+        button { background: #E63946; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; }
+        .post-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee; }
+        .btn-delete { background: #ff4d4d; width: auto; padding: 5px 10px; font-size: 12px; }
+        #login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #1D3557; display: flex; align-items: center; justify-content: center; z-index: 100; }
+        .hidden { display: none !important; }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>23 Nisan Portali</h1>
-        <p>Ulusal Egemenlik ve Cocuk Bayrami</p>
-    </header>
-    <nav class="nav">
-        <a href="/">Ana Sayfa</a>
-        <a href="/etkinlikler.html">Etkinlikler</a>
-        <a href="/oyunlar.html">Oyunlar</a>
-        <a href="/atolyeler.html">Atolyeler</a>
-    </nav>
-    <section class="hero">
-        <h2>Dunyanin Ilk ve Tek Cocuk Bayrami!</h2>
-    </section>
-    <div class="container">
-        <div class="cards">
-            <div class="card"><h3>Oyunlar</h3><a href="/oyunlar.html" class="btn">Oyna</a></div>
-            <div class="card"><h3>Etkinlikler</h3><a href="/etkinlikler.html" class="btn">Kesfet</a></div>
-            <div class="card"><h3>Atolyeler</h3><a href="/atolyeler.html" class="btn">Basla</a></div>
+    <div id="login-overlay">
+        <div class="box" style="width: 300px; text-align: center;">
+            <h2>Admin Girişi</h2>
+            <input type="password" id="adminPass" placeholder="Şifre (admin123)">
+            <button onclick="checkPass()">Giriş</button>
         </div>
     </div>
-    <footer class="footer">
-        <p>© 2025 23 Nisan  </p>
-        <div class="footer-logo">
-            <img src="https://raw.githubusercontent.com/hakkurgithub/images/main/silicon-campus-logo.jpg" alt="Silicon Campus">
-            <p>© 2024 Tum haklari Silicon Campus e aittir.</p>
+
+    <div id="main-content" class="container hidden">
+        <div class="box">
+            <h3>✍️ Yeni İçerik</h3>
+            <input type="text" id="pTitle" placeholder="Başlık">
+            <select id="pCat">
+                <option value="gelisim">Çocuk Gelişimi</option>
+                <option value="egitim">Eğitim</option>
+                <option value="video">Video Galeri</option>
+            </select>
+            <select id="pType" onchange="document.getElementById('vUrl').classList.toggle('hidden', this.value !== 'video')">
+                <option value="article">Makale (Resimli)</option>
+                <option value="video">Video</option>
+            </select>
+            <input type="url" id="vUrl" class="hidden" placeholder="YouTube Link (Örn: https://www.youtube.com/watch?v=...)">
+            <label>Görsel Seç:</label>
+            <input type="file" id="pImage" accept="image/*">
+            <textarea id="pContent" rows="5" placeholder="İçerik detayı..."></textarea>
+            <button onclick="addPost()">Yayınla</button>
         </div>
-    </footer>
+
+        <div class="box">
+            <h3>📑 Mevcut Yazılar</h3>
+            <div id="postList"></div>
+        </div>
+    </div>
+
+    <script>
+        let base64Image = "";
+
+        function checkPass() {
+            if(document.getElementById('adminPass').value === 'admin123') {
+                document.getElementById('login-overlay').classList.add('hidden');
+                document.getElementById('main-content').classList.remove('hidden');
+                renderList();
+            }
+        }
+
+        // Resim ön işleme
+        document.getElementById('pImage').addEventListener('change', function(e) {
+            const reader = new FileReader();
+            reader.onload = function() { base64Image = reader.result; };
+            reader.readAsDataURL(e.target.files[0]);
+        });
+
+        function addPost() {
+            const posts = JSON.parse(localStorage.getItem('23NisanPosts')) || [];
+            const newPost = {
+                id: Date.now(),
+                title: document.getElementById('pTitle').value,
+                category: document.getElementById('pCat').value,
+                type: document.getElementById('pType').value,
+                videoUrl: document.getElementById('vUrl').value,
+                image: base64Image,
+                content: document.getElementById('pContent').value,
+                date: new Date().toLocaleDateString('tr-TR')
+            };
+            posts.push(newPost);
+            localStorage.setItem('23NisanPosts', JSON.stringify(posts));
+            location.reload();
+        }
+
+        function renderList() {
+            const list = document.getElementById('postList');
+            const posts = JSON.parse(localStorage.getItem('23NisanPosts')) || [];
+            list.innerHTML = posts.map(p => `
+                <div class="post-item">
+                    <span>${p.title.substring(0, 30)}...</span>
+                    <button class="btn-delete" onclick="deletePost(${p.id})">Sil</button>
+                </div>
+            `).join('');
+        }
+
+        function deletePost(id) {
+            let posts = JSON.parse(localStorage.getItem('23NisanPosts'));
+            posts = posts.filter(p => p.id !== id);
+            localStorage.setItem('23NisanPosts', JSON.stringify(posts));
+            renderList();
+        }
+    </script>
 </body>
 </html>
