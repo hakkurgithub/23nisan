@@ -1,0 +1,81 @@
+<meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Yönetimi</title>
+    <style>
+        body { font-family: sans-serif; background: #f0f2f5; padding: 20px; }
+        .admin-box { max-width: 600px; margin: auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        input, textarea, select { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #E63946; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .post-list-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; }
+        .del-btn { background: #333; width: auto; padding: 5px 10px; font-size: 11px; }
+    </style>
+</head>
+<body>
+    <div class="admin-box">
+        <h2>🚀 Yeni Blog İçeriği</h2>
+        <input type="text" id="title" placeholder="Makale Başlığı">
+        <select id="cat">
+            <option value="gelisim">Çocuk Gelişimi</option>
+            <option value="egitim">Eğitim</option>
+            <option value="video">Video Rehber</option>
+        </select>
+        <select id="type" onchange="document.getElementById('vidField').style.display=this.value=='video'?'block':'none'">
+            <option value="article">Resimli Makale</option>
+            <option value="video">YouTube Videosu</option>
+        </select>
+        <input type="text" id="vidUrl" id="vidField" style="display:none" placeholder="YouTube Linki (Örn: watch?v=xxxx)">
+        <input type="file" id="imgUpload" accept="image/*">
+        <textarea id="text" rows="5" placeholder="Makale içeriğini buraya yazın..."></textarea>
+        <button onclick="savePost()">Yayınla</button>
+        <hr>
+        <h3>📑 Mevcut Yazılar</h3>
+        <div id="list"></div>
+    </div>
+
+    <script>
+        let base64Img = "";
+        document.getElementById('imgUpload').onchange = function(e) {
+            let r = new FileReader();
+            r.onload = function() { base64Img = r.result; };
+            r.readAsDataURL(e.target.files[0]);
+        };
+
+        function savePost() {
+            let posts = JSON.parse(localStorage.getItem('23NisanBlogData')) || [];
+            let vUrl = document.getElementById('vidUrl').value;
+            let vId = vUrl.includes('v=') ? vUrl.split('v=')[1].split('&')[0] : vUrl.split('/').pop();
+
+            posts.push({
+                id: Date.now(),
+                title: document.getElementById('title').value,
+                cat: document.getElementById('cat').value,
+                type: document.getElementById('type').value,
+                vId: vId,
+                img: base64Img,
+                text: document.getElementById('text').value,
+                date: new Date().toLocaleDateString('tr-TR')
+            });
+            localStorage.setItem('23NisanBlogData', JSON.stringify(posts));
+            alert("Blog güncellendi!");
+            location.reload();
+        }
+
+        function renderList() {
+            let posts = JSON.parse(localStorage.getItem('23NisanBlogData')) || [];
+            document.getElementById('list').innerHTML = posts.map(p => `
+                <div class="post-list-item"><span>${p.title}</span><button class="del-btn" onclick="deletePost(${p.id})">Sil</button></div>
+            `).join('');
+        }
+
+        function deletePost(id) {
+            let posts = JSON.parse(localStorage.getItem('23NisanBlogData')).filter(p => p.id !== id);
+            localStorage.setItem('23NisanBlogData', JSON.stringify(posts));
+            renderList();
+        }
+        renderList();
+    </script>
+</body>
+</html>

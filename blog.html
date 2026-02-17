@@ -1,363 +1,53 @@
+<meta charset="UTF-8">
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ebeveyn Blogu - 23 Nisan Cocuk Senligi</title>
+    <title>Ebeveyn Rehber Blogu - 23 Nisan</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .blog-container { max-width: 900px; margin: 20px auto; padding: 15px; }
+        .post-card { background: white; border-radius: 12px; margin-bottom: 25px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .post-card img, .post-card iframe { width: 100%; height: auto; display: block; }
+        .post-body { padding: 20px; }
+        .cat-tag { background: #E63946; color: white; padding: 4px 10px; border-radius: 5px; font-size: 12px; }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="23 Nisan Senlik Logosu">
-                </a>
-            </div>
-            
-            <ul class="nav-links">
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="etkinlikler.html">Etkinlik Takvimi</a></li>
-                <li><a href="oyunlar.html">Oyun Kosesi</a></li>
-                <li><a href="atolyeler.html">Atolye</a></li>
-                <li class="active"><a href="blog.html">Blog (Ebeveyn)</a></li>
-            </ul>
-
-            <div class="nav-buttons">
-                <a href="giris.html" class="btn btn-secondary">Giris Yap</a>
-                <a href="kayit.html" class="btn btn-primary">Kayit Ol</a>
-            </div>
-        </nav>
+    <header style="background: #E63946; color: white; padding: 1rem; text-align: center;">
+        <h1>Ebeveyn Rehber Blogu</h1>
     </header>
 
-    <main>
-        <section class="page-header">
-            <h1>📚 Ebeveyn Rehber Blogu</h1>
-            <p>23 Nisan'in anlamini cocuklariniza nasil aktarirsiniz? Uzman tavsiyeleri ve pratik rehberler burada!</p>
-        </section>
+    <nav style="background: #1D3557; padding: 1rem; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <a href="index.html" style="color:white; text-decoration:none;">Ana Sayfa</a>
+        <a href="etkinlikler.html" style="color:white; text-decoration:none;">Etkinlikler</a>
+        <a href="oyunlar.html" style="color:white; text-decoration:none;">Oyunlar</a>
+        <a href="atolyeler.html" style="color:white; text-decoration:none;">Atölyeler</a>
+        <a href="blog.html" style="color:#ff6b6b; text-decoration:none; font-weight:bold;">Blog</a>
+    </nav>
 
-        <section class="blog-categories">
-            <div class="categories-nav">
-                <a href="#" class="category-btn active" data-category="all">Tum Yazilar</a>
-                <a href="#" class="category-btn" data-category="egitim">Egitim</a>
-                <a href="#" class="category-btn" data-category="gelisim">Cocuk Gelisimi</a>
-                <a href="#" class="category-btn" data-category="aktivite">Aktiviteler</a>
-                <a href="#" class="category-btn" data-category="tarih">Tarih</a>
-                <a href="#" class="category-btn" data-category="psikoloji">Psikoloji</a>
-            </div>
-        </section>
-
-        <section class="blog-grid">
-            <!-- Ana One Cikan Yazi -->
-            <article class="blog-post featured" data-category="egitim">
-                <img src="images/blog-ana-yazi.jpg" alt="23 Nisan'in Anlami">
-                <div class="blog-content">
-                    <span class="blog-category">EGITIM</span>
-                    <h2>23 Nisan'in Anlamini Cocuklara Nasil Anlatiriz?</h2>
-                    <p>Ulusal Egemenlik ve Cocuk Bayrami'nin tarihî onemini cocuklara yaslarina uygun sekilde aktarmanin yollari. Uzmanlar, cocuklarin bu onemli gunu anlayabilmesi icin ebeveynlere pratik oneriler sunuyor...</p>
-                    <div class="blog-meta">
-                        <span>👤 Dr. Ayse Yilmaz - Cocuk Psikologu</span>
-                        <span>📅 2 Kasim 2025</span>
-                        <span>   8 dk okuma</span>
-                        <span>👁  2.543 goruntuleme</span>
-                    </div>
-                    <a href="blog/23-nisan-anlami.html" class="btn btn-primary">Devamini Oku</a>
-                </div>
-            </article>
-
-            <!-- Gelisim Yazisi -->
-            <article class="blog-post" data-category="gelisim">
-                <img src="images/blog-gelisim.jpg" alt="Cocuk Gelisimi">
-                <div class="blog-content">
-                    <span class="blog-category">GELISIM</span>
-                    <h3>Yas Gruplarina Gore 23 Nisan Etkinlikleri</h3>
-                    <p>Farkli yas gruplarindaki cocuklar icin uygun etkinlik onerileri ve gelisim alanlari...</p>
-                    <div class="blog-meta">
-                        <span>👤 Uzm. Mehmet Ozkan</span>
-                        <span>📅 1 Kasim 2025</span>
-                        <span>   6 dk okuma</span>
-                    </div>
-                    <a href="blog/yas-gruplari-etkinlik.html" class="btn btn-secondary">Oku</a>
-                </div>
-            </article>
-
-            <!-- Aktivite Yazisi -->
-            <article class="blog-post" data-category="aktivite">
-                <img src="images/blog-evde-kutlama.jpg" alt="Evde Etkinlik">
-                <div class="blog-content">
-                    <span class="blog-category">AKTIVITE</span>
-                    <h3>Evde 23 Nisan Kutlamasi Ipuclari</h3>
-                    <p>Pandemi doneminde veya evde gecirilen zamanlarda 23 Nisan coskusunu yasatma rehberi...</p>
-                    <div class="blog-meta">
-                        <span>👤 Elif Celik - Anne Blogger</span>
-                        <span>📅 30 Ekim 2025</span>
-                        <span>   5 dk okuma</span>
-                    </div>
-                    <a href="blog/evde-kutlama.html" class="btn btn-secondary">Oku</a>
-                </div>
-            </article>
-
-            <!-- Sponsorlu Icerik -->
-            <article class="blog-post sponsored" data-category="egitim">
-                <img src="images/blog-sponsor-oyuncak.jpg" alt="Sponsorlu Icerik">
-                <span class="sponsor-tag">SPONSORLU ICERIK</span>
-                <div class="blog-content">
-                    <span class="blog-category">EGITICI OYUNCAK</span>
-                    <h3>Cocuklarin Gelisiminde Egitici Oyuncaklarin Rolu</h3>
-                    <p>23 Nisan hediyesi secerken nelere dikkat etmeli? Uzmanlar onemli ipuclari veriyor...</p>
-                    <div class="blog-meta">
-                        <span>👤 EgiticiOyuncak.com</span>
-                        <span>📅 29 Ekim 2025</span>
-                        <span>   4 dk okuma</span>
-                    </div>
-                    <a href="#" class="btn btn-primary">Detaylari Gor</a>
-                </div>
-            </article>
-
-            <!-- Tarih Yazisi -->
-            <article class="blog-post" data-category="tarih">
-                <img src="images/blog-tarih-ataturk.jpg" alt="Ataturk ve Tarih">
-                <div class="blog-content">
-                    <span class="blog-category">TARIH</span>
-                    <h3>Ataturk'un Cocuk Sevgisini Anlatmak</h3>
-                    <p>Mustafa Kemal Ataturk'un cocuklarla olan ozel bagini cocuklariniza nasil anlatabilirsiniz?</p>
-                    <div class="blog-meta">
-                        <span>👤 Prof. Dr. Zeynep Kaya</span>
-                        <span>📅 28 Ekim 2025</span>
-                        <span>   7 dk okuma</span>
-                    </div>
-                    <a href="blog/ataturk-cocuk-sevgisi.html" class="btn btn-secondary">Oku</a>
-                </div>
-            </article>
-
-            <!-- Psikoloji Yazisi -->
-            <article class="blog-post" data-category="psikoloji">
-                <img src="images/blog-psikoloji.jpg" alt="Cocuk Psikolojisi">
-                <div class="blog-content">
-                    <span class="blog-category">PSIKOLOJI</span>
-                    <h3>Bayram Heyecanini Yonetmek</h3>
-                    <p>Cocuklarin bayram oncesi ve sonrasi yasadigi duygusal degisimleri nasil yonetebiliriz?</p>
-                    <div class="blog-meta">
-                        <span>👤 Uzm. Psikolog Fatma Nur</span>
-                        <span>📅 27 Ekim 2025</span>
-                        <span>   9 dk okuma</span>
-                    </div>
-                    <a href="blog/bayram-heyecani.html" class="btn btn-secondary">Oku</a>
-                </div>
-            </article>
-
-            <!-- Aktivite Yazisi 2 -->
-            <article class="blog-post" data-category="aktivite">
-                <img src="images/blog-sanat-aktivite.jpg" alt="Sanat Aktivitesi">
-                <div class="blog-content">
-                    <span class="blog-category">AKTIVITE</span>
-                    <h3>23 Nisan Sanat Etkinlikleri</h3>
-                    <p>Evde kolayca yapilabilecek yaratici sanat etkinlikleri ve malzeme onerileri...</p>
-                    <div class="blog-meta">
-                        <span>👤 Sanat Ogrt. Gul Hanim</span>
-                        <span>📅 26 Ekim 2025</span>
-                        <span>   6 dk okuma</span>
-                    </div>
-                    <a href="blog/sanat-etkinlikleri.html" class="btn btn-secondary">Oku</a>
-                </div>
-            </article>
-
-            <!-- Sponsorlu Icerik 2 -->
-            <article class="blog-post sponsored" data-category="egitim">
-                <img src="images/blog-sponsor-kurs.jpg" alt="Online Kurs Sponsoru">
-                <span class="sponsor-tag">SPONSORLU ICERIK</span>
-                <div class="blog-content">
-                    <span class="blog-category">ONLINE EGITIM</span>
-                    <h3>Cocuklara Tarih Sevdiren Online Kurslar</h3>
-                    <p>Interaktif video derslerle cocuklariniz tarihi eglenerek ogrensin...</p>
-                    <div class="blog-meta">
-                        <span>👤 TarihSevgisi.com</span>
-                        <span>📅 25 Ekim 2025</span>
-                        <span>   3 dk okuma</span>
-                    </div>
-                    <a href="#" class="btn btn-primary">Kurslara Goz At</a>
-                </div>
-            </article>
-
-            <!-- Gelisim Yazisi 2 -->
-            <article class="blog-post" data-category="gelisim">
-                <img src="images/blog-dil-gelisimi.jpg" alt="Dil Gelisimi">
-                <div class="blog-content">
-                    <span class="blog-category">GELISIM</span>
-                    <h3>Ozel Gunlerin Dil Gelisimine Etkisi</h3>
-                    <p>23 Nisan gibi ozel gunlerin cocuklarin dil ve sozcuk gelisimine katkisi...</p>
-                    <div class="blog-meta">
-                        <span>👤 Dil Terapisti Selin Oz</span>
-                        <span>📅 24 Ekim 2025</span>
-                        <span>   8 dk okuma</span>
-                    </div>
-                    <a href="blog/dil-gelisimi.html" class="btn btn-secondary">Oku</a>
-                </div>
-            </article>
-        </section>
-
-        <section class="newsletter">
-            <h2>📬 Haftalik Ebeveyn Bulteni</h2>
-            <p>Cocuk gelisimi, etkinlik onerileri ve 23 Nisan haberleri icin ucretsiz bultenimize kaydolun!</p>
-            <div class="newsletter-form">
-                <input type="email" placeholder="E-posta adresinizi girin">
-                <button class="btn btn-primary">Ucretsiz Kaydol</button>
-            </div>
-            <div class="newsletter-benefits">
-                <div class="benefit">
-                    <h4>📧 Haftalik Ozet</h4>
-                    <p>Sadece 1 e-posta, spam yapmiyoruz!</p>
-                </div>
-                <div class="benefit">
-                    <h4>🎁 Ozel Icerikler</h4>
-                    <p>Sadece abone olanlara ozel makaleler</p>
-                </div>
-                <div class="benefit">
-                    <h4>📅 Hatirlaticilar</h4>
-                    <p>Onemli gunler ve etkinlik duyurulari</p>
-                </div>
-            </div>
-            <p class="newsletter-note">12.543 ebeveyn zaten bultenimizi aliyor! 🚫📧</p>
-        </section>
-
-        <section class="expert-panel">
-            <h2>👩‍⚕  Uzman Panelimiz</h2>
-            <p>Blog yazilarimizi hazirlayan alaninda uzman ekibimiz:</p>
-            <div class="experts-grid">
-                <div class="expert-card">
-                    <img src="images/uzman-ayse-yilmaz.jpg" alt="Dr. Ayse Yilmaz">
-                    <h4>Dr. Ayse Yilmaz</h4>
-                    <p>Cocuk Psikologu</p>
-                    <span class="experience">15 yil deneyim</span>
-                    <div class="expert-credentials">
-                        <p>📜 Istanbul Universitesi Tip Fakultesi</p>
-                        <p>🏥 Acibadem Hastanesi</p>
-                    </div>
-                    <div class="expert-specialties">
-                        <span>Gelisim Psikolojisi</span>
-                        <span>Aile Danismanligi</span>
-                    </div>
-                </div>
-                <div class="expert-card">
-                    <img src="images/uzman-mehmet-ozkan.jpg" alt="Uzm. Mehmet Ozkan">
-                    <h4>Uzm. Mehmet Ozkan</h4>
-                    <p>Okul Oncesi Egitim Uzmani</p>
-                    <span class="experience">12 yil deneyim</span>
-                    <div class="expert-credentials">
-                        <p>📜 Hacettepe Universitesi Egitim Fakultesi</p>
-                        <p>🏫 MEB Egitim Uzmani</p>
-                    </div>
-                    <div class="expert-specialties">
-                        <span>Erken Cocukluk</span>
-                        <span>Oyun Pedagojisi</span>
-                    </div>
-                </div>
-                <div class="expert-card">
-                    <img src="images/uzman-zeynep-kaya.jpg" alt="Prof. Dr. Zeynep Kaya">
-                    <h4>Prof. Dr. Zeynep Kaya</h4>
-                    <p>Cocuk Gelisimi Profesoru</p>
-                    <span class="experience">20 yil deneyim</span>
-                    <div class="expert-credentials">
-                        <p>📜 Ankara Universitesi</p>
-                        <p>📚 50+ akademik makale</p>
-                    </div>
-                    <div class="expert-specialties">
-                        <span>Bilissel Gelisim</span>
-                        <span>Egitim Bilimleri</span>
-                    </div>
-                </div>
-                <div class="expert-card">
-                    <img src="images/uzman-fatma-nur.jpg" alt="Uzm. Psikolog Fatma Nur">
-                    <h4>Uzm. Psikolog Fatma Nur</h4>
-                    <p>Klinik Psikolog</p>
-                    <span class="experience">10 yil deneyim</span>
-                    <div class="expert-credentials">
-                        <p>📜 Bogazici Universitesi</p>
-                        <p>🧠 Cocuk-Ergen Psikolojisi</p>
-                    </div>
-                    <div class="expert-specialties">
-                        <span>Davranis Analizi</span>
-                        <span>Aile Terapisi</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="blog-sponsors">
-            <h2>🤝 Blog Sponsorlarimiz</h2>
-            <div class="sponsors-grid">
-                <div class="sponsor-card">
-                    <img src="images/sponsor-egitici-oyuncak.jpg" alt="Egitici Oyuncak">
-                    <h4>EgiticiOyuncak.com</h4>
-                    <p>Cocuk gelisimini destekleyen kaliteli oyuncaklar</p>
-                    <a href="#" class="btn btn-secondary">Urunleri Incele</a>
-                </div>
-                <div class="sponsor-card">
-                    <img src="images/sponsor-tarih-sevgisi.jpg" alt="Tarih Sevgisi">
-                    <h4>TarihSevgisi.com</h4>
-                    <p>Interaktif tarih egitimi platformu</p>
-                    <a href="#" class="btn btn-secondary">Kurslara Goz At</a>
-                </div>
-                <div class="sponsor-card">
-                    <img src="images/sponsor-aile-kitap.jpg" alt="Aile Kitapligi">
-                    <h4>AileKitapligi</h4>
-                    <p>Cocuk gelisimi ve ebeveynlik kitaplari</p>
-                    <a href="#" class="btn btn-secondary">Kitap Onerileri</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="blog-stats">
-            <h2>📊 Blog Istatistikleri</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>📄 127</h3>
-                    <p>Toplam Blog Yazisi</p>
-                </div>
-                <div class="stat-card">
-                    <h3>👨‍👩‍👧‍👦 45.231</h3>
-                    <p>Aylik Blog Okuyucusu</p>
-                </div>
-                <div class="stat-card">
-                    <h3>💬 8.904</h3>
-                    <p>Toplam Yorum</p>
-                </div>
-                <div class="stat-card">
-                    <h3>📧 12.543</h3>
-                    <p>Bulten Abonesi</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h4>Hakkimizda</h4>
-                <p>23 Nisan coskusunu yil boyu yasatmayi hedefleyen interaktif cocuk platformu.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Hizli Menu</h4>
-                <ul>
-                    <li><a href="etkinlikler.html">Etkinlikler</a></li>
-                    <li><a href="hakkimizda.html">Hakkimizda</a></li>
-                    <li><a href="iletisim.html">Iletisim</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Is Birlikleri</h4>
-                <ul>
-                    <li><a href="reklam.html">Reklam Ver</a></li>
-                    <li><a href="partner.html">Partnerlerimiz</a></li>
-                </ul>
-            </div>
+    <div class="blog-container" id="dynamic-posts">
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 - 23 Nisan Cocuk Senligi. Tum Haklari Saklidir.</p>
-        </div>
-    </footer>
-    
-    <script src="script.js"></script>
+
+    <script>
+        function renderPosts() {
+            const posts = JSON.parse(localStorage.getItem('23NisanBlogData')) || [];
+            const container = document.getElementById('dynamic-posts');
+            container.innerHTML = posts.length ? '' : '<h3 style="text-align:center;">Henüz bir içerik eklenmemiş.</h3>';
+            
+            posts.reverse().forEach(p => {
+                const article = document.createElement('div');
+                article.className = 'post-card';
+                let media = p.type === 'video' 
+                    ? `<div style="position:relative;padding-bottom:56.25%;height:0;"><iframe src="https://www.youtube.com/embed/${p.vId}" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allowfullscreen></iframe></div>`
+                    : `<img src="${p.img || 'images/default.jpg'}">`;
+                
+                article.innerHTML = `${media}<div class="post-body"><span class="cat-tag">${p.cat.toUpperCase()}</span><h2>${p.title}</h2><p>${p.text}</p><small>📅 ${p.date}</small></div>`;
+                container.appendChild(article);
+            });
+        }
+        window.onload = renderPosts;
+    </script>
 </body>
 </html>

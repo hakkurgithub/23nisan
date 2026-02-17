@@ -1,371 +1,56 @@
+<meta charset="UTF-8">
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>23 Nisan Etkinlik Takvimi | Istanbul</title>
+    <title>Etkinlikler - 23 Nisan</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        /* Standart stiller index.html ile aynƒ± */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Nunito', sans-serif; background: #F1FAEE; }
-        
         .header { background: #E63946; color: white; padding: 1rem; text-align: center; }
-        .header h1 { font-size: 2rem; }
+        .nav { background: #1D3557; padding: 1rem; display: flex; justify-content: center; gap: 1rem; }
+        .nav a { color: white; text-decoration: none; padding: 0.8rem 1.5rem; border-radius: 25px; font-weight: bold; }
         
-        .nav { background: #1D3557; padding: 1rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-        .nav a { color: white; text-decoration: none; padding: 0.8rem 1.5rem; border-radius: 25px; background: rgba(255,255,255,0.1); font-weight: bold; }
-        .nav a:hover { background: #FFD700; color: #1D3557; }
+        .main-container { max-width: 1400px; margin: 2rem auto; display: grid; grid-template-columns: 280px 1fr 280px; gap: 2rem; }
+        .ad-sidebar { background: white; padding: 1rem; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); height: fit-content; }
+        .ad-box { background: #764ba2; color: white; padding: 1.5rem; border-radius: 10px; text-align: center; margin-bottom: 1rem; }
+        .event-card { background: white; border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 250px 1fr; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .event-image { background: #667eea; color: white; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+        .event-content { padding: 1.5rem; }
         
-        /* 3 Sutun Layout */
-        .main-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 280px 1fr 280px;
-            gap: 2rem;
-        }
-        
-        /* Reklam Sidebar */
-        .ad-sidebar {
-            background: white;
-            border-radius: 15px;
-            padding: 1rem;
-            height: fit-content;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        .ad-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 1rem;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border: 2px dashed rgba(255,255,255,0.3);
-        }
-        
-        .ad-box h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .ad-box p { font-size: 0.9rem; opacity: 0.95; }
-        .ad-box small { opacity: 0.7; margin-top: 0.5rem; display: block; }
-        
-        /* Etkinlikler Bolumu */
-        .events-section h2 {
-            color: #1D3557;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        
-        .filters {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .filters select {
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            border: 2px solid #ddd;
-            font-size: 0.95rem;
-        }
-        
-        /* Etkinlik Cercevesi */
-        .event-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-            margin-bottom: 1.5rem;
-            border: 3px solid #fff;
-            transition: all 0.3s;
-        }
-        
-        .event-card:hover {
-            transform: translateY(-5px);
-            border-color: #E63946;
-        }
-        
-        .event-header {
-            position: relative;
-            height: 180px;
-            overflow: hidden;
-        }
-        
-        .event-header img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .sponsor-tag {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: #FFD700;
-            color: #1D3557;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-        }
-        
-        .event-body {
-            padding: 1.5rem;
-        }
-        
-        .event-title {
-            color: #1D3557;
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-        }
-        
-        .event-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            color: #555;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-        
-        .event-desc {
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-        
-        .event-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem;
-            border-top: 2px dashed #eee;
-        }
-        
-        .price-tag {
-            font-size: 1.3rem;
-            font-weight: 900;
-        }
-        
-        .price-tag.free { color: #2E7D32; }
-        .price-tag.paid { color: #E63946; }
-        
-        .btn {
-            background: #E63946;
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            background: #FFD700;
-            color: #1D3557;
-        }
-        
-        /* Mobile */
-        @media (max-width: 1100px) {
-            .main-container {
-                grid-template-columns: 1fr;
-            }
-            .ad-sidebar { display: none; }
-        }
-        
-        .footer {
-            background: #1D3557;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .footer-logo img {
-            height: 40px;
-            margin-bottom: 1rem;
-            opacity: 0.8;
-        }
+        @media (max-width: 1100px) { .main-container { grid-template-columns: 1fr; } .ad-sidebar { display: none; } .event-card { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>23 Nisan Etkinlik Takvimi</h1>
-        <p>Istanbul'daki tum etkinlikleri kesfedin!</p>
-    </header>
-    
+    <header class="header"><h1>üéâ 23 Nisan Etkinlik Takvimi</h1></header>
     <nav class="nav">
-        <a href="/">Ana Sayfa</a>
-        <a href="/etkinlikler.html">Etkinlikler</a>
-        <a href="/oyunlar.html">Oyunlar</a>
-        <a href="/atolyeler.html">Atolyeler</a>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="etkinlikler.html">Etkinlikler</a>
+        <a href="oyunlar.html">Oyunlar</a>
+        <a href="atolyeler.html">At√∂lyeler</a>
+        <a href="blog.html">Blog</a>
     </nav>
-    
     <div class="main-container">
-        <!-- Sol Reklam -->
         <aside class="ad-sidebar">
-            <div class="ad-box">
-                <h4>  Oyuncak Dunyasi</h4>
-                <p>23 Nisan'a ozel %25 indirim!</p>
-                <small>Reklam</small>
-            </div>
-            <div class="ad-box" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                <h4>  D&R Kitap</h4>
-                <p>3 al 2 ode!</p>
-                <small>Reklam</small>
-            </div>
+            <div class="ad-box"><h4>üß∏ Oyuncak D√ºnyasƒ±</h4><p>%25 ƒ∞ndirim!</p></div>
         </aside>
-        
-        <!-- Orta - Etkinlikler -->
         <section class="events-section">
-            <h2>Bu Yil Neler Var?</h2>
-            
-            <div class="filters">
-                <select>
-                    <option>Tum Ilceler</option>
-                    <option>Kadikoy</option>
-                    <option>Besiktas</option>
-                    <option>Sisli</option>
-                </select>
-                <select>
-                    <option>Tum Yas Gruplari</option>
-                    <option>3-6 Yas</option>
-                    <option>7-12 Yas</option>
-                </select>
-            </div>
-            
-            <!-- Etkinlik 1 -->
             <article class="event-card">
-                <div class="event-header">
-                    <img src="images/etkinlik-kidzania.jpg" alt="Kidzania Festival">
-                    <span class="sponsor-tag">SPONSORLU</span>
-                </div>
-                <div class="event-body">
-                    <h3 class="event-title">  Kidzania 23 Nisan Festivali</h3>
-                    <div class="event-meta">
-                        <span>Ì≥ç Akasya AVM - Kidzania Istanbul</span>
-                        <span>22-24 Nisan 2025 | ‚è∞ 10:00-18:00</span>
-                        <span>  4-14 Yas</span>
-                    </div>
-                    <p class="event-desc">Mini sehirde 23 Nisan kutlamasi, ozel aktiviteler ve hediyeler!</p>
-                    <div class="event-footer">
-                        <span class="price-tag paid">99 TL</span>
-                        <a href="#" class="btn">Bilet Al</a>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- Etkinlik 2 -->
-            <article class="event-card">
-                <div class="event-header">
-                    <img src="images/etkinlik-akm.jpg" alt="AKM Konser">
-                </div>
-                <div class="event-body">
-                    <h3 class="event-title">  AKM Cocuk Sarkilari Konseri</h3>
-                    <div class="event-meta">
-                        <span>Ì≥ç Ataturk Kultur Merkezi</span>
-                        <span>23 Nisan 2025 | ‚è∞ 16:00-17:30</span>
-                        <span>  3-12 Yas</span>
-                    </div>
-                    <p class="event-desc">Sevilen cocuk sarkilari ve 23 Nisan marslari!</p>
-                    <div class="event-footer">
-                        <span class="price-tag free">UCRETSIZ</span>
-                        <a href="#" class="btn">Rezervasyon</a>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- Etkinlik 3 -->
-            <article class="event-card">
-                <div class="event-header">
-                    <img src="images/etkinlik-kadikoy.jpg" alt="Tiyatro">
-                </div>
-                <div class="event-body">
-                    <h3 class="event-title">  Ataturk ve Cocuklar Tiyatro</h3>
-                    <div class="event-meta">
-                        <span>Ì≥ç Kadikoy Belediyesi Kultur Merkezi</span>
-                        <span>23 Nisan 2025 | ‚è∞ 14:00-15:00</span>
-                        <span>  5-12 Yas</span>
-                    </div>
-                    <p class="event-desc">23 Nisan'in anlamini anlatan interaktif tiyatro oyunu.</p>
-                    <div class="event-footer">
-                        <span class="price-tag free">UCRETSIZ</span>
-                        <a href="#" class="btn">Katilim Formu</a>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- Etkinlik 4 -->
-            <article class="event-card">
-                <div class="event-header">
-                    <img src="images/etkinlik-torium.jpg" alt="Torium">
-                    <span class="sponsor-tag">SPONSORLU</span>
-                </div>
-                <div class="event-body">
-                    <h3 class="event-title">Torium 23 Nisan Sanat Atolyesi</h3>
-                    <div class="event-meta">
-                        <span>Ì≥ç Torium AVM</span>
-                        <span>20-23 Nisan 2025 | ‚è∞ 11:00-17:00</span>
-                        <span>  4-10 Yas</span>
-                    </div>
-                    <p class="event-desc">Bayrak boyama, maske yapimi ve yaratimci etkinlikler</p>
-                    <div class="event-footer">
-                        <span class="price-tag free">UCRETSIZ</span>
-                        <a href="#" class="btn">Detaylar</a>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- Etkinlik 5 -->
-            <article class="event-card">
-                <div class="event-header">
-                    <img src="images/etkinlik-park.jpg" alt="Park Senligi">
-                </div>
-                <div class="event-body">
-                    <h3 class="event-title">  Goztepe Parki Cocuk Senligi</h3>
-                    <div class="event-meta">
-                        <span>Ì≥ç Goztepe 60. Yil Parki</span>
-                        <span>23 Nisan 2025 | ‚è∞ 10:00-16:00</span>
-                        <span>  0-14 Yas</span>
-                    </div>
-                    <p class="event-desc">Oyun parkuru, yuz boyama, pamuk seker, eglenceli yarismalar!</p>
-                    <div class="event-footer">
-                        <span class="price-tag free">UCRETSIZ</span>
-                        <a href="#" class="btn">Katil</a>
-                    </div>
+                <div class="event-image">üé°</div>
+                <div class="event-content">
+                    <h3>Kidzania 23 Nisan Festivali</h3>
+                    <p>üìç Akasya AVM | üìÖ 22-24 Nisan</p>
+                    <p>Mimi ≈üehirde harika aktiviteler!</p>
+                    <a href="#" class="btn" style="background:#E63946; color:white; padding:5px 15px; border-radius:15px; text-decoration:none;">Bilet Al</a>
                 </div>
             </article>
         </section>
-        
-        <!-- Sag Reklam -->
         <aside class="ad-sidebar">
-            <div class="ad-box" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                <h4>  Turkcell</h4>
-                <p>Aile paketlerinde sinema bedava!</p>
-                <small>Reklam</small>
-            </div>
-            <div class="ad-box" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
-                <h4>  Legoland</h4>
-                <p>23 Nisan haftasina ozel!</p>
-                <small>Reklam</small>
-            </div>
+            <div class="ad-box" style="background:#4facfe"><h4>üìö D&R Kitap</h4><p>3 Al 2 √ñde!</p></div>
         </aside>
     </div>
-    
-    <footer class="footer">
-        <p>¬© 2025 23 Nisan Portali  </p>
-        <div class="footer-logo">
-            <img src="https://raw.githubusercontent.com/hakkurgithub/images/main/silicon-campus-logo.jpg" alt="Silicon Campus Logo">
-            <p style="color: #a0aec0; font-size: 0.9rem; font-style: italic;">¬© 2024 Tum haklari Silicon Campus e aittir.</p>
-        </div>
-    </footer>
 </body>
 </html>
